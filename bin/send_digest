@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../lib/digest_mailer', __FILE__)
+# DigestMailer.new.deliver!
+puts 'deliver!'
