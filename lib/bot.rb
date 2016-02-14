@@ -58,7 +58,7 @@ class Bot
 
       text = "#{text} [#{sender.username}]"
       tweet = twitter_client.update(text)
-      telegram_client.api.send_message(chat_id: sender.id, text: tweet.url)
+      telegram_client.api.send_message(chat_id: sender.id, text: tweet.url.to_s)
     end
   end
 end
