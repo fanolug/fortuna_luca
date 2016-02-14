@@ -26,7 +26,7 @@ class Bot
     telegram_client.run do |bot|
       bot.listen do |message|
         begin
-          text = message.text.gsub("\n", '').squeeze(' ').strip # clean up
+          text = message.text.gsub("\n", ' ').squeeze(' ').strip # clean up
           case text
           when /^\/help/
             send_help(message)
