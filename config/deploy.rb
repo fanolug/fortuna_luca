@@ -9,6 +9,7 @@ set :repo_url, 'git@github.com:alepore/fortuna_luca.git'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
 set :linked_files, fetch(:linked_files, []).push('.env')
+set :linked_dirs, fetch(:linked_dirs, []).push('log')
 
 server ENV['DEPLOY_SERVER'],
   user: ENV['DEPLOY_USER'],
@@ -17,12 +18,13 @@ server ENV['DEPLOY_SERVER'],
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.1.5'
+set :rvm_map_bins, fetch(:rvm_map_bins, []).push('nohup')
 
 namespace :deploy do
   after :publishing, :start_bot do
     on roles(:app) do
       within current_path do
-        execute :bundle, 'exec ruby bin/bot'
+        execute :nohup, "bundle exec ruby bin/bot >> #{shared_path}/log/production.log 2>&1 & sleep 3", pty: false
       end
     end
   end
