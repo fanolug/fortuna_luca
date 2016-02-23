@@ -3,11 +3,12 @@ require 'telegram/bot'
 require 'twitter'
 
 class Bot
-  attr_reader :name, :telegram_client, :twitter_client
+  attr_reader :name, :telegram_client, :twitter_client, :logger
 
   def initialize
     Dotenv.load
     @name = 'Fortuna Luca telegram bot'
+    @logger = Logger.new('log/production.log')
 
     @telegram_client = Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'])
     @twitter_client = Twitter::REST::Client.new do |config|
@@ -21,7 +22,7 @@ class Bot
   def run!
     Process.setproctitle(name)
     Process.daemon(true, true)
-    puts "Running as '#{name}', pid #{Process.pid}"
+    logger.info "Running as '#{name}', pid #{Process.pid}"
 
     telegram_client.run do |bot|
       bot.listen do |message|
@@ -34,7 +35,7 @@ class Bot
             tweet!(message, $1)
           end
         rescue => exception
-          puts "ERROR: #{exception.message}"
+          logger.error exception.message
         end
       end
     end
@@ -53,8 +54,8 @@ class Bot
       telegram_client.api.send_message(chat_id: sender.id,
                                        text: "Error: You have to set up your Telegram username first.")
     else
-      puts "wrong chat: #{message.chat.id}" and return if message.chat.id != ENV['TELEGRAM_CHAT_ID']
-      puts "too short" and return if text.size < 10
+      logger.warn "wrong chat: #{message.chat.id}" and return if message.chat.id != ENV['TELEGRAM_CHAT_ID']
+      logger.warn "too short" and return if text.size < 10
 
       text = "#{text} [#{sender.username}]"
       tweet = twitter_client.update(text)
