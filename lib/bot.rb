@@ -49,17 +49,34 @@ class Bot
   end
 
   def tweet!(message, text)
-    sender = message.from
-    if sender.username.empty?
-      telegram_client.api.send_message(chat_id: sender.id,
-                                       text: "Error: You have to set up your Telegram username first.")
-    else
-      logger.warn "wrong chat: #{message.chat.id}" and return if message.chat.id != ENV['TELEGRAM_CHAT_ID']
-      logger.warn "too short" and return if text.size < 10
+    return unless validate(message, text)
 
-      text = "#{text} [#{sender.username}]"
-      tweet = twitter_client.update(text)
-      telegram_client.api.send_message(chat_id: sender.id, text: tweet.url.to_s)
+    sender = message.from
+    text = "#{text} [#{sender.username}]"
+    tweet = twitter_client.update(text)
+    telegram_client.api.send_message(chat_id: sender.id, text: tweet.url.to_s)
+  end
+
+  def validate(message, text)
+    errors = []
+    if message.from.username.empty?
+      errors << "Error: You have to set up your Telegram username first"
     end
+
+    if message.chat.id.to_s != ENV['TELEGRAM_CHAT_ID']
+      errors << "Error: Commands from this chat are not allowed"
+    end
+
+    if text.size < 10
+      errors << "Error: Message is too short"
+    end
+
+    if errors.any?
+      error_messages = errors.join("\n")
+      logger.warn error_messages
+      telegram_client.api.send_message(chat_id: message.from.id, text: error_messages)
+    end
+
+    errors.none?
   end
 end
