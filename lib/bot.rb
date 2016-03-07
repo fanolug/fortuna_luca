@@ -27,9 +27,10 @@ class Bot
     telegram_client.run do |bot|
       bot.listen do |message|
         begin
-          text = message.text.gsub("\n", ' ').squeeze(' ').strip # clean up
+          text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip # clean up
+
           case text
-          when /^\/help/
+          when '', /^\/help/
             send_help(message)
           when /^\/ilinkdellasettimana (.+)/
             tweet!(message, $1)
