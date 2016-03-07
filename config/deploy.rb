@@ -20,6 +20,8 @@ set :rvm_type, :user
 set :rvm_ruby_version, '2.1.5'
 set :rvm_map_bins, fetch(:rvm_map_bins, []).push('nohup')
 
+set :whenever_roles, :app
+
 namespace :deploy do
   after :publishing, :start_bot do
     on roles(:app) do

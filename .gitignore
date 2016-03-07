@@ -1,4 +1,4 @@
 .env
 .ruby-gemset
-.ruby-version
 log/*.log
+!.ruby-version
