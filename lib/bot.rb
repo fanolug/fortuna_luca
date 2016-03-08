@@ -1,6 +1,7 @@
 require 'dotenv'
 require 'telegram/bot'
 require 'twitter'
+require 'xkcd'
 
 class Bot
   attr_reader :name, :telegram_client, :twitter_client, :logger
@@ -34,6 +35,8 @@ class Bot
             send_help(message)
           when /^\/ilinkdellasettimana (.+)/
             tweet!(message, $1)
+          when /^\/comics/
+            bot.api.send_message(chat_id: message.chat.id, text: "#{p XKCD.img}")
           end
         rescue => exception
           logger.error exception.message
