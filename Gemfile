@@ -9,3 +9,6 @@ gem 'whenever', '~> 0.9.4', require: false
 gem 'capistrano', '~> 3.4'
 gem 'capistrano-rvm', '~> 0.1.2'
 gem 'capistrano-bundler', '~> 1.1.4'
+gem 'xkcd', '~> 1.1'
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+gem 'google-search', '~> 1.0', '>= 1.0.3'
