@@ -30,6 +30,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     gene_pool (1.4.1)
       thread_safe
+    google-search (1.0.3)
+      json
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
       mimemagic
@@ -55,12 +57,15 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (2.99)
     mimemagic (0.3.1)
+    mini_portile2 (2.0.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.1.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.0.2)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     persistent_http (1.0.6)
       gene_pool (>= 1.3)
     persistent_httparty (0.1.2)
@@ -99,6 +104,9 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     whenever (0.9.4)
       chronic (>= 0.6.3)
+    xkcd (1.1.0)
+      google-search
+      nokogiri (>= 1.5.0)
 
 PLATFORMS
   ruby
@@ -113,3 +121,7 @@ DEPENDENCIES
   twitter (~> 5.16.0)
   twitter-text (~> 1.13.3)
   whenever (~> 0.9.4)
+  xkcd (~> 1.1)
+
+BUNDLED WITH
+   1.11.2

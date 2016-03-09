@@ -35,8 +35,8 @@ class Bot
             send_help(message)
           when /^\/ilinkdellasettimana (.+)/
             tweet!(message, $1)
-          when /^\/comics/
-            bot.api.send_message(chat_id: message.chat.id, text: "#{p XKCD.img}")
+          when /^\/(xkcd|comics)/
+            respond(message.chat.id, XKCD.img)
           end
         rescue => exception
           logger.error exception.message
@@ -47,9 +47,12 @@ class Bot
 
   private
 
+  def respond(chat_id, text)
+    telegram_client.api.send_message(chat_id: chat_id, text: text)
+  end
+
   def send_help(message)
-    telegram_client.api.send_message(chat_id: message.from.id,
-                                     text: "Usage:\n/ilinkdellasettimana <descrizione, link eccetera> - Posta su Twitter")
+    respond(message.from.id, "Usage:\n/ilinkdellasettimana <descrizione, link eccetera> - Posta su Twitter")
   end
 
   def tweet!(message, text)
@@ -58,7 +61,7 @@ class Bot
     sender = message.from
     text = "#{text} [#{sender.username}]"
     tweet = twitter_client.update(text)
-    telegram_client.api.send_message(chat_id: sender.id, text: tweet.url.to_s)
+    respond(sender.id, tweet.url.to_s)
   end
 
   def validate(message, text)
