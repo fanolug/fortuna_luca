@@ -25,21 +25,23 @@ class Bot
     Process.daemon(true, true)
     logger.info "Running as '#{name}', pid #{Process.pid}"
 
-    telegram_client.run do |bot|
-      bot.listen do |message|
-        begin
-          text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip # clean up
+    loop do
+      telegram_client.run do |bot|
+        bot.listen do |message|
+          begin
+            text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip # clean up
 
-          case text
-          when '', /^\/help/
-            send_help(message)
-          when /^\/ilinkdellasettimana (.+)/
-            tweet!(message, $1)
-          when /^\/(xkcd|comics)/
-            respond(message.chat.id, XKCD.img)
+            case text
+            when '', /^\/help/
+              send_help(message)
+            when /^\/ilinkdellasettimana (.+)/
+              tweet!(message, $1)
+            when /^\/(xkcd|comics)/
+              respond(message.chat.id, XKCD.img)
+            end
+          rescue => exception
+            logger.error exception.message
           end
-        rescue => exception
-          logger.error exception.message
         end
       end
     end
