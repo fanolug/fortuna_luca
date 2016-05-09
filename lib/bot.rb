@@ -11,7 +11,7 @@ class Bot
     @name = 'Fortuna Luca telegram bot'
     @logger = Logger.new('log/production.log')
 
-    @telegram_client = Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'])
+    telegram_client_init
     @twitter_client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
       config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
@@ -26,9 +26,9 @@ class Bot
     logger.info "Running as '#{name}', pid #{Process.pid}"
 
     loop do
-      telegram_client.run do |bot|
-        bot.listen do |message|
-          begin
+      begin
+        telegram_client.run do |bot|
+          bot.listen do |message|
             text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip # clean up
 
             case text
@@ -39,10 +39,12 @@ class Bot
             when /^\/(xkcd|comics)/
               respond(message.chat.id, XKCD.img)
             end
-          rescue => exception
-            logger.error exception.message
           end
         end
+      rescue Telegram::Bot::Exceptions::ResponseError => exception
+        logger.error "#{exception.message} (#run)"
+        raise if exception.error_code == '409'
+        telegram_client_init
       end
     end
   end
@@ -50,7 +52,11 @@ class Bot
   private
 
   def respond(chat_id, text)
-    telegram_client.api.send_message(chat_id: chat_id, text: text)
+    begin
+      telegram_client.api.send_message(chat_id: chat_id, text: text)
+    rescue Telegram::Bot::Exceptions::ResponseError => exception
+      logger.error "#{exception.message} (#respond chat_id: #{chat_id}, text: #{text})"
+    end
   end
 
   def send_help(message)
@@ -87,5 +93,9 @@ class Bot
     end
 
     errors.none?
+  end
+
+  def telegram_client_init
+    @telegram_client = Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'])
   end
 end
