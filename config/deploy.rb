@@ -22,12 +22,10 @@ set :rvm_map_bins, fetch(:rvm_map_bins, []).push('nohup')
 
 set :whenever_roles, :app
 
-namespace :deploy do
-  after :publishing, :start_bot do
-    on roles(:app) do
-      within current_path do
-        execute :nohup, "bundle exec ruby bin/bot >> /dev/null 2>&1 & sleep 3", pty: false
-      end
+after 'deploy:publishing', 'bot:start' do
+  on roles(:app) do
+    within current_path do
+      execute :nohup, "bundle exec ruby bin/bot >> /dev/null 2>&1 & sleep 3", pty: false
     end
   end
 end
