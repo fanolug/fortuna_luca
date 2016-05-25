@@ -4,4 +4,4 @@
 
 Powered by [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby)
 
-Copyright (c) 2016 Alessandro Lepore, released under the MIT License.
+Copyright (c) 2016 FanoLUG, released under the MIT License.
