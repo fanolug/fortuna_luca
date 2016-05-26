@@ -5,6 +5,6 @@ every :monday, at: '9am' do
   bin :send_digest
 end
 
-every :hour do
+every :hour, at: 15 do
   runner 'Calendar.new.notify'
 end
