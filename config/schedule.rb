@@ -13,6 +13,6 @@ every :day, at: '10:30am' do
   runner 'Comics.new.notifyxkcd'
 end
 
-every '59 8-20 * * *' do
+every '05 9-20 * * *' do
   runner 'Comics.new.notifytous'
 end
