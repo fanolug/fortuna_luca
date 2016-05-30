@@ -38,6 +38,8 @@ class Bot
               tweet!(message, $1)
             when /^\/(xkcd|comics)/
               respond(message.chat.id, XKCD.img)
+            when /^\/meteops/
+              respond(message.chat.id, "http://trottomv.dtdns.net/meteo#{Time.now.strftime("%Y%m%d")}.png")
             end
           end
         end
