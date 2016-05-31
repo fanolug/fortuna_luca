@@ -18,5 +18,5 @@ every :day, at: '13:00am' do
 end
 
 every :day, at: '18:00am' do
-  runner 'Comics.new.notifytous'
+  runner 'Comics.new.notifycommitstrip'
 end
