@@ -6,5 +6,5 @@ every :monday, at: '9am' do
 end
 
 every :hour do
-  runner 'Bot.new.send_last_rss_items(minutes: 60)'
+  bin :send_last_rss_items
 end
