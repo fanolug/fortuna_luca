@@ -12,15 +12,3 @@ end
 every :hour do
   runner 'Bot.new.send_last_rss_items(minutes: 60)'
 end
-
-every :day, at: '10:00am' do
-  runner 'Comics.new.notifyxkcd'
-end
-
-every :day, at: '13:00am' do
-  runner 'Comics.new.notifytous'
-end
-
-every :day, at: '18:00am' do
-  runner 'Comics.new.notifytous'
-end
