@@ -5,7 +5,7 @@ Dotenv.load!
 lock '3.5.0'
 
 set :application, 'fortuna_luca'
-set :repo_url, 'git@github.com:alepore/fortuna_luca.git'
+set :repo_url, 'git@github.com:fanolug/fortuna_luca.git'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 
 set :linked_files, fetch(:linked_files, []).push('.env')
