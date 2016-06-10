@@ -55,7 +55,7 @@ class Bot
   def send_last_rss_items(minutes: 60)
     rss_feeds.each do |feed_url|
       RssReader.new(feed_url).items_for_last_minutes(minutes).each do |item|
-        send_message(ENV['TELEGRAM_CHAT_ID'], item.link)
+        send_message(ENV['TELEGRAM_CHAT_ID'], item.chat_preview)
       end
     end
   end
