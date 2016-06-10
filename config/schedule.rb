@@ -9,6 +9,10 @@ every :hour, at: 15 do
   runner 'Calendar.new.notify'
 end
 
+every :hour do
+  runner 'Bot.new.send_last_rss_items(minutes: 60)'
+end
+
 every :day, at: '10:00am' do
   runner 'Comics.new.notifyxkcd'
 end

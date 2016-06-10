@@ -2,6 +2,7 @@ require 'dotenv'
 require 'telegram/bot'
 require 'twitter'
 require 'xkcd'
+require_relative 'rss_reader'
 
 class Bot
   attr_reader :logger
@@ -43,11 +44,19 @@ class Bot
     end
   end
 
-  def send_message(chat_id = ENV['TELEGRAM_CHAT_ID'], text)
+  def send_message(chat_id, text)
     begin
       telegram_client.api.send_message(chat_id: chat_id, text: text)
     rescue Telegram::Bot::Exceptions::ResponseError => exception
       logger.error "#{exception.message} (#send_message chat_id: #{chat_id}, text: #{text})"
+    end
+  end
+
+  def send_last_rss_items(minutes: 60)
+    rss_feeds.each do |feed_url|
+      RssReader.new(feed_url).items_for_last_minutes(minutes).each do |item|
+        send_message(ENV['TELEGRAM_CHAT_ID'], item.link)
+      end
     end
   end
 
@@ -100,5 +109,9 @@ class Bot
       config.access_token        = ENV['TWITTER_TOKEN']
       config.access_token_secret = ENV['TWITTER_TOKEN_SECRET']
     end
+  end
+
+  def rss_feeds
+    ENV['RSS_FEEDS'].split(',').map(&:strip)
   end
 end
