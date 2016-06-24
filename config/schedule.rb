@@ -5,6 +5,6 @@ every :monday, at: '9am' do
   bin :send_digest
 end
 
-every :hour do
+every 3.hours do
   bin :send_last_rss_items
 end

@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
 require_relative '../lib/bot'
-Bot.new.send_last_rss_items(minutes: 60)
+Bot.new.send_last_rss_items(minutes: 180)
