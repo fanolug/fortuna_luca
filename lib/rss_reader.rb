@@ -26,7 +26,8 @@ class RssReader
     if item.link =~ /turnoff.us/
       item.link.sub('/geek/', '/image/en/') + '.png'
     elsif item.link =~ /commitstrip.com/
-      URI.extract(item.content_encoded)
+      links = URI.extract(item.content_encoded)
+      links.first if links
     elsif item.link =~ /doodle.com\/create/
       item.title
     else
