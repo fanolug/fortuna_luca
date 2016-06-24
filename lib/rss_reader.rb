@@ -28,7 +28,7 @@ class RssReader
     elsif item.link =~ /commitstrip.com/
       links = URI.extract(item.content_encoded)
       "#{item.title} #{links.first}" if links
-    elsif item.link =~ /doodle.com\/create/
+    elsif feed.title =~ /flucacal/
       item.title
     else
       item.link
