@@ -1,5 +1,7 @@
 require 'simple-rss'
 require 'open-uri'
+require 'twitter-text/extractor'
+require 'twitter-text/regex'
 
 class RssReader
   attr_reader :feed
@@ -26,8 +28,8 @@ class RssReader
     if item.link =~ /turnoff.us/
       item.link.sub('/geek/', '/image/en/') + '.png'
     elsif item.link =~ /commitstrip.com/
-      links = URI.extract(item.content_encoded)
-      "#{item.title} #{links.first}" if links
+      link = Twitter::Extractor.extract_urls(item.content_encoded).first
+      "#{item.title} #{link}" if link
     elsif feed.title =~ /flucacal/
       item.title
     else
