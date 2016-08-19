@@ -2,7 +2,7 @@ require 'dotenv'
 require 'telegram/bot'
 require 'twitter'
 require 'xkcd'
-require_relative 'rss_reader'
+require_relative 'twitter_reader'
 
 class Bot
   attr_reader :logger
@@ -52,10 +52,10 @@ class Bot
     end
   end
 
-  def send_last_rss_items(minutes: 60)
-    rss_feeds.each do |feed_url|
-      RssReader.new(feed_url).items_for_last_minutes(minutes).each do |item|
-        send_message(ENV['TELEGRAM_CHAT_ID'], item.chat_preview)
+  def send_last_tweets(minutes: 60)
+    twitter_handlers.each do |handler|
+      TwitterReader.new(handler).tweets_for_last_minutes(minutes).each do |tweet|
+        send_message(ENV['TELEGRAM_CHAT_ID'], tweet.text)
       end
     end
   end
@@ -111,7 +111,7 @@ class Bot
     end
   end
 
-  def rss_feeds
-    ENV['RSS_FEEDS'].split(',').map(&:strip)
+  def twitter_handlers
+    ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
   end
 end
