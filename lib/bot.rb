@@ -1,10 +1,12 @@
 require 'dotenv'
 require 'telegram/bot'
-require 'twitter'
 require 'xkcd'
+require_relative 'twitter_client'
 require_relative 'twitter_reader'
 
 class Bot
+  include TwitterClient
+
   attr_reader :logger
 
   def initialize
@@ -100,15 +102,6 @@ class Bot
 
   def telegram_client
     @telegram_client ||= Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'])
-  end
-
-  def twitter_client
-    @twitter_client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token        = ENV['TWITTER_TOKEN']
-      config.access_token_secret = ENV['TWITTER_TOKEN_SECRET']
-    end
   end
 
   def twitter_handlers

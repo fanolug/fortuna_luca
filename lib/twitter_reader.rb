@@ -1,7 +1,9 @@
 require 'dotenv'
-require 'twitter'
+require_relative 'twitter_client'
 
 class TwitterReader
+  include TwitterClient
+
   attr_reader :twitter_handle
 
   def initialize(twitter_handle)
@@ -17,17 +19,6 @@ class TwitterReader
   def tweets_for_last_minutes(minutes)
     tweets.take_while do |tweet|
       Time.now - tweet.created_at <= minutes * 60
-    end
-  end
-
-  private
-
-  def twitter_client
-    @twitter_client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token        = ENV['TWITTER_TOKEN']
-      config.access_token_secret = ENV['TWITTER_TOKEN_SECRET']
     end
   end
 
