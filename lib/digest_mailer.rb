@@ -24,7 +24,7 @@ class DigestMailer
   private
 
   def smtp_config
-    {
+    @smtp_config ||= {
       user_name: ENV['SMTP_USERNAME'],
       password: ENV['SMTP_PASSWORD'],
       address: ENV['SMTP_HOST'],
@@ -56,4 +56,5 @@ class DigestMailer
       tweet.text =~ /.+\[.+\]$/ # match common pattern
     end
   end
+
 end

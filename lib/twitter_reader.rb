@@ -11,8 +11,7 @@ class TwitterReader
     @twitter_handle = twitter_handle
   end
 
-  def tweets
-    params = { count: 3, trim_user: true, exclude_replies: true, include_rts: true }
+  def tweets(params = default_twitter_params)
     twitter_client.user_timeline(twitter_handle, params)
   end
 
@@ -20,6 +19,12 @@ class TwitterReader
     tweets.take_while do |tweet|
       Time.now - tweet.created_at <= minutes * 60
     end
+  end
+
+  private
+
+  def default_twitter_params
+    { count: 3, trim_user: true, exclude_replies: true, include_rts: true }
   end
 
 end

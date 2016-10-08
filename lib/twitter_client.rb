@@ -11,4 +11,5 @@ module TwitterClient
       config.access_token_secret = ENV['TWITTER_TOKEN_SECRET']
     end
   end
+
 end

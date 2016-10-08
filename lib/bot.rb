@@ -7,43 +7,13 @@ require_relative 'twitter_reader'
 class Bot
   include TwitterClient
 
-  attr_reader :logger
-
-  def initialize
-    Dotenv.load
-    @logger = Logger.new('log/production.log')
-  end
-
   def run!
+    Dotenv.load
     name = 'Fortuna Luca telegram bot'
     Process.setproctitle(name)
     Process.daemon(true, true)
     logger.info "Running as '#{name}', pid #{Process.pid}"
-
-    loop do
-      begin
-        telegram_client.run do |bot|
-          bot.listen do |message|
-            text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip # clean up
-
-            case text
-            when '', /^\/help/
-              send_help(message)
-            when /^\/ilinkdellasettimana (.+)/
-              tweet!(message, $1)
-            when /^\/(xkcd|comics)/
-              send_message(message.chat.id, XKCD.img)
-            when /^\/meteops/
-              send_message(message.chat.id, "http://trottomv.dtdns.net/meteo#{Time.now.strftime("%Y%m%d")}.png")
-            end
-          end
-        end
-      rescue Telegram::Bot::Exceptions::ResponseError => exception
-        logger.error "#{exception.message} (#run)"
-        raise if exception.error_code == '409'
-        @telegram_client = nil # reconnect
-      end
-    end
+    run_telegram_loop
   end
 
   def send_message(chat_id, text)
@@ -63,6 +33,38 @@ class Bot
   end
 
   private
+
+  def run_telegram_loop
+    loop do
+      begin
+        telegram_client.run do |bot|
+          bot.listen do |message|
+            handle_message(message)
+          end
+        end
+      rescue Telegram::Bot::Exceptions::ResponseError => exception
+        logger.error "#{exception.message} (#run)"
+        raise if exception.error_code == '409'
+        @telegram_client = nil # reconnect
+      end
+    end
+  end
+
+  def handle_message(message)
+    # clean up
+    text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip
+
+    case text
+    when '', /^\/help/
+      send_help(message)
+    when /^\/ilinkdellasettimana (.+)/
+      tweet!(message, $1)
+    when /^\/(xkcd|comics)/
+      send_message(message.chat.id, XKCD.img)
+    when /^\/meteops/
+      send_message(message.chat.id, "http://trottomv.dtdns.net/meteo#{Time.now.strftime("%Y%m%d")}.png")
+    end
+  end
 
   def send_help(message)
     send_message(message.from.id, "Usage:\n/ilinkdellasettimana <descrizione, link eccetera> - Posta su Twitter")
@@ -105,6 +107,10 @@ class Bot
   end
 
   def twitter_handlers
-    ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
+    @twitter_handlers ||= ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
+  end
+
+  def logger
+    @loggr ||= Logger.new('log/production.log')
   end
 end
