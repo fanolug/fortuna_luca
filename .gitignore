@@ -2,3 +2,4 @@
 .ruby-gemset
 log/*.log
 !.ruby-version
+client_secret.json
