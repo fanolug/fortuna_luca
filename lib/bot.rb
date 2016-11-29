@@ -104,7 +104,7 @@ class Bot
 
   def validate(message, text)
     errors = []
-    if message.from.username.empty?
+    if message.from.username.to_s.empty?
       errors << "Error: You have to set up your Telegram username first"
     end
 
@@ -112,7 +112,7 @@ class Bot
       errors << "Error: Commands from this chat are not allowed"
     end
 
-    if text.size < 10
+    if text.to_s.size < 10
       errors << "Error: Message is too short"
     end
 
