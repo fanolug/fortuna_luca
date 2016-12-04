@@ -6,9 +6,12 @@ gem 'twitter', '~> 5.16.0'
 gem 'twitter-text', '~> 1.13.3'
 gem 'mail', '~> 2.6.3'
 gem 'whenever', '~> 0.9.4', require: false
-gem 'capistrano', '~> 3.5.0'
-gem 'capistrano-rvm', '~> 0.1.2'
-gem 'capistrano-bundler', '~> 1.1.4'
 gem 'xkcd', '~> 1.1'
 # gem 'simple-rss', '~> 1.3', '>= 1.3.1'
 gem 'google-api-client', '~> 0.9.11'
+
+group :development do
+  gem 'capistrano', '~> 3.5.0'
+  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-bundler', '~> 1.1.4'
+end
