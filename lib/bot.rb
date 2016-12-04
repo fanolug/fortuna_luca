@@ -67,16 +67,13 @@ class Bot
         end
       rescue Telegram::Bot::Exceptions::ResponseError => exception
         logger.error "#{exception.message} (#run_telegram_loop)"
-        raise if exception.error_code == '409'
-
-        sleep 10
-        @telegram_client = nil # reconnect
+        handle_exception(exception)
       end
     end
   end
 
   def handle_message(message)
-    # clean up
+    # clean up text
     text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip
 
     case text
@@ -138,5 +135,16 @@ class Bot
 
   def logger
     @logger ||= Logger.new('log/production.log')
+  end
+
+  def handle_exception(exception)
+    case exception.error_code
+    when 409
+      logger.info "Exiting."
+      Process.exit
+    end
+
+    sleep 10
+    @telegram_client = nil # reconnect
   end
 end
