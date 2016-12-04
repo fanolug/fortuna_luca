@@ -66,8 +66,10 @@ class Bot
           end
         end
       rescue Telegram::Bot::Exceptions::ResponseError => exception
-        logger.error "#{exception.message} (#run)"
+        logger.error "#{exception.message} (#run_telegram_loop)"
         raise if exception.error_code == '409'
+
+        sleep 10
         @telegram_client = nil # reconnect
       end
     end
@@ -125,8 +127,9 @@ class Bot
     errors.none?
   end
 
-  def telegram_client
-    @telegram_client ||= Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'], logger: logger)
+  def telegram_client(options = {})
+    @telegram_client ||= Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'],
+                                                   options.merge(logger: logger))
   end
 
   def twitter_handlers
