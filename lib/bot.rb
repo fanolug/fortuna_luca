@@ -1,6 +1,6 @@
 require 'dotenv'
 require 'telegram/bot'
-require 'xkcd'
+require_relative 'xkcd'
 require_relative 'twitter_client'
 require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
@@ -82,7 +82,7 @@ class Bot
     when /^\/ilinkdellasettimana (.+)/
       tweet!(message, $1)
     when /^\/(xkcd|comics)/
-      send_message(message.chat.id, XKCD.img)
+      send_message(message.chat.id, Xkcd.new.random_image)
     when /^\/meteops/
       send_message(message.chat.id, "http://trottomv.dtdns.net/meteo#{Time.now.strftime("%Y%m%d")}.png")
     end
