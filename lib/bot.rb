@@ -126,7 +126,7 @@ class Bot
   end
 
   def telegram_client
-    @telegram_client ||= Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'])
+    @telegram_client ||= Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'], logger: logger)
   end
 
   def twitter_handlers
@@ -134,6 +134,6 @@ class Bot
   end
 
   def logger
-    @loggr ||= Logger.new('log/production.log')
+    @logger ||= Logger.new('log/production.log')
   end
 end
