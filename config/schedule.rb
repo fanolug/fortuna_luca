@@ -9,6 +9,6 @@ every 1.hours do
   bin :send_last_tweets
 end
 
-every 30.minutes do
-  bin :send_next_event
-end
+# every 30.minutes do
+#   bin :send_next_event
+# end
