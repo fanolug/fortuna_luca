@@ -119,7 +119,7 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stackprof (0.2.10)
-    telegram-bot-ruby (0.7.1)
+    telegram-bot-ruby (0.7.2)
       faraday
       virtus
     thor (0.19.4)
