@@ -84,7 +84,7 @@ class Bot
     when /^\/(xkcd|comics)/
       send_message(message.chat.id, Xkcd.new.random_image)
     when /^\/meteops/
-      send_message(message.chat.id, "http://trottomv.dtdns.net/meteo#{Time.now.strftime("%Y%m%d")}.png")
+      send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
     end
   end
 
