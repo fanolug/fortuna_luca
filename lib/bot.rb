@@ -114,6 +114,10 @@ class Bot
     if text.to_s.size < 10
       errors << "Error: Message is too short"
     end
+    
+    if text.size.gsub(/(?:f|ht)tps?:\/[^\s]+/, '') > 137
+      errors << "Error: Message is too long"
+    end
 
     if errors.any?
       error_messages = errors.join("\n")
