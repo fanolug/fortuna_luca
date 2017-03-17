@@ -115,7 +115,7 @@ class Bot
       errors << "Error: Message is too short"
     end
     
-    if text.size.gsub(/(?:f|ht)tps?:\/[^\s]+/, '') > 137
+    if text.size.gsub(/(?:f|ht)tps?:\/[^\s]+/, '') > 117
       errors << "Error: Message is too long"
     end
 
