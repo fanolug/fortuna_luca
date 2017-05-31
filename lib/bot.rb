@@ -151,7 +151,9 @@ class Bot
 
   def handle_exception(exception)
     case exception.error_code
-    when 409
+    when 403 # Forbidden
+      return
+    when 409 # Conflict
       logger.info "Exiting."
       Process.exit
     end
