@@ -1,12 +1,13 @@
 require 'dotenv'
-require 'telegram/bot'
 require 'twitter-text'
 require_relative 'xkcd'
+require_relative 'telegram_client'
 require_relative 'twitter_client'
 require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
 
 class Bot
+  include TelegramClient
   include TwitterClient
   include GoogleClient
 
@@ -17,14 +18,6 @@ class Bot
     Process.daemon(true, true)
     logger.info "Running as '#{name}', pid #{Process.pid}"
     run_telegram_loop
-  end
-
-  def send_message(chat_id, text)
-    begin
-      telegram_client.api.send_message(chat_id: chat_id, text: text)
-    rescue Telegram::Bot::Exceptions::ResponseError => exception
-      logger.error "#{exception.message} (#send_message chat_id: #{chat_id}, text: #{text})"
-    end
   end
 
   def send_last_tweets(minutes: 60)
@@ -58,24 +51,6 @@ class Bot
 
   private
 
-  def run_telegram_loop
-    loop do
-      begin
-        telegram_client.run do |bot|
-          bot.listen do |message|
-            handle_message(message)
-          end
-        end
-      rescue Telegram::Bot::Exceptions::ResponseError => exception
-        logger.error "#{exception.message} (Telegram) (#run_telegram_loop)"
-        handle_telegram_exception(exception)
-      rescue Faraday::ClientError => exception
-        logger.error "#{exception.message} (Faraday) (#run_telegram_loop)"
-        try_reconnection
-      end
-    end
-  end
-
   def handle_message(message)
     # clean up text
     text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip
@@ -84,7 +59,9 @@ class Bot
     when '', /^\/help/
       send_help(message)
     when /^\/ilinkdellasettimana (.+)/
-      tweet!(message, $1)
+      return unless validate_message(message, text)
+      result = tweet!(message, $1)
+      send_message(message.from.id, result)
     when /^\/(xkcd|comics)/
       send_message(message.chat.id, Xkcd.new.random_image)
     when /^\/meteops/
@@ -96,22 +73,7 @@ class Bot
     send_message(message.from.id, "Usage:\n/ilinkdellasettimana <descrizione, link eccetera> - Posta su Twitter")
   end
 
-  def tweet!(message, text)
-    return unless validate_tweet(message, text)
-
-    sender = message.from
-    text = "#{text} [#{sender.username}]"
-
-    begin
-      tweet = twitter_client.update(text)
-      send_message(sender.id, tweet.url.to_s)
-    rescue Twitter::Error => exception
-      logger.error "#{exception.message} (#tweet!)"
-      send_message(sender.id, exception.message)
-    end
-  end
-
-  def validate_tweet(message, text)
+  def validate_message(message, text)
     errors = []
 
     if result = Twitter::Validation.tweet_invalid?(text)
@@ -139,33 +101,11 @@ class Bot
     errors.none?
   end
 
-  def telegram_client(options = {})
-    @telegram_client ||= Telegram::Bot::Client.new(ENV['TELEGRAM_TOKEN'],
-                                                   options.merge(logger: logger))
-  end
-
   def twitter_handlers
     @twitter_handlers ||= ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
   end
 
   def logger
     @logger ||= Logger.new('log/production.log')
-  end
-
-  def handle_telegram_exception(exception)
-    case exception.error_code
-    when 403 # Forbidden. Ignore the message and keep going
-      return
-    when 409 # Conflict. Must exit process
-      logger.info "Exiting."
-      Process.exit
-    end
-
-    try_reconnection
-  end
-
-  def try_reconnection
-    sleep 10
-    @telegram_client = nil
   end
 end

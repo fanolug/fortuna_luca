@@ -1,6 +1,20 @@
 require 'twitter'
 
 module TwitterClient
+  def tweet!(message, text)
+
+    sender = message.from
+    text = "#{text} [#{sender.username}]"
+
+    begin
+      tweet = twitter_client.update(text)
+      tweet.url.to_s
+    rescue Twitter::Error => exception
+      logger.error "#{exception.message} (#tweet!)"
+      exception.message
+    end
+  end
+
   private
 
   def twitter_client
@@ -11,5 +25,4 @@ module TwitterClient
       config.access_token_secret = ENV['TWITTER_TOKEN_SECRET']
     end
   end
-
 end
