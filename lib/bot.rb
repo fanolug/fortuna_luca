@@ -67,8 +67,11 @@ class Bot
           end
         end
       rescue Telegram::Bot::Exceptions::ResponseError => exception
-        logger.error "#{exception.message} (#run_telegram_loop)"
-        handle_exception(exception)
+        logger.error "#{exception.message} (Telegram) (#run_telegram_loop)"
+        handle_telegram_exception(exception)
+      rescue Faraday::ClientError => exception
+        logger.error "#{exception.message} (Faraday) (#run_telegram_loop)"
+        try_reconnection
       end
     end
   end
@@ -149,16 +152,20 @@ class Bot
     @logger ||= Logger.new('log/production.log')
   end
 
-  def handle_exception(exception)
+  def handle_telegram_exception(exception)
     case exception.error_code
-    when 403 # Forbidden
+    when 403 # Forbidden. Ignore the message and keep going
       return
-    when 409 # Conflict
+    when 409 # Conflict. Must exit process
       logger.info "Exiting."
       Process.exit
     end
 
+    try_reconnection
+  end
+
+  def try_reconnection
     sleep 10
-    @telegram_client = nil # reconnect
+    @telegram_client = nil
   end
 end
