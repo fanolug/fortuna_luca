@@ -1,5 +1,6 @@
 require 'dotenv'
 require 'telegram/bot'
+require 'twitter-text'
 require_relative 'xkcd'
 require_relative 'twitter_client'
 require_relative 'twitter_reader'
@@ -93,7 +94,7 @@ class Bot
   end
 
   def tweet!(message, text)
-    return unless validate(message, text)
+    return unless validate_tweet(message, text)
 
     sender = message.from
     text = "#{text} [#{sender.username}]"
@@ -107,8 +108,13 @@ class Bot
     end
   end
 
-  def validate(message, text)
+  def validate_tweet(message, text)
     errors = []
+
+    if result = Twitter::Validation.tweet_invalid?(text)
+      errors << "Error: #{result.to_s.gsub('_', ' ').capitalize}"
+    end
+
     if message.from.username.to_s.empty?
       errors << "Error: You have to set up your Telegram username first"
     end
@@ -120,12 +126,6 @@ class Bot
     if text.to_s.size < 10
       errors << "Error: Message is too short"
     end
-    
-    if text.size.gsub(/(?:f|ht)tps?:\/[^\s]+/, '') > 117
-      errors << "Error: Message is too long"
-    end
-
-    # TODO validate tweet max length
 
     if errors.any?
       error_messages = errors.join("\n")
