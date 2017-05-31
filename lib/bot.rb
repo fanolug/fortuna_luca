@@ -97,8 +97,14 @@ class Bot
 
     sender = message.from
     text = "#{text} [#{sender.username}]"
-    tweet = twitter_client.update(text)
-    send_message(sender.id, tweet.url.to_s)
+
+    begin
+      tweet = twitter_client.update(text)
+      send_message(sender.id, tweet.url.to_s)
+    rescue Twitter::Error => exception
+      logger.error "#{exception.message} (#tweet!)"
+      send_message(sender.id, exception.message)
+    end
   end
 
   def validate(message, text)
@@ -118,6 +124,8 @@ class Bot
     if text.size.gsub(/(?:f|ht)tps?:\/[^\s]+/, '') > 117
       errors << "Error: Message is too long"
     end
+
+    # TODO validate tweet max length
 
     if errors.any?
       error_messages = errors.join("\n")
