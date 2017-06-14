@@ -14,9 +14,9 @@ class DigestMailer
   def deliver!
     mail = Mail.new
     mail.delivery_method(:smtp, smtp_config)
-    mail.from ='Fortuna Luca <fortuna.luca@fanolug.org>'
-    mail.to = 'fanolug@googlegroups.com'
-    mail.subject "[i link della settimana] #{Date.today.strftime("%d/%m")}"
+    mail.from = ENV['DIGEST_MAILER_FROM']
+    mail.to = ENV['DIGEST_MAILER_TO']
+    mail.subject "#{ENV['DIGEST_MAILER_SUBJECT']} #{Date.today.strftime("%d/%m")}"
     mail.body = content
     mail.deliver! if content
   end
@@ -48,7 +48,7 @@ class DigestMailer
 
   def tweets_from_last_week
     params = { count: 100, exclude_replies: true, include_rts: false }
-    tweets = twitter_client.user_timeline('@fanolug', params)
+    tweets = twitter_client.user_timeline(ENV['TWITTER_HANDLE'], params)
 
     tweets.take_while do |tweet|
       tweet.created_at.to_datetime >= DateTime.now - 7 # 1 week ago
