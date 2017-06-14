@@ -5,11 +5,13 @@ require_relative 'telegram_client'
 require_relative 'twitter_client'
 require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
+require_relative 'apiai_client'
 
 class Bot
   include TelegramClient
   include TwitterClient
   include GoogleClient
+  include ApiaiClient
 
   def run!
     Dotenv.load
