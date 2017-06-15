@@ -68,6 +68,8 @@ class Bot
       send_message(message.chat.id, Xkcd.new.random_image)
     when /^\/meteops/
       send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
+    when /^\/luca (.+)/
+      send_message(message.chat.id, ai_response_to($1))
     end
   end
 
