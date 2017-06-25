@@ -10,6 +10,7 @@ gem 'whenever', '~> 0.9.4', require: false
 gem 'google-api-client', '~> 0.9.11'
 gem 'rack', '~> 1.6'
 gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
+gem 'forecast_io', '~> 2.0.1'
 
 group :development do
   gem 'capistrano', '~> 3.5.0'

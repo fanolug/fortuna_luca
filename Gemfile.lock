@@ -57,6 +57,10 @@ GEM
     equalizer (0.0.11)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
+    forecast_io (2.0.1)
+      faraday
+      hashie
+      multi_json
     get_process_mem (0.2.1)
     google-api-client (0.9.28)
       addressable (~> 2.3)
@@ -75,6 +79,7 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
+    hashie (3.5.5)
     heapy (0.1.2)
     http (2.2.2)
       addressable (~> 2.3)
@@ -164,6 +169,7 @@ DEPENDENCIES
   capistrano-rvm (~> 0.1.2)
   derailed_benchmarks
   dotenv (~> 2.1.0)
+  forecast_io (~> 2.0.1)
   google-api-client (~> 0.9.11)
   mail!
   rack (~> 1.6)
@@ -174,4 +180,4 @@ DEPENDENCIES
   whenever (~> 0.9.4)
 
 BUNDLED WITH
-   1.13.7
+   1.15.1
