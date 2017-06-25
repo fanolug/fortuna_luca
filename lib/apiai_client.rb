@@ -4,6 +4,8 @@ module ApiaiClient
   def ai_response_to(text)
     begin
       result = apiai_client.text_request(text)
+      logger.debug(result.inspect) if ENV["APIAI_DEBUG"]
+
       result[:result][:fulfillment][:speech]
     rescue ApiAiRuby::ClientError, ApiAiRuby::RequestError => e
       e.message
