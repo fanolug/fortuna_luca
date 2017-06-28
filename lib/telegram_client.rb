@@ -29,7 +29,7 @@ module TelegramClient
         handle_telegram_exception(exception)
       rescue Faraday::ClientError => exception
         logger.error "#{exception.message} (Faraday) (#run_telegram_loop)"
-        try_reconnection
+        try_telegram_reconnection
       end
     end
   end
