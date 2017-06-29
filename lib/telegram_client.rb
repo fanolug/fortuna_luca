@@ -17,20 +17,18 @@ module TelegramClient
   end
 
   def run_telegram_loop
-    loop do
-      begin
-        telegram_client.run do |bot|
-          bot.listen do |message|
-            handle_message(message)
-          end
+    begin
+      telegram_client.run do |bot|
+        bot.listen do |message|
+          handle_message(message)
         end
-      rescue Telegram::Bot::Exceptions::ResponseError => exception
-        logger.error "#{exception.message} (Telegram) (#run_telegram_loop)"
-        handle_telegram_exception(exception)
-      rescue Faraday::ClientError => exception
-        logger.error "#{exception.message} (Faraday) (#run_telegram_loop)"
-        try_telegram_reconnection
       end
+    rescue Telegram::Bot::Exceptions::ResponseError => exception
+      logger.error "#{exception.message} (Telegram) (#run_telegram_loop)"
+      handle_telegram_exception(exception)
+    rescue Faraday::ClientError => exception
+      logger.error "#{exception.message} (Faraday) (#run_telegram_loop)"
+      reconnect_to_telegram
     end
   end
 
@@ -42,13 +40,14 @@ module TelegramClient
     when 409 # Conflict. Must exit process
       logger.info "Exiting."
       Process.exit
+    else
+      reconnect_to_telegram
     end
-
-    try_telegram_reconnection
   end
 
-  def try_telegram_reconnection
+  def reconnect_to_telegram
     sleep 10
     @telegram_client = nil
+    run_telegram_loop
   end
 end
