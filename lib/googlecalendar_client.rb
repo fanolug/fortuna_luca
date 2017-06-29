@@ -9,6 +9,27 @@ require 'fileutils'
 Dotenv.load
 
 module GoogleClient
+  def send_next_event
+    # Initialize the API
+    service = Google::Apis::CalendarV3::CalendarService.new
+    service.authorization = GoogleCalendarAPI.new.authorize
+    # Fetch the next events for the user
+    calendar_id = "#{ENV['IDCAL']}"
+    response = service.list_events(calendar_id,
+                                   max_results: 1,
+                                   single_events: true,
+                                   order_by: 'startTime',
+                                   time_min: Time.now.iso8601)
+
+    response.items.each do |event|
+      start = event.start.date || event.start.date_time
+      case start.strftime('%Y%m%d%H%M')
+      when Time.now.strftime('%Y%m%d%H%M')
+        send_message(ENV['CHAT_ID'], "#{event.summary}")
+      end
+    end
+  end
+
   class GoogleCalendarAPI
   	OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'
   	APPLICATION_NAME = 'Google Calendar API Ruby Quickstart'
