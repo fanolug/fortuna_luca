@@ -1,5 +1,7 @@
 # Fortuna Luca
 
+[![Build Status](https://travis-ci.org/fanolug/fortuna_luca.svg?branch=master)](https://travis-ci.org/fanolug/fortuna_luca)
+
 ## L'utilissimo bot del Fortunae Lug, anche detto FanoLUG
 
 ### Setup
