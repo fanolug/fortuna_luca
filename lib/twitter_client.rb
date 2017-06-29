@@ -1,10 +1,8 @@
 require 'twitter'
 
 module TwitterClient
-  def tweet!(message, text)
-
-    sender = message.from
-    text = "#{text} [#{sender.username}]"
+  def tweet!(username, text)
+    text = "#{text} [#{username}]"
 
     begin
       tweet = twitter_client.update(text)

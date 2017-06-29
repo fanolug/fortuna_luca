@@ -41,7 +41,7 @@ class Bot
       send_help(message)
     when /^\/ilinkdellasettimana (.+)/
       return unless validate_message(message, text)
-      result = tweet!(message, $1)
+      result = tweet!(message.from.username, $1)
       send_message(message.from.id, result)
     when /^\/(xkcd|comics)/
       send_message(message.chat.id, Xkcd.new.random_image)

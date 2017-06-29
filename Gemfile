@@ -18,4 +18,8 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.4'
   gem 'derailed_benchmarks'
   gem 'stackprof'
+  gem 'rake'
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'mocha'
 end
