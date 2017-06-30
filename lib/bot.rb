@@ -39,17 +39,17 @@ class Bot
     text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
 
     case text
-    when '', /^\/help/
+    when '', /^\/help/i
       send_help(message)
-    when /^\/ilinkdellasettimana (.+)/
+    when /^\/ilinkdellasettimana (.+)/i
       return unless validate_message(message, text)
       result = tweet!(message.from.username, $1)
       send_message(message.from.id, result)
-    when /^\/(xkcd|comics)/
+    when /^\/(xkcd|comics)/i
       send_message(message.chat.id, Xkcd.new.random_image)
-    when /^\/meteops/
+    when /^\/meteops/i
       send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
-    when /^\/luca (.+)/
+    when /^\/luca (.+)/i
       send_message(message.chat.id, ai_response_to($1))
     end
   end
