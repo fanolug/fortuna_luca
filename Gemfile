@@ -11,6 +11,7 @@ gem 'google-api-client', '~> 0.9.11'
 gem 'rack', '~> 1.6'
 gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'forecast_io', '~> 2.0.1'
+gem 'geocoder', '~> 1.4.0', require: false
 
 group :development do
   gem 'capistrano', '~> 3.5.0'
