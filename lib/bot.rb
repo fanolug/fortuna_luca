@@ -6,18 +6,20 @@ require_relative 'twitter_client'
 require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
 require_relative 'apiai_client'
+require_relative 'forecast'
 
 class Bot
   include TelegramClient
   include TwitterClient
   include GoogleClient
   include ApiaiClient
+  include Forecast
 
   def run!
     Dotenv.load
     name = 'Fortuna Luca telegram bot'
     Process.setproctitle(name)
-    Process.daemon(true, true)
+    Process.daemon(true, true) unless ENV["DEVELOPMENT"]
     logger.info "Running as '#{name}', pid #{Process.pid}"
     run_telegram_loop
   end
@@ -89,6 +91,9 @@ class Bot
   end
 
   def logger
-    @logger ||= Logger.new('log/production.log')
+    return @logger if @logger
+
+    output = ENV["DEVELOPMENT"] ? STDOUT : "log/production.log"
+    @logger = Logger.new(output)
   end
 end

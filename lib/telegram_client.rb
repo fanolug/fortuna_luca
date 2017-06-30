@@ -2,6 +2,11 @@ require 'telegram/bot'
 
 module TelegramClient
   def send_message(chat_id, text)
+    if text.to_s == ""
+      logger.info "Blank message text (#send_message)"
+      return
+    end
+
     begin
       telegram_client.api.send_message(chat_id: chat_id, text: text)
     rescue Telegram::Bot::Exceptions::ResponseError => exception
