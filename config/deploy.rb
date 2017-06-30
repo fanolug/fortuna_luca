@@ -17,7 +17,7 @@ server ENV['DEPLOY_SERVER'],
   ssh_options: { forward_agent: true }
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.1.5'
+set :rvm_ruby_version, '2.4.1'
 set :rvm_map_bins, fetch(:rvm_map_bins, []).push('nohup')
 
 set :whenever_roles, :app
