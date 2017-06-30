@@ -34,7 +34,7 @@ class Bot
 
   def handle_message(message)
     # clean up text
-    text = message.text.to_s.gsub("\n", ' ').squeeze(' ').strip
+    text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
 
     case text
     when '', /^\/help/
@@ -60,7 +60,7 @@ class Bot
     errors = []
 
     if result = Twitter::Validation.tweet_invalid?(text)
-      errors << "Error: #{result.to_s.gsub('_', ' ').capitalize}"
+      errors << "Error: #{result.to_s.tr('_', ' ').capitalize}"
     end
 
     if message.from.username.to_s.empty?

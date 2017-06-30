@@ -1,12 +1,12 @@
 GIT
-  remote: git://github.com/api-ai/apiai-ruby-client.git
-  revision: 1b0a7e947e1c25419102cc72732dcba47e51ba54
+  remote: https://github.com/api-ai/apiai-ruby-client.git
+  revision: f154ef974a9faf427d6c216b53d1744791868bb1
   specs:
     api-ai-ruby (2.0.0)
       http (~> 2.0)
 
 GIT
-  remote: git://github.com/mikel/mail.git
+  remote: https://github.com/mikel/mail.git
   revision: 4876ae4ff33cb3a564de0a27b819ddb7f5123bee
   specs:
     mail (2.7.0.rc1)
