@@ -4,6 +4,7 @@ require "geocoder/logger"
 require "geocoder/kernel_logger"
 require "geocoder/query"
 require "geocoder/lookup"
+require "geocoder/exceptions"
 
 module Forecast
   def summary_forecast_for(location_name, time)

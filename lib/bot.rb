@@ -96,4 +96,52 @@ class Bot
     output = ENV["DEVELOPMENT"] ? STDOUT : "log/production.log"
     @logger = Logger.new(output)
   end
+
+  def handle_ai_response(response)
+    # direct speech response
+    speech = response.dig(:result, :fulfillment, :speech)
+    return speech if speech && speech != ""
+
+    # no speech response
+    case response.dig(:result, :action)
+    when "weather" then handle_weather_response(response)
+    when "help" then handle_weather_response(response)
+    else
+      # TODO nothing?
+    end
+  end
+
+  def handle_weather_response(response)
+    city = parse_weather_city(response)
+    time = parse_weather_time(response)
+    forecast = summary_forecast_for(city, time)
+    return if !forecast
+
+    "A #{city} #{forecast.downcase}"
+  end
+
+  def fallback_weather_city
+    "Fano"
+  end
+
+  def fallback_weather_time
+    (Time.now + 12 * 3600).to_s
+  end
+
+  def parse_weather_time(response)
+    time = response.dig(:result, :parameters, :"date-time")
+    begin
+      Date.parse(time.to_s).to_time
+    rescue ArgumentError => e
+      logger.debug("Invalid time '#{time}'?: #{e.message}")
+      fallback_weather_time
+    end
+  end
+
+  def parse_weather_city(response)
+    address = response.dig(:result, :parameters, :address)
+    city = address.respond_to?(:dig) ? address.dig(:city) : address
+    city = fallback_weather_city if !city || city == ""
+    city
+  end
 end
