@@ -8,14 +8,13 @@ class WebSearcher
   end
 
   def first_link
-    results = search_client.list_cses(
+    result = search_client.list_cses(
       @query,
       cx: ENV["GOOGLE_CUSTOM_SEARCH_ID"],
       num: 1
     )
 
-    result = results.items.first
-    result.link if result
+    result.items&.first&.link
   end
 
   private

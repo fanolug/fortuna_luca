@@ -40,18 +40,28 @@ class Bot
     text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
 
     case text
+    # /help
+    # display an help message
     when '', /^\/help/i
       send_help(message)
+    # /ilinkdellasettimana
+    # post the link on twitter and on the mailing list
     when /^\/ilinkdellasettimana (.+)/i
       return unless validate_message(message, text)
       result = tweet!(message.from.username, $1)
       send_message(message.from.id, result)
+    # /xkcd or /comics
+    # display a XKCD comic
     when /^\/(xkcd|comics)/i
       send_message(message.chat.id, Xkcd.new.random_image)
+    # /google
+    # get the first web search result link
     when /^\/google (.+)/i
       send_message(message.chat.id, WebSearcher.new($1).first_link)
     when /^\/meteops/i
       send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
+    # /luca
+    # use AI to generate some response
     when /^\/luca (.+)/i
       send_message(message.chat.id, ai_response_to($1))
     end
@@ -101,20 +111,20 @@ class Bot
   end
 
   def handle_ai_response(response)
-    # direct speech response
+    # when a direct speech response is available
     speech = response.dig(:result, :fulfillment, :speech)
     return speech if speech && speech != ""
 
-    # no speech response
+    # when no speech response is available
     case response.dig(:result, :action)
-    when "weather" then handle_weather_response(response)
-    when "help" then handle_weather_response(response)
+    when "weather" then handle_weather_ai_action(response)
+    when "web_query" then handle_web_query_ai_action(response)
     else
       # TODO nothing?
     end
   end
 
-  def handle_weather_response(response)
+  def handle_weather_ai_action(response)
     city = parse_weather_city(response)
     time = parse_weather_time(response)
     forecast = summary_forecast_for(city, time)
@@ -146,5 +156,12 @@ class Bot
     city = address.respond_to?(:dig) ? address.dig(:city) : address
     city = fallback_weather_city if !city || city == ""
     city
+  end
+
+  def handle_web_query_ai_action(response)
+    query = response.dig(:result, :parameters, :query)
+    return if query.to_s == ""
+
+    WebSearcher.new(query).first_link
   end
 end
