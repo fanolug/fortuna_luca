@@ -7,6 +7,7 @@ require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
 require_relative 'apiai_client'
 require_relative 'forecast'
+require_relative 'web_searcher'
 
 class Bot
   include TelegramClient
@@ -47,6 +48,8 @@ class Bot
       send_message(message.from.id, result)
     when /^\/(xkcd|comics)/i
       send_message(message.chat.id, Xkcd.new.random_image)
+    when /^\/google (.+)/i
+      send_message(message.chat.id, WebSearcher.new($1).first_link)
     when /^\/meteops/i
       send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
     when /^\/luca (.+)/i
