@@ -1,5 +1,6 @@
 require 'dotenv'
 require 'twitter-text'
+require 'time'
 require_relative 'xkcd'
 require_relative 'telegram_client'
 require_relative 'twitter_client'
@@ -127,27 +128,37 @@ class Bot
   def handle_weather_ai_action(response)
     city = parse_weather_city(response)
     time = parse_weather_time(response)
-    forecast = summary_forecast_for(city, time)
+    forecast = daily_forecast_for(city, time)
     return if !forecast
 
-    "A #{city} #{forecast.downcase}"
+    context = response.dig(:result, :contexts).find do |c|
+      c[:name] == "weather"
+    end
+    time_in_words = if context
+      context.dig(:parameters, :"date-time.original")
+    end
+
+    [
+      time_in_words&.capitalize,
+      "a #{city}",
+      forecast.downcase
+    ].compact.join(" ")
   end
 
   def fallback_weather_city
     "Fano"
   end
 
-  def fallback_weather_time
-    (Time.now + 12 * 3600).to_s
-  end
-
   def parse_weather_time(response)
-    time = response.dig(:result, :parameters, :"date-time")
+    date_string = response.dig(:result, :parameters, :"date-time")
+    now = Time.now
+
     begin
-      Date.parse(time.to_s).to_time
+      date = Time.parse(date_string.to_s)
+      date < now ? now : date
     rescue ArgumentError => e
-      logger.debug("Invalid time '#{time}'?: #{e.message}")
-      fallback_weather_time
+      logger.debug("Invalid date string '#{date}': #{e.message}")
+      now
     end
   end
 

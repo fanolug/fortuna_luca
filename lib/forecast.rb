@@ -7,7 +7,20 @@ require "geocoder/lookup"
 require "geocoder/exceptions"
 
 module Forecast
-  def summary_forecast_for(location_name, time)
+  FORECAST_ICONS = {
+    "clear-day" => "\u{2600}",
+    "clear-night" => "\u{2600}",
+    "rain" => "\u{1f327}",
+    "snow" => "\u{1f328}",
+    "sleet" => "\u{1f328}",
+    "wind" => "\u{1f32c}",
+    "fog" => "\u{1f32b}",
+    "cloudy" => "\u{2601}",
+    "partly-cloudy-day" => "\u{26c5}",
+    "partly-cloudy-night" => "\u{26c5}"
+  }
+
+  def daily_forecast_for(location_name, time)
     initialize_forecastio
     lat, lng = coordinates_for(location_name)
     return unless lat
@@ -16,11 +29,18 @@ module Forecast
       lat,
       lng,
       time: time.to_i,
-      params: { lang: "it" }
+      params: {
+        lang: "it",
+        exclude: "currently,daily,minutely,alerts,flags"
+      }
     )
 
     logger.debug(forecast.inspect) if ENV["DEVELOPMENT"]
-    forecast.dig("daily", "data", 0, "summary")
+
+    icon = FORECAST_ICONS[forecast.dig("hourly", "icon")]
+    summary = forecast.dig("hourly", "summary")
+
+    [summary, icon].compact.join(" ")
   end
 
   private
