@@ -6,7 +6,7 @@ every :monday, at: '9am' do
 end
 
 every 1.hours do
-  bin :send_last_tweets
+  bin :send_last_tweets_media
 end
 
 # every 30.minutes do

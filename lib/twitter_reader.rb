@@ -21,10 +21,15 @@ class TwitterReader
     end
   end
 
+  def media_for_last_minutes(minutes)
+    tweets_for_last_minutes(minutes).map do |tweet|
+      tweet.media&.first&.media_url&.to_s
+    end.compact
+  end
+
   private
 
   def default_twitter_params
     { count: 3, trim_user: true, exclude_replies: true, include_rts: true }
   end
-
 end

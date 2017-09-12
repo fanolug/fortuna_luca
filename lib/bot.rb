@@ -27,9 +27,17 @@ class Bot
   end
 
   def send_last_tweets(minutes: 60)
-    twitter_handlers.each do |handler|
+    followed_twitter_handlers.each do |handler|
       TwitterReader.new(handler).tweets_for_last_minutes(minutes).each do |tweet|
         send_message(ENV['TELEGRAM_CHAT_ID'], tweet.text)
+      end
+    end
+  end
+
+  def send_last_tweets_media(minutes: 60)
+    followed_twitter_handlers.each do |handler|
+      TwitterReader.new(handler).media_for_last_minutes(minutes).each do |media_url|
+        send_message(ENV['TELEGRAM_CHAT_ID'], media_url)
       end
     end
   end
@@ -100,8 +108,8 @@ class Bot
     errors.none?
   end
 
-  def twitter_handlers
-    @twitter_handlers ||= ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
+  def followed_twitter_handlers
+    @followed_twitter_handlers ||= ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
   end
 
   def logger

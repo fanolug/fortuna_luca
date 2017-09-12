@@ -56,5 +56,4 @@ class DigestMailer
       tweet.text =~ /.+\[.+\]$/ # match common pattern
     end
   end
-
 end

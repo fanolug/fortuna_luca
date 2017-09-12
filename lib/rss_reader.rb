@@ -36,5 +36,4 @@ class RssReader
       item.link
     end
   end
-
 end
