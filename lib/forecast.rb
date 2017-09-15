@@ -35,6 +35,7 @@ module Forecast
       }
     )
 
+    return "...penso che l'api sia down." if !forecast
     logger.debug(forecast.inspect) if ENV["DEVELOPMENT"]
 
     icon = FORECAST_ICONS[forecast.dig("hourly", "icon")]
