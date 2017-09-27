@@ -49,29 +49,24 @@ class Bot
     text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
 
     case text
-    # /help
     # display an help message
-    when '', /^\/help/i
+    when '', /^\/help/i # /help
       send_help(message)
-    # /ilinkdellasettimana
     # post the link on twitter and on the mailing list
-    when /^\/ilinkdellasettimana (.+)/i
+    when /^\/ilinkdellasettimana (.+)/i # /ilinkdellasettimana
       return unless validate_message(message, text)
       result = tweet!(message.from.username, $1)
       send_message(message.from.id, result)
-    # /xkcd or /comics
     # display a XKCD comic
-    when /^\/(xkcd|comics)/i
+    when /^\/(xkcd|comics)/i # /xkcd or /comics
       send_message(message.chat.id, Xkcd.new.random_image)
-    # /google
     # get the first web search result link
-    when /^\/google (.+)/i
+    when /^\/google (.+)/i # /google
       send_message(message.chat.id, WebSearcher.new($1).first_link)
     when /^\/meteops/i
       send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
-    # /luca
-    # use AI to generate some response
-    when /^\/luca (.+)/i
+    # try AI to generate some response
+    else
       send_message(message.chat.id, ai_response_to($1))
     end
   end
