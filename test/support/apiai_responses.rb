@@ -130,4 +130,46 @@ module ApiaiResponses
       sessionId: "a611afa8-e989-42f1-adb4-0e6dd8f24dd4"
     }
   end
+
+  def comparison_apiai_response
+    {
+      id: "48b50c0e-dc20-43b9-b152-b6698768a96f",
+      timestamp: "2017-09-27T19:44:59.986Z",
+      lang: "it",
+      result: {
+        source: "agent",
+        resolvedQuery: "è meglio linux o windows?",
+        action: "comparison",
+        actionIncomplete: false,
+        parameters: {
+          subjects: [
+            "linux",
+            "windows"
+          ]
+        },
+        contexts: [],
+        metadata: {
+          intentId: "66da1a59-58b5-4db1-978f-6188beb15779",
+          webhookUsed: "false",
+          webhookForSlotFillingUsed: "false",
+          intentName: "Comparison"
+        },
+        fulfillment: {
+          speech: "",
+          messages: [
+            {
+              type: 0,
+              speech: ""
+            }
+          ]
+        },
+        score: 0.8500000238418579
+      },
+      status: {
+        code: 200,
+        errorType: "success"
+      },
+      sessionId: "d6c995c3-80cb-47c1-967f-f2537893fb52"
+    }
+  end
 end

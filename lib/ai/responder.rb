@@ -2,6 +2,7 @@ require "api-ai-ruby"
 require_relative "../logging"
 require_relative "weather_responder"
 require_relative "web_query_responder"
+require_relative "comparison_responder"
 
 module AI
   class Responder
@@ -39,6 +40,7 @@ module AI
       case response.dig(:result, :action)
       when "weather" then WeatherResponder.new(response).call
       when "web_query" then WebQueryResponder.new(response).call
+      when "comparison" then ComparisonResponder.new(response).call
       else
         # TODO nothing?
       end
