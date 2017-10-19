@@ -5,8 +5,11 @@ require "geocoder/kernel_logger"
 require "geocoder/query"
 require "geocoder/lookup"
 require "geocoder/exceptions"
+require_relative "logging"
 
-module Forecast
+class Forecaster
+  include Logging
+
   FORECAST_ICONS = {
     "clear-day" => "\u{2600}",
     "clear-night" => "\u{2600}",
@@ -35,6 +38,7 @@ module Forecast
       }
     )
 
+    return "...penso che l'api sia down." if !forecast
     logger.debug(forecast.inspect) if ENV["DEVELOPMENT"]
 
     icon = FORECAST_ICONS[forecast.dig("hourly", "icon")]
