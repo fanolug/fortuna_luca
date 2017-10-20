@@ -38,6 +38,15 @@ describe Bot do
     end
   end
 
+  describe "#send_message_parsemode" do
+    it "sends the api request" do
+      Telegram::Bot::Api.any_instance.expects(:send_message_parsemode).with(
+        { chat_id: 123, text: "some text", parse_mode: 'Markdown' }
+      )
+      @bot.send_message(123, "some text", 'Markdown')
+    end
+  end
+
   describe "#tweet!" do
     it "sends the api request" do
       twitter_result = mock()
