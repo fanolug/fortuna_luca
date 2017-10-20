@@ -43,7 +43,7 @@ describe Bot do
       Telegram::Bot::Api.any_instance.expects(:send_message_parsemode).with(
         { chat_id: 123, text: "some text", parse_mode: 'Markdown' }
       )
-      @bot.send_message(123, "some text", 'Markdown')
+      @bot.send_message(123, "some text")
     end
   end
 
