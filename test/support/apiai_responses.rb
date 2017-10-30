@@ -131,7 +131,7 @@ module ApiaiResponses
     }
   end
 
-  def comparison_apiai_response
+  def comparison_apiai_response(subjects: ["linux", "windows"])
     {
       id: "48b50c0e-dc20-43b9-b152-b6698768a96f",
       timestamp: "2017-09-27T19:44:59.986Z",
@@ -142,10 +142,7 @@ module ApiaiResponses
         action: "comparison",
         actionIncomplete: false,
         parameters: {
-          subjects: [
-            "linux",
-            "windows"
-          ]
+          subjects: subjects
         },
         contexts: [],
         metadata: {
