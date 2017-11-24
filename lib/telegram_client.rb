@@ -39,10 +39,10 @@ module TelegramClient
 
 
   def handle_telegram_exception(exception)
-    case exception.error_code
-    when 403 # Forbidden. Ignore the message and keep going
+    case exception.error_code.to_s
+    when "403" # Forbidden. Ignore the message and keep going
       return
-    when 409 # Conflict. Must exit process
+    when "409" # Conflict. Must exit process
       logger.info "Exiting."
       Process.exit
     else
