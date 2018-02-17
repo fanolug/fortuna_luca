@@ -8,6 +8,7 @@ require_relative 'twitter_client'
 require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
 require_relative 'ai/responder'
+require_relative 'fb_fanpage_reader'
 
 class Bot
   include Logging
@@ -37,6 +38,12 @@ class Bot
       TwitterReader.new(handler).media_for_last_minutes(minutes).each do |media_url|
         send_message(ENV['TELEGRAM_CHAT_ID'], media_url)
       end
+    end
+  end
+
+  def send_meme_climbers
+    if FbFanpageReader.new.lastpost_timestamp > Time.now.strftime('%s').to_i - 3600
+      send_message(ENV['OUG_CHAT_ID'], FbFanpageReader.new.lastpost)
     end
   end
 
