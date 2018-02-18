@@ -1,6 +1,7 @@
 require 'dotenv'
 require 'twitter-text'
 require 'time'
+require 'shorturl'
 require_relative 'logging'
 require_relative 'xkcd'
 require_relative 'telegram_client'
@@ -43,7 +44,7 @@ class Bot
 
   def send_meme_climbers
     if FbFanpageReader.new.lastpost_timestamp >= Time.now.strftime('%s').to_i - 3600
-      send_message(ENV['OUG_CHAT_ID'], FbFanpageReader.new.lastpost)
+      send_message(ENV['OUG_CHAT_ID'], ShortURL.shorten("#{FbFanpageReader.new.lastpostimg}"))
     end
   end
 

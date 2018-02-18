@@ -15,7 +15,11 @@ class FbFanpageReader
     Nokogiri::XML(open("#{fanpageurl}"))
   end
 
-  def lastpost
+  def lastposttext
+    fanpageparse.css('.userContent p').first
+  end
+
+  def lastpostimg
     fanpageparse.css('.mtm img').first['src']
   end
 
