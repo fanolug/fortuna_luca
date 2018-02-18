@@ -42,7 +42,7 @@ class Bot
   end
 
   def send_meme_climbers
-    if FbFanpageReader.new.lastpost_timestamp > Time.now.strftime('%s').to_i - 3600
+    if FbFanpageReader.new.lastpost_timestamp >= Time.now.strftime('%s').to_i - 3600
       send_message(ENV['OUG_CHAT_ID'], FbFanpageReader.new.lastpost)
     end
   end
