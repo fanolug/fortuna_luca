@@ -8,7 +8,7 @@ require_relative 'twitter_client'
 require_relative 'twitter_reader'
 require_relative 'googlecalendar_client'
 require_relative 'ai/responder'
-require_relative 'fb_fanpage_reader'
+require_relative 'facebook_reader'
 
 class Bot
   include Logging
@@ -41,8 +41,8 @@ class Bot
     end
   end
 
-  def send_last_facebook_picture
-    FacebookReader.new.picture_for_the_last_hour.each do | post_picture |
+  def send_last_facebook_picture(minutes: 60)
+    FacebookReader.new.picture_for_the_last_hour(minutes).each do | post_picture |
       send_message(ENV['OUG_CHAT_ID'], post_picture)
     end
   end

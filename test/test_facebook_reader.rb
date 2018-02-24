@@ -20,14 +20,14 @@ describe FacebookReader do
       #     "fanolug/posts", {}
       #   )
       # @facebook_reader.get_object({})
-    # FacebookReader.posts
-  #     # Koala::Facebook::API.any_instance.expects(:pagename).with(
+      # FacebookReader.posts
+      # Koala::Facebook::API.any_instance.expects(:pagename).with(
       @graph.get_object.any_instance.expects(:pagename).with(
         "fanolug/posts", {}
       )
       FacebookReader.new.posts["id"]
-  #     # @facebook_reader = @graph
-  #     # @facebook_reader.posts({})
+      # @facebook_reader = @graph
+      # @facebook_reader.posts({})
     end
 
     # it "uses default params" do

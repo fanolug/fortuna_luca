@@ -15,7 +15,7 @@ class FacebookReader
     end
   end
 
-  def post_for_the_last_hour(minutes: 60)
+  def post_for_the_last_hour(minutes)
     posts.map do |pageposts|
       pageposts.take_while do |posts|
         Time.now - DateTime.parse(posts["created_time"]).to_time <= minutes * 60
@@ -23,8 +23,8 @@ class FacebookReader
     end
   end
 
-  def picture_for_the_last_hour
-    post_for_the_last_hour.map {|posts| posts.map do |picture|
+  def picture_for_the_last_hour(minutes)
+    post_for_the_last_hour(minutes).map {|posts| posts.map do |picture|
         picture["full_picture"]
       end
     }
