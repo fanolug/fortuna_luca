@@ -3,33 +3,29 @@ require 'dotenv'
 require 'date'
 
 class FacebookReader
+  attr_reader :facebook_page
 
-  def initialize
+  def initialize(facebook_page)
     Dotenv.load
     @graph = Koala::Facebook::API.new(ENV['FB_APP_TOKEN'])
+    @facebook_page = facebook_page
   end
 
   def posts
-    ENV['FB_PAGES'].split(',').map(&:strip).map do |pagename|
-      @graph.get_object("#{pagename}/posts?fields=full_picture,created_time,message&limit=5")
-    end
+    @graph.get_object("#{facebook_page}/posts?fields=full_picture,created_time,message&limit=5")
   end
 
   def post_for_the_last_hour(minutes)
-    posts.map do |pageposts|
-      pageposts.take_while do |posts|
-        Time.now - DateTime.parse(posts["created_time"]).to_time <= minutes * 60
-      end
+    posts.take_while do |lastposts|
+      Time.now - DateTime.parse(lastposts["created_time"]).to_time <= minutes * 60
     end
   end
 
   def picture_for_the_last_hour(minutes)
-    post_for_the_last_hour(minutes).map {|posts| posts.map do |picture|
-        picture["full_picture"]
-      end
-    }
+    post_for_the_last_hour(minutes).map {|post| post["full_picture"]}
+      # end
   end
 
 end
 
-# puts FacebookReader.new.picture_for_the_last_hour #(minutes:1440) #.map {|ciao| ciao["full_picture"]}
+# puts FacebookReader.new('imemedelclimbersfigato').picture_for_the_last_hour(1440) #(minutes:1440) #.map {|ciao| ciao["full_picture"]}

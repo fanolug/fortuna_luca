@@ -42,8 +42,10 @@ class Bot
   end
 
   def send_last_facebook_picture(minutes: 60)
-    FacebookReader.new.picture_for_the_last_hour(minutes).each do | post_picture |
-      send_message(ENV['OUG_CHAT_ID'], post_picture)
+    followed_facebook_pages.each do |page|
+      FacebookReader.new(page).picture_for_the_last_hour(minutes).each do |post_picture|
+        send_message(ENV['OUG_CHAT_ID'], post_picture)
+      end
     end
   end
 
@@ -111,5 +113,9 @@ class Bot
 
   def followed_twitter_handlers
     @followed_twitter_handlers ||= ENV['TWITTER_HANDLERS'].split(',').map(&:strip)
+  end
+
+  def followed_facebook_pages
+    @followed_facebook_pages ||= ENV['FB_PAGES'].split(',').map(&:strip)
   end
 end
