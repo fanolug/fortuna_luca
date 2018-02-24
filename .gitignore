@@ -3,4 +3,3 @@
 log/*.log
 !.ruby-version
 client_secret.json
-test/test_facebook_reader.rb
