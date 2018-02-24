@@ -97,7 +97,12 @@ GEM
     hurley (0.2)
     i18n (0.8.4)
     ice_nine (0.11.2)
+    json (2.1.0)
     jwt (1.5.6)
+    koala (3.0.0)
+      addressable
+      faraday
+      json (>= 1.8)
     little-plugger (1.1.4)
     logging (2.2.2)
       little-plugger (~> 1.1)
@@ -188,6 +193,7 @@ DEPENDENCIES
   forecast_io (~> 2.0.1)
   geocoder (~> 1.4.0)
   google-api-client (~> 0.9.11)
+  koala (~> 3.0)
   mail!
   minitest
   minitest-reporters

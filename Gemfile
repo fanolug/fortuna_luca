@@ -13,7 +13,7 @@ gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'forecast_io', '~> 2.0.1'
 gem 'geocoder', '~> 1.4.0', require: false
 gem 'nokogiri', '~> 1.8', '>= 1.8.1'
-gem 'shorturl'
+gem 'koala', '~> 3.0'
 
 group :development do
   gem 'capistrano', '~> 3.5.0'
