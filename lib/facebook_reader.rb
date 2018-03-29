@@ -23,9 +23,6 @@ class FacebookReader
 
   def picture_for_the_last_hour(minutes)
     post_for_the_last_hour(minutes).map {|post| post["full_picture"]}
-      # end
   end
 
 end
-
-# puts FacebookReader.new('imemedelclimbersfigato').picture_for_the_last_hour(1440) #(minutes:1440) #.map {|ciao| ciao["full_picture"]}
