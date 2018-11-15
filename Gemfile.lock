@@ -189,7 +189,7 @@ DEPENDENCIES
   minitest
   minitest-reporters
   mocha
-  rack (~> 1.6)
+  rack (~> 1.6.11)
   rake
   stackprof
   telegram-bot-ruby (~> 0.7.1)
