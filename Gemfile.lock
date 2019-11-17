@@ -128,6 +128,8 @@ GEM
     os (0.9.6)
     public_suffix (2.0.5)
     rack (1.6.8)
+    rack-protection (1.5.5)
+      rack
     rake (12.0.0)
     representable (2.3.0)
       uber (~> 0.0.7)
@@ -139,6 +141,10 @@ GEM
       jwt (~> 1.5)
       multi_json (~> 1.10)
     simple_oauth (0.3.1)
+    sinatra (1.4.8)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     sshkit (1.13.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -148,6 +154,7 @@ GEM
       virtus
     thor (0.19.4)
     thread_safe (0.3.6)
+    tilt (2.0.10)
     twitter (6.0.0)
       addressable (~> 2.5)
       buftok (~> 0.2.0)
@@ -191,6 +198,7 @@ DEPENDENCIES
   mocha
   rack (~> 1.6)
   rake
+  sinatra (~> 1.4.8)
   stackprof
   telegram-bot-ruby (~> 0.7.1)
   twitter (~> 6.0.0)
@@ -198,4 +206,4 @@ DEPENDENCIES
   whenever (~> 0.9.4)
 
 BUNDLED WITH
-   1.15.1
+   1.16.1
