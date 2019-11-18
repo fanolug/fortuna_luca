@@ -13,6 +13,7 @@ gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'forecast_io', '~> 2.0.1'
 gem 'geocoder', '~> 1.4.0', require: false
 gem 'sinatra', '~> 1.4.8'
+gem 'puma', '~> 4.3.0'
 
 group :development do
   gem 'capistrano', '~> 3.5.0'

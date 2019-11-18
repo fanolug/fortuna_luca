@@ -125,8 +125,11 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
+    nio4r (2.5.2)
     os (0.9.6)
     public_suffix (2.0.5)
+    puma (4.3.0)
+      nio4r (~> 2.0)
     rack (1.6.8)
     rack-protection (1.5.5)
       rack
@@ -196,6 +199,7 @@ DEPENDENCIES
   minitest
   minitest-reporters
   mocha
+  puma (~> 4.3.0)
   rack (~> 1.6)
   rake
   sinatra (~> 1.4.8)
