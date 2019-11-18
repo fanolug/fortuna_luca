@@ -16,9 +16,6 @@ gem 'sinatra', '~> 1.4.8'
 gem 'puma', '~> 4.3.0'
 
 group :development do
-  gem 'capistrano', '~> 3.5.0'
-  gem 'capistrano-rvm', '~> 0.1.2'
-  gem 'capistrano-bundler', '~> 1.1.4'
   gem 'derailed_benchmarks'
   gem 'stackprof'
   gem 'rake'
