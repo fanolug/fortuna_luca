@@ -3,11 +3,11 @@
 require 'sinatra/base'
 require 'json'
 require 'telegram/bot'
-require_relative 'bot'
+require_relative 'responder'
 
 module FortunaLuca
   module Telegram
-    class TelegramWebhookServer < Sinatra::Base
+    class WebhookServer < Sinatra::Base
       enable :logging
 
       get '/' do
@@ -16,7 +16,23 @@ module FortunaLuca
 
       # Handle webhooks coming from Telegram
       post ENV['SECRET_WEBHOOK_PATH'] do
+        msg = message(request)
+        Responder.new(msg).call
+
         200
+      end
+
+      private
+
+      def message(request)
+        data = parsed_body(request)
+        message = ::Telegram::Bot::Types::Message.new(data['message'])
+        logger.info message.inspect
+        message
+      end
+
+      def parsed_body(request)
+        JSON.parse(request.body.read)
       end
     end
   end
