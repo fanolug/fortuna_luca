@@ -114,6 +114,8 @@ GEM
     rack (1.6.8)
     rack-protection (1.5.5)
       rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rake (12.0.0)
     representable (2.3.0)
       uber (~> 0.0.7)
@@ -176,6 +178,7 @@ DEPENDENCIES
   mocha
   puma (~> 4.3.0)
   rack (~> 1.6)
+  rack-test
   rake
   sinatra (~> 1.4.8)
   stackprof

@@ -22,4 +22,5 @@ group :development do
   gem 'minitest'
   gem 'minitest-reporters'
   gem 'mocha'
+  gem 'rack-test'
 end
