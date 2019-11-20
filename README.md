@@ -19,11 +19,11 @@ You must have a complete `.env` file with all the required credentials.
 WARNING: if you use production credentials this will disconnect the production
 bot!
 
-### Test
+### Running tests
 
-    bundle exec rake
+    bundle exec rake test
 
 
 Powered by [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby)
 
-Copyright (c) 2017 FanoLUG, released under the MIT License.
+Copyright (c) 2019 FanoLUG, released under the MIT License.
