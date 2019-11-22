@@ -23,4 +23,5 @@ group :development do
   gem 'minitest-reporters'
   gem 'mocha'
   gem 'rack-test'
+  gem 'webmock'
 end
