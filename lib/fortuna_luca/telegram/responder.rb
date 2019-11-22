@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 require 'dotenv'
+require_relative 'client'
 require_relative '../../logging'
 require_relative '../../xkcd'
-require_relative '../../telegram_client'
 require_relative '../../ai/responder'
 
 module FortunaLuca
   module Telegram
     class Responder
       include Logging
-      include TelegramClient
+      include FortunaLuca::Telegram::Client
 
       # @param message [Telegram::Bot::Types::Message] The Telegram message
       def initialize(message)
