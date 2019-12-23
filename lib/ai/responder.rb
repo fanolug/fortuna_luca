@@ -1,3 +1,4 @@
+require "dotenv/load"
 require "api-ai-ruby"
 require_relative "../logging"
 require_relative "weather_responder"

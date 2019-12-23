@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dotenv'
+require "dotenv/load"
 require_relative 'client'
 require_relative '../../logging'
 require_relative '../../xkcd'
@@ -14,7 +14,6 @@ module FortunaLuca
 
       # @param message [Telegram::Bot::Types::Message] The Telegram message
       def initialize(message)
-        Dotenv.load
         @message = message
       end
 
