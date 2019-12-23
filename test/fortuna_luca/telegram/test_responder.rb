@@ -7,7 +7,7 @@ describe FortunaLuca::Telegram::Responder do
   let(:instance) { FortunaLuca::Telegram::Responder.new(telegram_message) }
 
   describe "#call" do
-    describe "with a messages that is not including the bot name" do
+    describe "with a message that is not including the bot name" do
       let(:message_attributes) { { text: "Some message", chat: { id: 123 } } }
 
       it "just returns false" do
@@ -17,12 +17,29 @@ describe FortunaLuca::Telegram::Responder do
       end
     end
 
-    describe "with a messages that is including the bot name" do
+    describe "with a message that is including the bot name" do
       let(:message_attributes) do
         {
           text: "Hey @fortuna_luca, some message",
           chat: { id: 123 },
           entities: [mention]
+        }
+      end
+
+      it "sends a telegram API request with AI response" do
+        AI::Responder.any_instance.expects(:call).returns("the response")
+        Telegram::Bot::Api.any_instance.expects(:send_message).with(
+          { chat_id: 123, text: "the response" }
+        )
+        instance.call.must_equal(true)
+      end
+    end
+
+    describe "with a private message" do
+      let(:message_attributes) do
+        {
+          text: "Hey @fortuna_luca, some message",
+          chat: { id: 123, type: "private" },
         }
       end
 

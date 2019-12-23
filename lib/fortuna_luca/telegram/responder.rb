@@ -19,7 +19,7 @@ module FortunaLuca
       end
 
       def call
-        return false unless mention?
+        return false if !private? && !mention?
 
         text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
         send_telegram_message(chat_id, AI::Responder.new(text).call)
@@ -36,6 +36,10 @@ module FortunaLuca
 
       def mention?
         message.entities.any? { |entity| entity.type == "mention" }
+      end
+
+      def private?
+        message.chat.type == "private"
       end
     end
   end
