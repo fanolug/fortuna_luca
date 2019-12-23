@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'dotenv', '~> 2.1.0'
-gem 'telegram-bot-ruby', '~> 0.7.1'
+gem 'telegram-bot-ruby', '~> 0.11.0'
 gem 'twitter', '~> 6.0.0'
 gem 'twitter-text', '~> 1.13.3'
 gem 'mail', github: 'mikel/mail'
