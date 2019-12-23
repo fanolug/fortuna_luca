@@ -21,8 +21,7 @@ module FortunaLuca
       def call
         return false if !private? && !mention?
 
-        text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
-        send_telegram_message(chat_id, AI::Responder.new(text).call)
+        send_telegram_message(chat_id, AI::Responder.new(clean_text).call)
         true
       end
 
@@ -40,6 +39,16 @@ module FortunaLuca
 
       def private?
         message.chat.type == "private"
+      end
+
+      def clean_text
+        message.
+          text.
+          to_s.
+          gsub(ENV["TELEGRAM_BOT_NAME"].to_s, "").
+          tr("\n", ' ').
+          squeeze(' ').
+          strip
       end
     end
   end

@@ -20,10 +20,18 @@ describe FortunaLuca::Telegram::Responder do
     describe "with a message that is including the bot name" do
       let(:message_attributes) do
         {
-          text: "Hey @fortuna_luca, some message",
+          text: "@fortuna_luca some questions",
           chat: { id: 123 },
           entities: [mention]
         }
+      end
+
+      it "removes the bot name from the message" do
+        ai_instance = AI::Responder.new("some questions")
+        AI::Responder.expects(:new).with("some questions").returns(ai_instance)
+        AI::Responder.any_instance.stubs(:call)
+        Telegram::Bot::Api.any_instance.stubs(:send_message)
+        instance.call
       end
 
       it "sends a telegram API request with AI response" do
@@ -38,7 +46,7 @@ describe FortunaLuca::Telegram::Responder do
     describe "with a private message" do
       let(:message_attributes) do
         {
-          text: "Hey @fortuna_luca, some message",
+          text: "some message",
           chat: { id: 123, type: "private" },
         }
       end
