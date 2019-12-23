@@ -19,22 +19,10 @@ module FortunaLuca
       end
 
       def call
-        # clean up text
+        return false unless mention?
+
         text = message.text.to_s.tr("\n", ' ').squeeze(' ').strip
-
-        case text
-        # display a XKCD comic
-        when /^\/(xkcd|comics)/i # /xkcd or /comics
-          send_telegram_message(chat_id, Xkcd.new.random_image)
-        # get the first web search result link
-        when /^\/google (.+)/i # /google
-          send_telegram_message(chat_id, WebSearcher.new($1).first_link)
-        # default: try AI to generate some response
-        else
-          text = text.sub(/\A\/\S* /, "") # remove /command part
-          send_telegram_message(chat_id, AI::Responder.new(text).call)
-        end
-
+        send_telegram_message(chat_id, AI::Responder.new(text).call)
         true
       end
 
@@ -44,6 +32,10 @@ module FortunaLuca
 
       def chat_id
         message.chat.id
+      end
+
+      def mention?
+        message.entities.any? { |entity| entity.type == "mention" }
       end
     end
   end
