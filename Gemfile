@@ -14,11 +14,11 @@ gem 'forecast_io', '~> 2.0.1'
 gem 'geocoder', '~> 1.4.0', require: false
 gem 'sinatra', '~> 1.4.8'
 gem 'puma', '~> 4.3.0'
+gem 'rake'
 
 group :development do
   gem 'derailed_benchmarks'
   gem 'stackprof'
-  gem 'rake'
   gem 'minitest'
   gem 'minitest-reporters'
   gem 'mocha'
