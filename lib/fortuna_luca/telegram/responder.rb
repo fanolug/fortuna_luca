@@ -25,14 +25,14 @@ module FortunaLuca
         case text
         # display a XKCD comic
         when /^\/(xkcd|comics)/i # /xkcd or /comics
-          send_message(chat_id, Xkcd.new.random_image)
+          send_telegram_message(chat_id, Xkcd.new.random_image)
         # get the first web search result link
         when /^\/google (.+)/i # /google
-          send_message(chat_id, WebSearcher.new($1).first_link)
+          send_telegram_message(chat_id, WebSearcher.new($1).first_link)
         # default: try AI to generate some response
         else
           text = text.sub(/\A\/\S* /, "") # remove /command part
-          send_message(chat_id, AI::Responder.new(text).call)
+          send_telegram_message(chat_id, AI::Responder.new(text).call)
         end
 
         true

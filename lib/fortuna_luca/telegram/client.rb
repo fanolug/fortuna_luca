@@ -1,18 +1,21 @@
-require 'telegram/bot'
+require "telegram/bot"
+require_relative "../../logging"
 
 module FortunaLuca
   module Telegram
     module Client
-      def send_message(chat_id, text)
+      include Logging
+
+      def send_telegram_message(chat_id, text)
         if text.to_s == ""
-          logger.info "Blank message text (#send_message)"
+          logger.info "Blank message text (#send_telegram_message)"
           return
         end
 
         begin
           telegram_client.api.send_message(chat_id: chat_id, text: text)
         rescue ::Telegram::Bot::Exceptions::ResponseError => exception
-          logger.error "#{exception.message} (#send_message chat_id: #{chat_id}, text: #{text})"
+          logger.error "#{exception.message} (#send_telegram_message chat_id: #{chat_id}, text: #{text})"
         end
       end
 
@@ -20,7 +23,7 @@ module FortunaLuca
 
       def telegram_client(options = {})
         @telegram_client ||= ::Telegram::Bot::Client.new(
-          ENV['TELEGRAM_TOKEN'],
+          ENV["TELEGRAM_TOKEN"],
           options.merge(logger: logger)
         )
       end
