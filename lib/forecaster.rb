@@ -38,12 +38,11 @@ class Forecaster
       }
     )
 
-    return "...penso che l'api sia down." if !forecast
-    logger.debug(forecast.inspect) if ENV["DEVELOPMENT"]
+    return "Forecast API down?" if !forecast
+    logger.info(forecast.inspect)
 
     icon = FORECAST_ICONS[forecast.dig("hourly", "icon")]
     summary = forecast.dig("hourly", "summary")
-
     [summary, icon].compact.join(" ")
   end
 
