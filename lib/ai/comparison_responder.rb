@@ -1,17 +1,13 @@
-require_relative "../logging"
+require_relative "dialogflow_responder"
 
 module AI
   class ComparisonResponder
-    include Logging
-
-    def initialize(apiai_response)
-      @response = apiai_response
-    end
+    include DialogflowResponder
 
     def call
-      subjects = @response.dig(:result, :parameters, :subjects)
+      subjects = response.dig(:result, :parameters, :subjects)
       return if !subjects || subjects.uniq.size < 2
-      subjects&.uniq&.sample
+      subjects.uniq.sample
     end
   end
 end
