@@ -50,7 +50,7 @@ GEM
       faraday
       hashie
       multi_json
-    geocoder (1.4.0)
+    geocoder (1.5.2)
     get_process_mem (0.2.1)
     google-api-client (0.9.28)
       addressable (~> 2.3)
@@ -180,7 +180,7 @@ DEPENDENCIES
   derailed_benchmarks
   dotenv (~> 2.1.0)
   forecast_io (~> 2.0.1)
-  geocoder (~> 1.4.0)
+  geocoder (~> 1.5.2)
   google-api-client (~> 0.9.11)
   mail!
   minitest
