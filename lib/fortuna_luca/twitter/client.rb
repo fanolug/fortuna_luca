@@ -34,7 +34,7 @@ module FortunaLuca
       end
 
       def followed_twitter_handlers
-        ENV["TWITTER_HANDLERS"].split(",").map(&:strip)
+        ENV["TWITTER_HANDLERS"].to_s.split(",").map(&:strip)
       end
 
       private
