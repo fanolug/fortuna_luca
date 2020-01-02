@@ -54,12 +54,9 @@ class Forecaster
   end
 
   def coordinates_for(location_name)
-    geocoding = Geocoder::Query.new(location_name).execute.first
-    return unless geocoding
-
-    [
-      geocoding.geometry["location"]["lat"],
-      geocoding.geometry["location"]["lng"]
-    ]
+    Geocoder::Query.new(location_name).
+      execute.
+      first&.
+      coordinates
   end
 end
