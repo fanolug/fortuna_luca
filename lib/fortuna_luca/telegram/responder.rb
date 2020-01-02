@@ -37,7 +37,7 @@ module FortunaLuca
       end
 
       def private?
-        message.chat.type == "private"
+        message.chat&.type == "private"
       end
 
       def clean_text

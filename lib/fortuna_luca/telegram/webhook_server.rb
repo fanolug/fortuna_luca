@@ -27,8 +27,8 @@ module FortunaLuca
 
       def message(request)
         data = parsed_body(request)
+        logger.info data
         message = ::Telegram::Bot::Types::Message.new(data['message'])
-        logger.info message.inspect
         message
       end
 
