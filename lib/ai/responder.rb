@@ -16,7 +16,7 @@ module AI
     def call
       begin
         response = dialogflow_client.text_request(@input)
-        logger.debug(response.inspect) if ENV["DEVELOPMENT"]
+        logger.debug(response.inspect)
         handle_ai_response(response)
       rescue ApiAiRuby::ClientError, ApiAiRuby::RequestError => e
         "Dialogflow error: #{e.message}"
