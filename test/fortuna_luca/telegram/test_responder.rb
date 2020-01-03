@@ -3,7 +3,6 @@ require_relative "../../../lib/fortuna_luca/telegram/responder"
 
 describe FortunaLuca::Telegram::Responder do
   let(:telegram_message) { ::Telegram::Bot::Types::Message.new(message_attributes) }
-  let(:mention) { ::Telegram::Bot::Types::MessageEntity.new(type: "mention") }
   let(:instance) { FortunaLuca::Telegram::Responder.new(telegram_message) }
 
   describe "#call" do
@@ -22,7 +21,6 @@ describe FortunaLuca::Telegram::Responder do
         {
           text: "@fortuna_luca some questions",
           chat: { id: 123 },
-          entities: [mention]
         }
       end
 

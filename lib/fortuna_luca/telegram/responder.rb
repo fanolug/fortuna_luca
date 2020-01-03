@@ -33,7 +33,7 @@ module FortunaLuca
       end
 
       def mention?
-        message.entities.any? { |entity| entity.type == "mention" }
+        message.text.to_s.include?(ENV["TELEGRAM_BOT_NAME"].to_s)
       end
 
       def private?
