@@ -34,6 +34,7 @@ module FortunaLuca
 
     def initialize
       ForecastIO.api_key = ENV["FORECASTIO_KEY"]
+      Geocoder.configure(timeout: 10)
     end
 
     # @param location_name [String] A city name that can be geocoded
