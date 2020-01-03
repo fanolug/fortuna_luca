@@ -1,5 +1,5 @@
 require_relative "dialogflow_responder"
-require_relative "../forecaster"
+require_relative "../fortuna_luca/forecaster"
 
 module AI
   class WeatherResponder
@@ -9,7 +9,7 @@ module AI
 
     def call
       city = weather_city
-      forecast = Forecaster.new.daily_forecast_for(city, weather_time)
+      forecast = FortunaLuca::Forecaster.new.daily_forecast_for(city, weather_time)
       return if !forecast
 
       context = response.dig(:result, :contexts).find do |c|
@@ -22,7 +22,7 @@ module AI
       [
         time_in_words&.capitalize,
         "a #{city}",
-        forecast.downcase
+        forecast
       ].compact.join(" ")
     end
 
