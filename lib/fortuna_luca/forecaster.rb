@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "forecast_io"
 require "geocoder/configuration"
 require "geocoder/logger"
@@ -11,7 +13,7 @@ module FortunaLuca
   class Forecaster
     include Logging
 
-    FORECAST_ICONS = {
+    ICONS = {
       "clear-day" => "\u{2600}",
       "clear-night" => "\u{2600}",
       "rain" => "\u{1f327}",
@@ -21,8 +23,14 @@ module FortunaLuca
       "fog" => "\u{1f32b}",
       "cloudy" => "\u{2601}",
       "partly-cloudy-day" => "\u{26c5}",
-      "partly-cloudy-night" => "\u{26c5}"
-    }
+      "partly-cloudy-night" => "\u{26c5}",
+    }.freeze
+
+    PRECIPITATIONS = {
+      "rain" => "pioggia",
+      "snow" => "neve",
+      "sleet" => "nevischio",
+    }.freeze
 
     def initialize
       ForecastIO.api_key = ENV["FORECASTIO_KEY"]
@@ -54,11 +62,18 @@ module FortunaLuca
 
       forecast = result.daily.data.first
       logger.info(forecast.inspect)
-      icon = FORECAST_ICONS[forecast.icon]
+
+      icon = ICONS[forecast.icon]
       summary = forecast.summary.downcase.sub(/\.$/, "")
       temp = "temperatura tra #{forecast.temperatureMin.round} e #{forecast.temperatureMax.round} °C"
+      precipitations = if forecast.precipType && forecast.precipProbability >= 0.2
+        precipitation = PRECIPITATIONS[forecast.precipType]
+        probability = (forecast.precipProbability * 100).round
+        "#{probability}% di possibilità di #{precipitation}"
+      end
 
-      "#{summary}, #{temp} #{icon}"
+      text = [summary, precipitations, temp].compact.join(", ")
+      [text, icon].join(" ")
     end
 
     private
