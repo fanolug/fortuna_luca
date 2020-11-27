@@ -1,9 +1,8 @@
-require "dotenv"
+require "dotenv/load"
 require "google/apis/customsearch_v1"
 
 class WebSearcher
   def initialize(query)
-    Dotenv.load
     @query = query
   end
 

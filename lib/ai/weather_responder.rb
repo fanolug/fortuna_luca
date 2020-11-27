@@ -1,23 +1,18 @@
-require_relative "../logging"
-require_relative "../forecaster"
+require_relative "dialogflow_responder"
+require_relative "../fortuna_luca/forecaster"
 
 module AI
   class WeatherResponder
-    include Logging
+    include DialogflowResponder
 
     DEFAULT_CITY = "Fano"
 
-    def initialize(apiai_response)
-      @response = apiai_response
-    end
-
     def call
-      city = parse_weather_city(@response)
-      time = parse_weather_time(@response)
-      forecast = Forecaster.new.daily_forecast_for(city, time)
+      city = weather_city
+      forecast = FortunaLuca::Forecaster.new.daily_forecast_for(city, weather_time)
       return if !forecast
 
-      context = @response.dig(:result, :contexts).find do |c|
+      context = response.dig(:result, :contexts).find do |c|
         c[:name] == "weather"
       end
       time_in_words = if context
@@ -27,13 +22,13 @@ module AI
       [
         time_in_words&.capitalize,
         "a #{city}",
-        forecast.downcase
+        forecast
       ].compact.join(" ")
     end
 
     private
 
-    def parse_weather_time(response)
+    def weather_time
       date_string = response.dig(:result, :parameters, :"date-time")
       now = Time.now
 
@@ -46,7 +41,7 @@ module AI
       end
     end
 
-    def parse_weather_city(response)
+    def weather_city
       address = response.dig(:result, :parameters, :address)
       city = address.respond_to?(:dig) ? address.dig(:city) : address
       city = DEFAULT_CITY if !city || city == ""

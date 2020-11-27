@@ -1,3 +1,4 @@
+require "dotenv/load"
 require "api-ai-ruby"
 require_relative "../logging"
 require_relative "weather_responder"
@@ -14,18 +15,18 @@ module AI
 
     def call
       begin
-        response = apiai_client.text_request(@input)
-        logger.debug(response.inspect) if ENV["DEVELOPMENT"]
+        response = dialogflow_client.text_request(@input)
+        logger.debug(response.inspect)
         handle_ai_response(response)
       rescue ApiAiRuby::ClientError, ApiAiRuby::RequestError => e
-        "Ho dei problemi: #{e.message}"
+        "Dialogflow error: #{e.message}"
       end
     end
 
     private
 
-    def apiai_client
-      @apiai_client ||= ApiAiRuby::Client.new(
+    def dialogflow_client
+      @dialogflow_client ||= ApiAiRuby::Client.new(
         client_access_token: ENV["APIAI_TOKEN"],
         api_lang: ENV["APIAI_LANG"]
       )
