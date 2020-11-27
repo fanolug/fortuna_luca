@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "mocha/mini_test"
+require "mocha/minitest"
 require "minitest/reporters"
 require "rack/test"
 require "webmock/minitest"
