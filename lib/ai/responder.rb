@@ -4,6 +4,7 @@ require_relative "../logging"
 require_relative "weather_responder"
 require_relative "web_query_responder"
 require_relative "comparison_responder"
+require_relative "term_search_responder"
 
 module AI
   class Responder
@@ -42,6 +43,7 @@ module AI
       when "weather" then WeatherResponder.new(response).call
       when "web_query" then WebQueryResponder.new(response).call
       when "comparison" then ComparisonResponder.new(response).call
+      when "term_search" then TermSearchResponder.new(response).call
       else
         # TODO nothing?
       end

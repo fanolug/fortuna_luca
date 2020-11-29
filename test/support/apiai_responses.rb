@@ -169,4 +169,43 @@ module ApiaiResponses
       sessionId: "d6c995c3-80cb-47c1-967f-f2537893fb52"
     }
   end
+
+  def term_search_apiai_response
+    {
+      id: "101ae06a-afa9-4d10-889d-c6a5d1196193",
+      timestamp: "2017-09-27T19:31:24.881Z",
+      lang: "it",
+      result: {
+        source: "agent",
+        resolvedQuery: "cos'è linux?",
+        action: "term_search",
+        actionIncomplete: false,
+        parameters: {
+          term: "linux"
+        },
+        contexts: [],
+        metadata: {
+          intentId: "c0eb4973-d656-4aeb-b0cf-a70bc429f19a",
+          webhookUsed: "false",
+          webhookForSlotFillingUsed: "false",
+          intentName: "web search"
+        },
+        fulfillment: {
+          speech: "",
+          messages: [
+            {
+              type: 0,
+              speech: ""
+            }
+          ]
+        },
+        score: 1.0
+      },
+      status: {
+        code: 200,
+        errorType: "success"
+      },
+      sessionId: "a611afa8-e989-42f1-adb4-0e6dd8f24dd4"
+    }
+  end
 end
