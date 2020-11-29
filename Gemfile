@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ruby '~> 2.6.5'
+
 gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'dotenv', '~> 2.1.0'
 gem 'forecast_io', '~> 2.0.1'
