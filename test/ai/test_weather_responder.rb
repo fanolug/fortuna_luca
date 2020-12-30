@@ -12,7 +12,7 @@ describe AI::WeatherResponder do
   describe "#call" do
     it "returns the correct response" do
       FortunaLuca::Forecaster.any_instance.
-                 expects(:daily_forecast_for).
+                 expects(:daily_forecast).
                  returns("poco nuvoloso a partire da sera")
       @responder.call.must_equal("Domani a Fano poco nuvoloso a partire da sera")
     end

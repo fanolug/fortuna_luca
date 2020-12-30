@@ -6,27 +6,39 @@ module AI
     include DialogflowResponder
 
     DEFAULT_CITY = "Fano"
+    CONTEXT_NAME = "weather"
 
     def call
-      city = weather_city
-      forecast = FortunaLuca::Forecaster.new.daily_forecast_for(city, weather_time)
+      forecast = forecaster.daily_forecast
       return if !forecast
 
-      context = response.dig(:result, :contexts).find do |c|
-        c[:name] == "weather"
-      end
-      time_in_words = if context
-        context.dig(:parameters, :"date-time.original")
-      end
-
       [
-        time_in_words&.capitalize,
-        "a #{city}",
+        time_in_words,
+        "a #{weather_city}",
         forecast
       ].compact.join(" ")
     end
 
     private
+
+    def forecaster
+      @forecaster ||= FortunaLuca::Forecaster.new(
+        weather_city,
+        weather_time
+      )
+    end
+
+    def context
+      response.dig(:result, :contexts).find do |c|
+        c[:name] == CONTEXT_NAME
+      end
+    end
+
+    def time_in_words
+      if context
+        context.dig(:parameters, :"date-time.original").capitalize
+      end
+    end
 
     def weather_time
       date_string = response.dig(:result, :parameters, :"date-time")

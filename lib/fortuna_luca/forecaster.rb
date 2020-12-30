@@ -32,36 +32,23 @@ module FortunaLuca
       "sleet" => "nevischio",
     }.freeze
 
-    def initialize
-      ForecastIO.api_key = ENV["FORECASTIO_KEY"]
-      Geocoder.configure(timeout: 10)
-    end
-
     # @param location_name [String] A city name that can be geocoded
     # @param time [Time] A time object that responds to #to_i
-    # @return [String] A summary of the daily weather
-    def daily_forecast_for(location_name, time)
-      lat, lng = coordinates_for(location_name)
-      unless lat
-        logger.error("Geocoding failed for #{location_name}") and return
-      end
+    def initialize(location_name, time)
+      ForecastIO.api_key = ENV["FORECASTIO_KEY"]
+      Geocoder.configure(timeout: 10)
 
-      # API doc: https://darksky.net/dev/docs#time-machine-request
-      result = ForecastIO.forecast(
-        lat,
-        lng,
-        time: time.to_i,
-        params: {
-          lang: "it",
-          units: "ca",
-          exclude: "currently,minutely,hourly,alerts,flags"
-        }
-      )
-      unless result
+      @location_name = location_name
+      @time = time
+    end
+
+    # @return [String] A summary of the daily weather
+    def daily_forecast
+      unless forecast_result
         logger.error("Missing result from ForecastIO") and return
       end
 
-      forecast = result.daily.data.first
+      forecast = forecast_result.daily.data.first
       logger.info(forecast.inspect)
 
       icon = ICONS[forecast.icon]
@@ -81,6 +68,29 @@ module FortunaLuca
     end
 
     private
+
+    attr_reader :location_name, :time
+
+    def forecast_result
+      @forecast_result ||= begin
+        lat, lng = coordinates_for(location_name)
+        unless lat
+          logger.error("Geocoding failed for #{location_name}") and return
+        end
+
+        # API doc: https://darksky.net/dev/docs#time-machine-request
+        ForecastIO.forecast(
+          lat,
+          lng,
+          time: time.to_i,
+          params: {
+            lang: "it",
+            units: "ca",
+            exclude: "currently,minutely,hourly,alerts,flags"
+          }
+        )
+      end
+    end
 
     # @param location_name [String] A city name that can be geocoded
     # @return [Array] Latitude and longitude of ther location
