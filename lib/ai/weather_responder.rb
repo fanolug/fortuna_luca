@@ -9,7 +9,7 @@ module AI
     CONTEXT_NAME = "weather"
 
     def call
-      forecast = forecaster.daily_forecast
+      forecast = forecaster.daily_forecast_summary
       return if !forecast
 
       [

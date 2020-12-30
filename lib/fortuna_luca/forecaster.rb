@@ -43,17 +43,13 @@ module FortunaLuca
     end
 
     # @return [String] A summary of the daily weather
-    def daily_forecast
-      unless forecast_result
-        logger.error("Missing result from ForecastIO") and return
-      end
-
-      forecast = forecast_result.daily.data.first
-      logger.info(forecast.inspect)
+    def daily_forecast_summary
+      forecast = daily_forecast
+      return unless forecast
 
       icon = ICONS[forecast.icon]
       summary = forecast.summary&.downcase&.sub(/\.$/, "")
-      temp = if forecast.temperatureMin && forecast.temperatureMin
+      temp = if forecast.temperatureMin && forecast.temperatureMax
         "temperatura tra #{forecast.temperatureMin.round} e #{forecast.temperatureMax.round} °C"
       end
       precipitations = if forecast.precipType && forecast.precipProbability >= 0.2
@@ -67,9 +63,29 @@ module FortunaLuca
       [text, icon].compact.join(" ")
     end
 
+    # @return [Boolean,nil]
+    def ok_for_bike?
+      forecast = daily_forecast
+      return unless forecast
+
+      forecast.temperatureMax &&
+        forecast.temperatureMax >= 9 &&
+        forecast.precipProbability &&
+        forecast.precipProbability <= 0.25 &&
+        forecast.windSpeed &&
+        forecast.windSpeed < 40
+    end
+
     private
 
     attr_reader :location_name, :time
+
+    def daily_forecast
+      return unless forecast_result
+      forecast = forecast_result.daily.data.first
+      logger.info(forecast.inspect)
+      forecast
+    end
 
     def forecast_result
       @forecast_result ||= begin
@@ -79,7 +95,7 @@ module FortunaLuca
         end
 
         # API doc: https://darksky.net/dev/docs#time-machine-request
-        ForecastIO.forecast(
+        result = ForecastIO.forecast(
           lat,
           lng,
           time: time.to_i,
@@ -89,6 +105,10 @@ module FortunaLuca
             exclude: "currently,minutely,hourly,alerts,flags"
           }
         )
+        unless result
+          logger.error("Missing result from ForecastIO") and return
+        end
+        result
       end
     end
 
