@@ -74,8 +74,9 @@ module FortunaLuca
         probability = (forecast.precipProbability * 100).round
         "#{probability}% di possibilità di #{precipitation}"
       end
+      pressure = "pressione #{forecast.pressure.round}" if forecast.pressure
 
-      text = [summary, precipitations, temp].compact.join(", ")
+      text = [summary, precipitations, temp, pressure].compact.join(", ")
       [text, icon].compact.join(" ")
     end
 
