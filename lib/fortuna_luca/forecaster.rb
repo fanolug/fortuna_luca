@@ -65,8 +65,10 @@ module FortunaLuca
       logger.info(forecast.inspect)
 
       icon = ICONS[forecast.icon]
-      summary = forecast.summary.downcase.sub(/\.$/, "")
-      temp = "temperatura tra #{forecast.temperatureMin.round} e #{forecast.temperatureMax.round} °C"
+      summary = forecast.summary&.downcase&.sub(/\.$/, "")
+      temp = if forecast.temperatureMin && forecast.temperatureMin
+        "temperatura tra #{forecast.temperatureMin.round} e #{forecast.temperatureMax.round} °C"
+      end
       precipitations = if forecast.precipType && forecast.precipProbability >= 0.2
         precipitation = PRECIPITATIONS[forecast.precipType]
         probability = (forecast.precipProbability * 100).round
@@ -74,7 +76,7 @@ module FortunaLuca
       end
 
       text = [summary, precipitations, temp].compact.join(", ")
-      [text, icon].join(" ")
+      [text, icon].compact.join(" ")
     end
 
     private
