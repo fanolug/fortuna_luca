@@ -74,11 +74,14 @@ module FortunaLuca
     # @return [Array<Integer>] The list of hours that are good for a bike ride
     def good_bike_hours
       hourly_forecast.select do |hour_forecast|
-        hour_forecast.time.between?(
-          daily_forecast.sunriseTime,
-          daily_forecast.sunsetTime
+        (!daily_forecast.sunriseTime ||
+          !daily_forecast.sunsetTime ||
+          hour_forecast.time.between?(
+            daily_forecast.sunriseTime,
+            daily_forecast.sunsetTime
+          )
         ) &&
-        good_for_bike?(hour_forecast)
+          good_for_bike?(hour_forecast)
       end.map do |hour_forecast|
         Time.at(hour_forecast.time).hour
       end
