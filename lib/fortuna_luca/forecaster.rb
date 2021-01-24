@@ -47,7 +47,6 @@ module FortunaLuca
       forecast = daily_forecast
       return unless forecast
 
-      icon = ICONS[forecast.icon]
       summary = forecast.summary&.downcase&.sub(/\.$/, "")
       temp = if forecast.temperatureMin && forecast.temperatureMax
         I18n.t(
@@ -69,7 +68,7 @@ module FortunaLuca
       ) if forecast.pressure
 
       text = [summary, precipitations, temp, pressure].compact.join(", ")
-      [text, icon].compact.join(" ")
+      [text, daily_forecast_icon].compact.join(" ")
     end
 
     # @return [Array<Integer>] The list of hours that are good for a bike ride
@@ -83,6 +82,12 @@ module FortunaLuca
       end.map do |hour_forecast|
         Time.at(hour_forecast.time).hour
       end
+    end
+
+    def daily_forecast_icon
+      forecast = daily_forecast
+      return unless forecast
+      ICONS[forecast.icon]
     end
 
     private

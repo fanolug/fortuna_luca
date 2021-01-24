@@ -29,7 +29,8 @@ module AI
         time_in_words,
         I18n.t('responders.at_location', where: weather_city),
         I18n.t('responders.bike_weather.good_for_ride'),
-        good_hours_in_words
+        good_hours_in_words,
+        forecaster.daily_forecast_icon
       ].compact.join(" ")
     end
   end
