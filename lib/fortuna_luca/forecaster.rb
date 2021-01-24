@@ -63,17 +63,17 @@ module FortunaLuca
       [text, icon].compact.join(" ")
     end
 
-    # @return [Boolean,nil]
-    def ok_for_bike?
-      forecast = daily_forecast
-      return unless forecast
-
-      forecast.temperatureMax &&
-        forecast.temperatureMax >= 9 &&
-        forecast.precipProbability &&
-        forecast.precipProbability <= 0.25 &&
-        forecast.windSpeed &&
-        forecast.windSpeed < 40
+    # @return [Array<Integer>] The list of hours that are good for a bike ride
+    def good_bike_hours
+      hourly_forecast.select do |hour_forecast|
+        hour_forecast.time.between?(
+          daily_forecast.sunriseTime,
+          daily_forecast.sunsetTime
+        ) &&
+        good_for_bike?(hour_forecast)
+      end.map do |hour_forecast|
+        Time.at(hour_forecast.time).hour
+      end
     end
 
     private
@@ -81,10 +81,18 @@ module FortunaLuca
     attr_reader :location_name, :time
 
     def daily_forecast
-      return unless forecast_result
-      forecast = forecast_result.daily.data.first
-      logger.info(forecast.inspect)
-      forecast
+      forecast_result.daily.data.first if forecast_result
+    end
+
+    def hourly_forecast
+      forecast_result.hourly.data if forecast_result
+    end
+
+    # @param forecast [Hashie::Mash] An hourly forecast
+    def good_for_bike?(forecast)
+      (!forecast.temperature || forecast.temperature >= 9) &&
+      (!forecast.precipProbability || forecast.precipProbability <= 0.2) &&
+      (!forecast.windSpeed || forecast.windSpeed < 40)
     end
 
     def forecast_result
@@ -102,12 +110,13 @@ module FortunaLuca
           params: {
             lang: "it",
             units: "ca",
-            exclude: "currently,minutely,hourly,alerts,flags"
+            exclude: "currently,minutely,alerts,flags"
           }
         )
         unless result
           logger.error("Missing result from ForecastIO") and return
         end
+        logger.info(result)
         result
       end
     end
