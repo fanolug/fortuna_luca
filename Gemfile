@@ -8,6 +8,7 @@ gem 'dotenv', '~> 2.1.0'
 gem 'forecast_io', '~> 2.0.1'
 gem 'geocoder', '~> 1.5.2', require: false
 gem 'google-api-client', '~> 0.9.11'
+gem 'i18n', '~> 1.8.7'
 gem 'mail', github: 'mikel/mail'
 gem 'puma', '~> 4.3.0'
 gem 'rack', '~> 2.2.3'

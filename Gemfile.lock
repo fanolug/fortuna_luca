@@ -28,6 +28,7 @@ GEM
     chronic (0.10.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    concurrent-ruby (1.1.8)
     crack (0.4.4)
     derailed_benchmarks (1.8.1)
       benchmark-ips (~> 2)
@@ -87,6 +88,8 @@ GEM
     http_parser.rb (0.6.0)
     httpclient (2.8.3)
     hurley (0.2)
+    i18n (1.8.7)
+      concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
     jwt (1.5.6)
@@ -189,6 +192,7 @@ DEPENDENCIES
   forecast_io (~> 2.0.1)
   geocoder (~> 1.5.2)
   google-api-client (~> 0.9.11)
+  i18n (~> 1.8.7)
   mail!
   minitest
   minitest-reporters
@@ -204,6 +208,9 @@ DEPENDENCIES
   twitter-text (~> 1.13.3)
   webmock
   whenever (~> 0.9.4)
+
+RUBY VERSION
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.1.4

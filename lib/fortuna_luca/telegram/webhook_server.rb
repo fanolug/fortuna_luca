@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "dotenv/load"
+require 'dotenv/load'
 require 'sinatra/base'
 require 'json'
 require 'telegram/bot'
