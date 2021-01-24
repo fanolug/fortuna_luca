@@ -10,7 +10,7 @@ module FortunaLuca
       include Logging
 
       # @param language [String] A valid Wikipedia language code
-      def initialize(language = "it")
+      def initialize(language = I18n.locale)
         @api_url = "https://#{language}.wikipedia.org/w/api.php"
       end
 

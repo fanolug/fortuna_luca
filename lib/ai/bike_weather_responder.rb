@@ -5,7 +5,11 @@ module AI
     def call
       good_hours = forecaster.good_bike_hours
       if good_hours.none?
-        return "#{time_in_words} a #{weather_city} non fa uscire in bici"
+        return I18n.t(
+          'responders.bike_weather.not_good_for_ride',
+          when: time_in_words,
+          where: weather_city
+        )
       end
 
       grouped_good_hours = good_hours.sort.slice_when do |previous, current|
@@ -14,13 +18,17 @@ module AI
 
       good_hours_in_words = grouped_good_hours.map.with_index(1) do |group, index|
         group = [group].flatten
-        "tra le #{group.first} e le #{group.last.next}"
+        I18n.t(
+          'responders.bike_weather.between_hours',
+          start: group.first,
+          end: group.last.next
+        )
       end.join(", ")
 
       [
         time_in_words,
-        "a #{weather_city}",
-        "fa uscire in bici",
+        I18n.t('responders.at_location', where: weather_city),
+        I18n.t('responders.bike_weather.good_for_ride'),
         good_hours_in_words
       ].compact.join(" ")
     end

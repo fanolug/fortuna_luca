@@ -27,9 +27,9 @@ module FortunaLuca
     }.freeze
 
     PRECIPITATIONS = {
-      "rain" => "pioggia",
-      "snow" => "neve",
-      "sleet" => "nevischio",
+      "rain" => I18n.t('forecaster.rain'),
+      "snow" => I18n.t('forecaster.snow'),
+      "sleet" => I18n.t('forecaster.sleet'),
     }.freeze
 
     # @param location_name [String] A city name that can be geocoded
@@ -50,14 +50,23 @@ module FortunaLuca
       icon = ICONS[forecast.icon]
       summary = forecast.summary&.downcase&.sub(/\.$/, "")
       temp = if forecast.temperatureMin && forecast.temperatureMax
-        "temperatura tra #{forecast.temperatureMin.round} e #{forecast.temperatureMax.round} °C"
+        I18n.t(
+          'forecaster.temp_between',
+          min: forecast.temperatureMin.round,
+          max: forecast.temperatureMax.round
+        )
       end
       precipitations = if forecast.precipType && forecast.precipProbability >= 0.2
-        precipitation = PRECIPITATIONS[forecast.precipType]
-        probability = (forecast.precipProbability * 100).round
-        "#{probability}% di possibilità di #{precipitation}"
+        I18n.t(
+          'forecaster.precip_robability',
+          value: (forecast.precipProbability * 100).round,
+          what: PRECIPITATIONS[forecast.precipType]
+        )
       end
-      pressure = "pressione #{forecast.pressure.round}" if forecast.pressure
+      pressure = I18n.t(
+        'forecaster.pressure',
+        value: forecast.pressure.round
+      ) if forecast.pressure
 
       text = [summary, precipitations, temp, pressure].compact.join(", ")
       [text, icon].compact.join(" ")
@@ -108,7 +117,7 @@ module FortunaLuca
           lng,
           time: time.to_i,
           params: {
-            lang: "it",
+            lang: I18n.locale.to_s,
             units: "ca",
             exclude: "currently,minutely,alerts,flags"
           }

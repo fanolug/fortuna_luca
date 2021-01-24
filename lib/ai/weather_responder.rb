@@ -14,7 +14,7 @@ module AI
 
       [
         time_in_words,
-        "a #{weather_city}",
+        I18n.t('responders.at_location', where: weather_city),
         forecast
       ].compact.join(" ")
     end
