@@ -2,15 +2,15 @@ require "dotenv/load"
 require "google/apis/customsearch_v1"
 
 class WebSearcher
-  def initialize(query)
+  def initialize(query:, site: nil)
     @query = query
+    @site = site
   end
 
   def first_link
     result = search_client.list_cses(
-      @query,
-      cx: ENV["GOOGLE_CUSTOM_SEARCH_ID"],
-      num: 1
+      query,
+      base_options.merge(num: 1)
     )
 
     result.items&.first&.link
@@ -18,9 +18,17 @@ class WebSearcher
 
   private
 
+  attr_reader :query, :site
+
   def search_client
     client = Google::Apis::CustomsearchV1::CustomsearchService.new
     client.key = ENV["GOOGLE_API_KEY"]
     client
+  end
+
+  def base_options
+    options = { cx: ENV["GOOGLE_CUSTOM_SEARCH_ID"] }
+    options[:site_search] = site if site
+    options
   end
 end

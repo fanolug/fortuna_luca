@@ -9,7 +9,7 @@ module AI
       query = response.dig(:result, :parameters, :query)
       return if query.to_s == ""
 
-      WebSearcher.new(query).first_link
+      WebSearcher.new(query: query).first_link
     end
   end
 end
