@@ -20,8 +20,15 @@ module FortunaLuca
       def call
         return false if !private? && !mention?
 
-        send_telegram_message(chat_id, AI::Responder.new(clean_text).call)
+        result = AI::Responder.new(clean_text).call
+        send_telegram_message(chat_id, result)
         true
+      rescue => error
+        if ENV["RACK_ENV"] != "production"
+          send_telegram_message(chat_id, error_message(error))
+          return true
+        end
+        raise error
       end
 
       private
@@ -48,6 +55,10 @@ module FortunaLuca
           tr("\n", ' ').
           squeeze(' ').
           strip
+      end
+
+      def error_message(error)
+        "!!! ERROR: #{error.full_message}"
       end
     end
   end
