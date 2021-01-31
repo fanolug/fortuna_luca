@@ -19,7 +19,7 @@ module FortunaLuca
       def call(term)
         page = data(term)&.dig("query", "pages")&.min_by { |_, v| v["index"] }
         extract = page.dig(1, "extract") if page
-        extract.split(". ").first.split(".\n").first if extract
+        extract.split("\n").first if extract
       end
 
       private
