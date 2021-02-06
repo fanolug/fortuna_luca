@@ -24,7 +24,9 @@ group :development do
   gem 'minitest-reporters'
   gem 'minitest'
   gem 'mocha'
+  gem 'pry'
   gem 'rack-test'
   gem 'stackprof'
+  gem 'tzinfo'
   gem 'webmock'
 end
