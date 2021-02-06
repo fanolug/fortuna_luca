@@ -1,3 +1,4 @@
+require "i18n"
 require_relative "dialogflow_responder"
 require_relative "../fortuna_luca/forecaster"
 

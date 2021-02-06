@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "i18n"
 require "httpclient"
 require "json"
 require_relative "../../logging"
