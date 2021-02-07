@@ -3,6 +3,7 @@
 require "i18n"
 require "httpclient"
 require "json"
+require "timezone_finder"
 require_relative "../../logging"
 
 module FortunaLuca
@@ -21,7 +22,8 @@ module FortunaLuca
       def call
         result = HTTPClient.get(@api_url)
         response = JSON.parse(result.body)["response"][0]
-        message(response)
+        request = JSON.parse(result.body)["request"]
+        message(response, request)
       rescue JSON::ParserError => e
         Logging.logger.error "Iss JSON parse error: #{e.message}"
         nil
@@ -29,11 +31,13 @@ module FortunaLuca
       
       private
 
-      def message(response)
+      def message(response, request)
+        ENV["TZ"] = TimezoneFinder.create.timezone_at(lng: request["longitude"], lat: request["latitude"])
         duration_min = response["duration"] / 60 
-        date_time = Time.at(response["risetime"]).getlocal
+        date_time = Time.at(response["risetime"])
         date = date_time.strftime("%d/%m")
         hour = date_time.strftime("%H:%M")
+        ENV["TZ"] = nil
         I18n.t('iss.pass_time', date: date, hour: hour, duration_min: duration_min) 
       end
     end
