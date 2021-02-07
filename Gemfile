@@ -17,6 +17,7 @@ gem 'sinatra', '~> 2.1.0'
 gem 'telegram-bot-ruby', '~> 0.11.0'
 gem 'twitter-text', '~> 1.13.3'
 gem 'twitter', '~> 6.0.0'
+gem 'timezone_finder', '~> 1.5.7'
 gem 'whenever', '~> 0.9.4', require: false
 
 group :development do
@@ -24,6 +25,7 @@ group :development do
   gem 'minitest-reporters'
   gem 'minitest'
   gem 'mocha'
+  gem 'pry'
   gem 'rack-test'
   gem 'stackprof'
   gem 'webmock'

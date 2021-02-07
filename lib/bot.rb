@@ -61,8 +61,6 @@ class Bot
     # get the first web search result link
     when /^\/google (.+)/i # /google
       send_message(message.chat.id, WebSearcher.new($1).first_link)
-    when /^\/meteops/i
-      send_message(message.chat.id, "http://trottomv.suroot.com/meteo#{Time.now.strftime("%Y%m%d")}.png")
     # default: try AI to generate some response
     else
       text = text.sub(/\A\/\S* /, "") # remove /command part
