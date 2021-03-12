@@ -22,4 +22,13 @@ describe FortunaLuca::Telegram::WebhookServer do
       last_response.body.must_equal("")
     end
   end
+
+  describe "POST /the-yt-secret-path-set-on-ENV" do
+    it "calls the responder and returns 200" do
+      FortunaLuca::Telegram::YoutubeResponder.any_instance.expects(:call).returns("the response")
+      post "/the-yt-secret-path", "{}"
+      last_response.ok?.must_equal(true)
+      last_response.body.must_equal("")
+    end
+  end
 end

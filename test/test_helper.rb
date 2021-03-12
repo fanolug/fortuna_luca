@@ -7,6 +7,7 @@ require_relative "../config/i18n"
 
 ENV["RACK_ENV"] = "test"
 ENV["SECRET_WEBHOOK_PATH"] = "/the-secret-path"
+ENV["SECRET_YT_WEBHOOK_PATH"] = "/the-yt-secret-path"
 ENV["TELEGRAM_BOT_NAME"] = "@fortuna_luca"
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new

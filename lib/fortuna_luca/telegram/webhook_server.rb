@@ -5,6 +5,7 @@ require 'sinatra/base'
 require 'json'
 require 'telegram/bot'
 require_relative 'responder'
+require_relative 'youtube_responder'
 
 module FortunaLuca
   module Telegram
@@ -17,23 +18,22 @@ module FortunaLuca
 
       # Handle webhooks coming from Telegram
       post ENV['SECRET_WEBHOOK_PATH'] do
-        msg = message(request)
-        Responder.new(msg).call
+        Responder.new(telegram_message(request)).call
+        200
+      end
 
+      # Handle notifications coming from Youtube
+      post ENV['SECRET_YT_WEBHOOK_PATH'] do
+        YoutubeResponder.new(request.body.read).call
         200
       end
 
       private
 
-      def message(request)
-        data = parsed_body(request)
+      def telegram_message(request)
+        data = JSON.parse(request.body.read)
         logger.info data
-        message = ::Telegram::Bot::Types::Message.new(data['message'])
-        message
-      end
-
-      def parsed_body(request)
-        JSON.parse(request.body.read)
+        ::Telegram::Bot::Types::Message.new(data['message'])
       end
     end
   end
