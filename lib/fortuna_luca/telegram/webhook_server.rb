@@ -23,6 +23,9 @@ module FortunaLuca
       end
 
       # Handle notifications coming from Youtube
+      get ENV['SECRET_YT_WEBHOOK_PATH'] do
+        params['hub.challenge']
+      end
       post ENV['SECRET_YT_WEBHOOK_PATH'] do
         YoutubeResponder.new(request.body.read).call
         200
