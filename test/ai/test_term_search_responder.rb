@@ -11,10 +11,14 @@ describe AI::TermSearchResponder do
 
   describe "#call" do
     it "returns the correct response" do
-      FortunaLuca::Wikipedia::Summary.any_instance.
-                  expects(:call).
-                  returns("The response")
+      FortunaLuca::Wikipedia::Summary.any_instance.expects(:call).returns("The response")
       @responder.call.must_equal("The response")
+    end
+
+    it "fall backs on web search" do
+      FortunaLuca::Wikipedia::Summary.any_instance.expects(:call).returns(nil)
+      WebSearcher.any_instance.expects(:first_link).returns("https://it.wikipedia.org/wiki/Linux")
+      @responder.call.must_equal("https://it.wikipedia.org/wiki/Linux")
     end
   end
 end
