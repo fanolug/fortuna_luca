@@ -5,6 +5,7 @@ ruby '~> 2.6.5'
 
 gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'dotenv', '~> 2.1.0'
+gem 'feedjira', '~> 3.1.2'
 gem 'forecast_io', '~> 2.0.1'
 gem 'geocoder', '~> 1.5.2', require: false
 gem 'google-api-client', '~> 0.9.11'
