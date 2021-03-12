@@ -31,8 +31,11 @@ describe FortunaLuca::Telegram::YoutubeResponder do
         DATA
       end
 
-      it "returns the first entry URL" do
-        instance.call.must_equal("http://www.youtube.com/watch?v=VIDEO_ID")
+      it "sends message with the first entry URL" do
+        Telegram::Bot::Api.any_instance.expects(:send_message).with(
+          { chat_id: "12345", text: "http://www.youtube.com/watch?v=VIDEO_ID" }
+        )
+        instance.call
       end
     end
   end
@@ -40,8 +43,9 @@ describe FortunaLuca::Telegram::YoutubeResponder do
   describe "with invalid feed data" do
     let(:data) { "not a feed" }
 
-    it "returns the first entry URL" do
-      instance.call.must_equal(nil)
+    it "does not send a message" do
+      Telegram::Bot::Api.any_instance.expects(:send_message).never
+      instance.call
     end
   end
 end
