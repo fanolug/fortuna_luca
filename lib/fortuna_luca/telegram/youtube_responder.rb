@@ -19,8 +19,10 @@ module FortunaLuca
       def call
         feed = ::Feedjira.parse(data)
         logger.info(feed)
-        result = feed&.entries&.first&.url
-        send_telegram_message(chat_id, result)
+        feed.entries&.each do |entry|
+          next if entry.updated != entry.published
+          send_telegram_message(chat_id, entry.url)
+        end
       rescue Feedjira::NoParserAvailable
       end
 

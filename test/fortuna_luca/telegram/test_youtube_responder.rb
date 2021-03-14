@@ -6,6 +6,8 @@ describe FortunaLuca::Telegram::YoutubeResponder do
 
   describe "#call" do
     describe "with valid feed data" do
+      let(:published) { "2015-03-06T21:40:57+00:00" }
+      let(:updated) { published }
       let(:data) do
         <<~DATA
           <feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"
@@ -24,8 +26,8 @@ describe FortunaLuca::Telegram::YoutubeResponder do
                <name>Channel title</name>
                <uri>http://www.youtube.com/channel/CHANNEL_ID</uri>
               </author>
-              <published>2015-03-06T21:40:57+00:00</published>
-              <updated>2015-03-09T19:05:24.552394234+00:00</updated>
+              <published>#{published}</published>
+              <updated>#{updated}</updated>
             </entry>
           </feed>
         DATA
@@ -36,6 +38,15 @@ describe FortunaLuca::Telegram::YoutubeResponder do
           { chat_id: "12345", text: "http://www.youtube.com/watch?v=VIDEO_ID" }
         )
         instance.call
+      end
+
+      describe "when entry is updated" do
+        let(:updated) { "2015-03-07T00:00:00+00:00" }
+
+        it "does not send a message" do
+          Telegram::Bot::Api.any_instance.expects(:send_message).never
+          instance.call
+        end
       end
     end
   end
