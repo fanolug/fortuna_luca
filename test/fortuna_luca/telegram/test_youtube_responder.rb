@@ -19,7 +19,7 @@ describe FortunaLuca::Telegram::YoutubeResponder do
             <entry>
               <id>yt:video:VIDEO_ID</id>
               <yt:videoId>VIDEO_ID</yt:videoId>
-              <yt:channelId>CHANNEL_ID</yt:channelId>
+              <yt:channelId>abcdefg</yt:channelId>
               <title>Video title</title>
               <link rel="alternate" href="http://www.youtube.com/watch?v=VIDEO_ID"/>
               <author>
@@ -35,7 +35,7 @@ describe FortunaLuca::Telegram::YoutubeResponder do
 
       it "sends message with the first entry URL" do
         Telegram::Bot::Api.any_instance.expects(:send_message).with(
-          { chat_id: "12345", text: "http://www.youtube.com/watch?v=VIDEO_ID" }
+          { chat_id: "-12345", text: "http://www.youtube.com/watch?v=VIDEO_ID" }
         )
         instance.call
       end

@@ -9,5 +9,6 @@ ENV["RACK_ENV"] = "test"
 ENV["SECRET_WEBHOOK_PATH"] = "/the-secret-path"
 ENV["SECRET_YT_WEBHOOK_PATH"] = "/the-yt-secret-path"
 ENV["TELEGRAM_BOT_NAME"] = "@fortuna_luca"
-ENV["TELEGRAM_CHAT_ID_FOR_YT_FEED"] = "12345"
+ENV["YOUTUBE__abcdefg"] = "-12345"
+
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
