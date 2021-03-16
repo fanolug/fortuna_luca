@@ -159,6 +159,12 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-contrib (2.1.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.1.0)
+      sinatra (= 2.1.0)
+      tilt (~> 2.0)
     stackprof (0.2.16)
     telegram-bot-ruby (0.11.0)
       faraday
@@ -216,6 +222,7 @@ DEPENDENCIES
   rack-test
   rake
   sinatra (~> 2.1.0)
+  sinatra-contrib (~> 2.1.0)
   stackprof
   telegram-bot-ruby (~> 0.11.0)
   twitter (~> 6.0.0)
