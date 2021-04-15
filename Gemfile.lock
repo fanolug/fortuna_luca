@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/alepore/frinkiac.git
+  revision: 3dd4d748efa67212e40dff983fdf489244471102
+  branch: loose-deps
+  specs:
+    frinkiac (0.0.5)
+      faraday (< 2)
+      json (~> 1.8.3)
+      word_wrap (~> 1.0.0)
+
+GIT
   remote: https://github.com/api-ai/apiai-ruby-client.git
   revision: 33abeb53d9761d3764c692cf02fa4e15a41667da
   specs:
@@ -96,6 +106,7 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    json (1.8.6)
     jwt (1.5.6)
     little-plugger (1.1.4)
     logging (2.3.0)
@@ -200,6 +211,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
     whenever (0.9.7)
       chronic (>= 0.6.3)
+    word_wrap (1.0.0)
 
 PLATFORMS
   ruby
@@ -210,6 +222,7 @@ DEPENDENCIES
   dotenv (~> 2.1.0)
   feedjira (~> 3.1.2)
   forecast_io (~> 2.0.1)
+  frinkiac!
   geocoder (~> 1.5.2)
   google-api-client (~> 0.9.11)
   i18n (~> 1.8.7)
