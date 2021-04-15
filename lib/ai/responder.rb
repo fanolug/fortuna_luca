@@ -6,6 +6,7 @@ require_relative "bike_weather_responder"
 require_relative "web_query_responder"
 require_relative "comparison_responder"
 require_relative "term_search_responder"
+require_relative "simpsons_search_responder"
 
 module AI
   class Responder
@@ -46,6 +47,7 @@ module AI
       when "web_query" then WebQueryResponder.new(response).call
       when "comparison" then ComparisonResponder.new(response).call
       when "term_search" then TermSearchResponder.new(response).call
+      when "simpsons_search" then SimpsonsSearchResponder.new(response).call
       else
         # TODO nothing?
       end
