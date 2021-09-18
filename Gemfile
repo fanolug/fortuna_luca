@@ -3,13 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.6.5'
 
-gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'dotenv', '~> 2.1.0'
 gem 'feedjira', '~> 3.1.2'
 gem 'forecast_io', '~> 2.0.1'
 gem 'frinkiac', github: 'alepore/frinkiac', branch: 'loose-deps'
 gem 'geocoder', '~> 1.5.2', require: false
-gem 'google-api-client', '~> 0.9.11'
+gem 'google-api-client', '~> 0.53'
+gem 'google-cloud-dialogflow-v2', '~> 0.11'
 gem 'i18n', '~> 1.8.7'
 gem 'mail', github: 'mikel/mail'
 gem 'puma', '~> 4.3.0'
@@ -19,7 +19,7 @@ gem 'sinatra', '~> 2.1.0'
 gem 'sinatra-contrib', '~> 2.1.0'
 gem 'telegram-bot-ruby', '~> 0.11.0'
 gem 'twitter-text', '~> 1.13.3'
-gem 'twitter', '~> 6.0.0'
+gem 'twitter', '~> 7.0.0'
 gem 'whenever', '~> 0.9.4', require: false
 
 group :development do
