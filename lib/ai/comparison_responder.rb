@@ -5,9 +5,9 @@ module AI
     include DialogflowResponder
 
     def call
-      subjects = response.dig(:result, :parameters, :subjects)
-      return if !subjects || subjects.uniq.size < 2
-      subjects.uniq.sample
+      subjects = result.parameters.fields["subjects"].list_value&.values&.map(&:string_value)&.uniq
+      return if !subjects || subjects.size < 2
+      subjects.sample
     end
   end
 end

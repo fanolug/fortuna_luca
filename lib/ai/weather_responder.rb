@@ -29,20 +29,20 @@ module AI
       )
     end
 
-    def context
-      response.dig(:result, :contexts).find do |c|
-        c[:name] == CONTEXT_NAME
+    def weather_context
+      result.output_contexts.find do |context|
+        context.name.end_with? "/contexts/#{CONTEXT_NAME}"
       end
     end
 
     def time_in_words
-      if context
-        context.dig(:parameters, :"date-time.original").capitalize
+      if weather_context
+        weather_context.parameters.fields["date-time.original"].string_value&.capitalize
       end
     end
 
     def weather_time
-      date_string = response.dig(:result, :parameters, :"date-time")
+      date_string = result.parameters.fields["date-time"].string_value
       now = Time.now
 
       begin
@@ -55,8 +55,7 @@ module AI
     end
 
     def weather_city
-      address = response.dig(:result, :parameters, :address)
-      city = address.respond_to?(:dig) ? address.dig(:city) : address
+      city = result.parameters.fields["address"].struct_value&.fields&.dig("city")&.string_value
       city = DEFAULT_CITY if !city || city == ""
       city
     end

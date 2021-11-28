@@ -7,7 +7,7 @@ module AI
     include DialogflowResponder
 
     def call
-      query = response.dig(:result, :parameters, :term)
+      query = result.parameters.fields["term"].string_value
       return if query.to_s == ""
 
       FortunaLuca::Frinkiac.new.search_image(query)

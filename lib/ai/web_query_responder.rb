@@ -6,7 +6,7 @@ module AI
     include DialogflowResponder
 
     def call
-      query = response.dig(:result, :parameters, :query)
+      query = result.parameters.fields["query"].string_value
       return if query.to_s == ""
 
       WebSearcher.new(query: query).first_link
