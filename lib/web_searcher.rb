@@ -9,8 +9,10 @@ class WebSearcher
 
   def first_link
     result = search_client.list_cses(
-      query,
-      base_options.merge(num: 1)
+      exact_terms: query,
+      cx: ENV["GOOGLE_CUSTOM_SEARCH_ID"],
+      site_search: site,
+      num: 1
     )
 
     result.items&.first&.link
@@ -21,14 +23,8 @@ class WebSearcher
   attr_reader :query, :site
 
   def search_client
-    client = Google::Apis::CustomsearchV1::CustomsearchService.new
+    client = Google::Apis::CustomsearchV1::CustomSearchAPIService.new
     client.key = ENV["GOOGLE_API_KEY"]
     client
-  end
-
-  def base_options
-    options = { cx: ENV["GOOGLE_CUSTOM_SEARCH_ID"] }
-    options[:site_search] = site if site
-    options
   end
 end
