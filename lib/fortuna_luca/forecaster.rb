@@ -108,9 +108,9 @@ module FortunaLuca
 
     # @param forecast [Hashie::Mash] An hourly forecast
     def good_for_bike?(forecast)
-      (!forecast.temperature || forecast.temperature >= 9) &&
+      (!forecast.temperature || forecast.temperature >= 13) &&
       (!forecast.precipProbability || forecast.precipProbability <= 0.2) &&
-      (!forecast.windSpeed || forecast.windSpeed < 40)
+      (!forecast.windSpeed || forecast.windSpeed < 30)
     end
 
     def forecast_result
