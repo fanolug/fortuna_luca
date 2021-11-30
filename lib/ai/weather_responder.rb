@@ -54,8 +54,12 @@ module AI
       end
     end
 
+    def address
+      result.parameters&.fields["address"]&.struct_value&.fields
+    end
+
     def weather_city
-      city = result.parameters.fields["address"].struct_value&.fields&.dig("city")&.string_value
+      city = address["city"]&.string_value
       city = DEFAULT_CITY if !city || city == ""
       city
     end

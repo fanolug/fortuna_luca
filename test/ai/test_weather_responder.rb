@@ -12,13 +12,16 @@ describe AI::WeatherResponder do
 
   before do
     @forecaster = FortunaLuca::Forecaster.new("Fano", date)
+
   end
 
   describe "#call" do
     it "returns the correct response" do
-      FortunaLuca::Forecaster.expects(:new).with("Fano", date).returns(@forecaster)
-      @forecaster.expects(:daily_forecast_summary).returns("poco nuvoloso a partire da sera")
-      responder.call.must_equal("Domani a Fano poco nuvoloso a partire da sera")
+      Time.stub(:now, date - 1) do
+        FortunaLuca::Forecaster.expects(:new).with("Fano", date).returns(@forecaster)
+        @forecaster.expects(:daily_forecast_summary).returns("poco nuvoloso a partire da sera")
+        responder.call.must_equal("Domani a Fano poco nuvoloso a partire da sera")
+      end
     end
   end
 end
