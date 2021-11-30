@@ -24,11 +24,8 @@ module FortunaLuca
         send_telegram_message(chat_id, result)
         true
       rescue => error
-        if ENV["RACK_ENV"] != "production"
-          send_telegram_message(chat_id, error_message(error))
-          return true
-        end
-        raise error
+        log_error(error)
+        true
       end
 
       private
@@ -57,8 +54,15 @@ module FortunaLuca
           strip
       end
 
-      def error_message(error)
-        "!!! ERROR: #{error.full_message}"
+      def log_error(error)
+        logger.error(error)
+
+        if ENV["RACK_ENV"] != "production" && ENV["TELEGRAM_DEBUGGER_CHAT_ID"]
+          send_telegram_message(
+            ENV["TELEGRAM_DEBUGGER_CHAT_ID"],
+            "!!! ERROR: #{error.full_message}"
+          )
+        end
       end
     end
   end
