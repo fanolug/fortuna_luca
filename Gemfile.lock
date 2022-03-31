@@ -113,10 +113,10 @@ GEM
     multi_json (1.15.0)
     multipart-post (2.1.1)
     naught (1.1.0)
-    nio4r (2.5.4)
+    nio4r (2.5.8)
     os (0.9.6)
     public_suffix (4.0.6)
-    puma (4.3.6)
+    puma (4.3.12)
       nio4r (~> 2.0)
     rack (1.6.13)
     rack-protection (1.5.5)
@@ -189,7 +189,7 @@ DEPENDENCIES
   minitest
   minitest-reporters
   mocha
-  puma (~> 4.3.0)
+  puma (~> 4.3.12)
   rack (~> 1.6)
   rack-test
   rake
