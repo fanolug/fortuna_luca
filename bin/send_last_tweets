@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
-require_relative '../lib/bot'
-Bot.new.send_last_tweets(minutes: 60)
+require_relative '../lib/fortuna_luca/telegram/twitter'
+FortunaLuca::Telegram::Twitter.new.send_last_tweets(minutes: 60)

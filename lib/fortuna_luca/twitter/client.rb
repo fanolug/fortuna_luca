@@ -33,10 +33,6 @@ module FortunaLuca
         end.compact
       end
 
-      def followed_twitter_handlers
-        ENV["TWITTER_HANDLERS"].to_s.split(",").map(&:strip)
-      end
-
       private
 
       def client
