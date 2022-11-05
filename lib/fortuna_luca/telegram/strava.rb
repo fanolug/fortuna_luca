@@ -2,6 +2,7 @@
 
 require "dotenv/load"
 require "json"
+require "strava-ruby-client"
 require_relative 'client'
 require_relative '../logging'
 
@@ -17,9 +18,10 @@ module FortunaLuca
       end
 
       def call
-        message = JSON.parse(data)
-        logger.info(message)
-        handle_message(message)
+        payload = JSON.parse(data)
+        logger.info(payload)
+        event = ::Strava::Webhooks::Models::Event.new(payload)
+        handle_event(event)
       end
 
       private
@@ -30,12 +32,12 @@ module FortunaLuca
         "https://www.strava.com/activities/#{activity_id}"
       end
 
-      def handle_message(message)
-        case message["object_type"]
+      def handle_event(event)
+        case event.object_type
         when "activity"
-          case message["aspect_type"]
+          case event.aspect_type
           when "create"
-            send_telegram_message(ENV["STRAVA_CHAT_ID"], activity_url(message["object_id"]))
+            send_telegram_message(ENV["STRAVA_CHAT_ID"], activity_url(event.object_id))
           end
         end
       end
