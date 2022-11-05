@@ -34,7 +34,7 @@ describe FortunaLuca::Telegram::WebhookServer do
 
   describe "POST /the-strava-secret-path-set-on-ENV" do
     it "calls the responder and returns 200" do
-      FortunaLuca::Telegram::StravaResponder.any_instance.expects(:call).returns("the response")
+      FortunaLuca::Telegram::Strava.any_instance.expects(:call).returns("the response")
       post "/the-strava-secret-path", "{}"
       last_response.ok?.must_equal(true)
       last_response.body.must_equal("")

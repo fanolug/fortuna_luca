@@ -7,7 +7,7 @@ require 'json'
 require 'telegram/bot'
 require_relative 'responder'
 require_relative 'youtube_responder'
-require_relative 'strava_responder'
+require_relative 'strava'
 
 module FortunaLuca
   module Telegram
@@ -38,7 +38,7 @@ module FortunaLuca
         json 'hub.challenge' => params['hub.challenge']
       end
       post ENV['SECRET_STRAVA_WEBHOOK_PATH'] do
-        StravaResponder.new(request.body.read).call
+        Strava.new(request.body.read).call
         200
       end
 
