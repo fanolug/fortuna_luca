@@ -20,7 +20,6 @@ gem 'sinatra-contrib', '~> 2.1.0'
 gem 'telegram-bot-ruby', '~> 0.11.0'
 gem 'twitter-text', '~> 1.13.3'
 gem 'twitter', '~> 7.0.0'
-gem 'whenever', '~> 0.9.4', require: false
 
 group :development do
   gem 'derailed_benchmarks'
