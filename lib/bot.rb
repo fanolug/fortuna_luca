@@ -6,7 +6,6 @@ require_relative 'xkcd'
 require_relative 'telegram_client'
 require_relative 'twitter_client'
 require_relative 'twitter_reader'
-require_relative 'googlecalendar_client'
 require_relative 'ai/responder'
 
 class Bot
