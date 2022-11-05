@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 2.6.5'
+ruby '~> 3.1.2'
 
 gem 'dotenv', '~> 2.1.0'
-gem 'feedjira', '~> 3.1.2'
+gem 'feedjira', '~> 3.2.2'
 gem 'forecast_io', '~> 2.0.1'
 gem 'frinkiac', github: 'alepore/frinkiac', branch: 'loose-deps'
 gem 'geocoder', '~> 1.5.2', require: false

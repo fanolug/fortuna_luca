@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/alepore/frinkiac.git
-  revision: 3dd4d748efa67212e40dff983fdf489244471102
+  revision: 06c6d6967ebfa9fb72eb3098d6fa3212ca356599
   branch: loose-deps
   specs:
     frinkiac (0.0.5)
       faraday (< 2)
-      json (~> 1.8.3)
+      json
       word_wrap (~> 1.0.0)
 
 GIT
@@ -61,7 +61,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    feedjira (3.1.2)
+    feedjira (3.2.2)
       loofah (>= 2.3.1)
       sax-machine (>= 1.0)
     ffi (1.13.1)
@@ -107,7 +107,7 @@ GEM
       gapic-common (>= 0.7, < 2.a)
       google-cloud-errors (~> 1.0)
     google-cloud-errors (1.2.0)
-    google-protobuf (3.19.1)
+    google-protobuf (3.21.9)
     googleapis-common-protos (1.3.12)
       google-protobuf (~> 3.14)
       googleapis-common-protos-types (~> 1.2)
@@ -121,8 +121,8 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (~> 0.15)
-    grpc (1.41.1)
-      google-protobuf (~> 3.17)
+    grpc (1.50.0)
+      google-protobuf (~> 3.21)
       googleapis-common-protos-types (~> 1.0)
     hashdiff (1.0.1)
     hashie (4.1.0)
@@ -144,9 +144,9 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
-    json (1.8.6)
+    json (2.6.2)
     jwt (2.2.3)
-    loofah (2.9.0)
+    loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     memoist (0.16.2)
@@ -155,8 +155,8 @@ GEM
     memory_profiler (0.9.14)
     mini_histogram (0.3.1)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
-    minitest (5.14.2)
+    mini_portile2 (2.8.0)
+    minitest (5.16.3)
     minitest-reporters (1.4.2)
       ansi
       builder
@@ -169,14 +169,14 @@ GEM
       ruby2_keywords (~> 0.0.1)
     naught (1.1.0)
     nio4r (2.5.4)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     os (1.1.1)
     public_suffix (4.0.6)
     puma (4.3.6)
       nio4r (~> 2.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
@@ -257,7 +257,7 @@ PLATFORMS
 DEPENDENCIES
   derailed_benchmarks
   dotenv (~> 2.1.0)
-  feedjira (~> 3.1.2)
+  feedjira (~> 3.2.2)
   forecast_io (~> 2.0.1)
   frinkiac!
   geocoder (~> 1.5.2)
@@ -281,7 +281,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.1.4
+   2.3.25
