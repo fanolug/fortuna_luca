@@ -56,10 +56,10 @@ module FortunaLuca
       def log_error(error)
         logger.error(error)
 
-        if ENV["RACK_ENV"] != "production" && ENV["TELEGRAM_DEBUGGER_CHAT_ID"]
+        if ENV["TELEGRAM_DEBUGGER_CHAT_ID"]
           send_telegram_message(
             ENV["TELEGRAM_DEBUGGER_CHAT_ID"],
-            "!!! ERROR: #{error.full_message}"
+            "!!! ERROR #{ENV["RACK_ENV"]}: #{error.full_message}"
           )
         end
       end
