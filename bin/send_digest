@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-require_relative '../lib/digest_mailer'
-DigestMailer.new.deliver!
