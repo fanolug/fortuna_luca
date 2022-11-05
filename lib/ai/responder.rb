@@ -1,7 +1,7 @@
 require "dotenv/load"
 require "google/cloud/dialogflow/v2"
 require "securerandom"
-require_relative "../logging"
+require_relative "../fortuna_luca/logging"
 require_relative "weather_responder"
 require_relative "bike_weather_responder"
 require_relative "web_query_responder"
@@ -12,7 +12,7 @@ require_relative "simpsons_search_responder"
 module AI
   class Responder
     include Google::Cloud::Dialogflow::V2::Sessions::Paths
-    include Logging
+    include FortunaLuca::Logging
 
     def initialize(input)
       @input = input

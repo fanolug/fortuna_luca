@@ -1,8 +1,8 @@
-require_relative "../logging"
+require_relative "../fortuna_luca/logging"
 
 module AI
   module DialogflowResponder
-    include Logging
+    include FortunaLuca::Logging
 
     # @param result [Google::Cloud::Dialogflow::V2::QueryResult]
     # param language [String]

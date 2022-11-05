@@ -1,6 +1,5 @@
 require_relative "dialogflow_responder"
 require_relative "../fortuna_luca/frinkiac"
-require_relative "../web_searcher"
 
 module AI
   class SimpsonsSearchResponder

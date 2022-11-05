@@ -1,6 +1,6 @@
 require "dotenv/load"
 require "telegram/bot"
-require_relative "../../logging"
+require_relative "../logging"
 
 module FortunaLuca
   module Telegram

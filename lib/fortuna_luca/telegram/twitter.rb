@@ -4,7 +4,7 @@ require "dotenv/load"
 require "json"
 require_relative "client"
 require_relative "../twitter/client"
-require_relative "../../logging"
+require_relative "../logging"
 
 module FortunaLuca
   module Telegram

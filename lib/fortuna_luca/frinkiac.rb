@@ -1,5 +1,5 @@
 require 'frinkiac'
-require_relative "../logging"
+require_relative "logging"
 
 module FortunaLuca
   class Frinkiac

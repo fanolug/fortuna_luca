@@ -10,12 +10,12 @@ describe AI::WebQueryResponder do
   let(:responder) { AI::WebQueryResponder.new(web_query_response(query: "fanolug")) }
 
   before do
-    @searcher = WebSearcher.new(query: "result for fanolug")
+    @searcher = FortunaLuca::WebSearcher.new(query: "result for fanolug")
   end
 
   describe "#call" do
     it "returns the correct response" do
-      WebSearcher.expects(:new).with(query: "result for fanolug").returns(@searcher)
+      FortunaLuca::WebSearcher.expects(:new).with(query: "result for fanolug").returns(@searcher)
       @searcher.expects(:first_link).returns("http://www.fanolug.org/")
       responder.call.must_equal("http://www.fanolug.org/")
     end

@@ -3,7 +3,7 @@
 require "dotenv/load"
 require "feedjira"
 require_relative 'client'
-require_relative '../../logging'
+require_relative '../logging'
 
 module FortunaLuca
   module Telegram

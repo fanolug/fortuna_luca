@@ -2,8 +2,7 @@
 
 require "dotenv/load"
 require_relative 'client'
-require_relative '../../logging'
-require_relative '../../xkcd'
+require_relative '../logging'
 require_relative '../../ai/responder'
 
 module FortunaLuca

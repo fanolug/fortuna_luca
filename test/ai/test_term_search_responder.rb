@@ -10,7 +10,7 @@ describe AI::TermSearchResponder do
   let(:responder) { AI::TermSearchResponder.new(term_search_response(query: 'linux')) }
 
   before do
-    @searcher = WebSearcher.new(query: "linux", site: "it.wikipedia.org")
+    @searcher = FortunaLuca::WebSearcher.new(query: "linux", site: "it.wikipedia.org")
   end
 
   describe "#call" do
@@ -23,7 +23,7 @@ describe AI::TermSearchResponder do
 
     it "fall backs on web search" do
       FortunaLuca::Wikipedia::Summary.any_instance.expects(:call).returns(nil)
-      WebSearcher.expects(:new).with(query: "linux", site: "it.wikipedia.org").returns(@searcher)
+      FortunaLuca::WebSearcher.expects(:new).with(query: "linux", site: "it.wikipedia.org").returns(@searcher)
       @searcher.expects(:first_link).returns("https://it.wikipedia.org/wiki/Linux")
       responder.call.must_equal("https://it.wikipedia.org/wiki/Linux")
     end

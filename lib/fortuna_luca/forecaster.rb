@@ -8,7 +8,7 @@ require "geocoder/kernel_logger"
 require "geocoder/query"
 require "geocoder/lookup"
 require "geocoder/exceptions"
-require_relative "../logging"
+require_relative "logging"
 
 module FortunaLuca
   class Forecaster

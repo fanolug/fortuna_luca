@@ -1,8 +1,8 @@
-require_relative "test_helper"
-require_relative "../lib/xkcd"
+require_relative "../test_helper"
+require_relative "../../lib/fortuna_luca/xkcd"
 
-describe Xkcd do
-  let(:instance) { Xkcd.new }
+describe FortunaLuca::Xkcd do
+  let(:instance) { FortunaLuca::Xkcd.new }
 
   describe '#random_image' do
     let(:index_response) { '{"num": 2231}' }
