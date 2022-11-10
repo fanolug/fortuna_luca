@@ -11,18 +11,21 @@ module FortunaLuca
         'Event', :id, :url, :description, :time, :latitude, :longitude, :depth, :magnitude, keyword_init: true
       )
 
+      @@processed_ids = []
+
       # @params args Query arguments accepted by the web service
       #   See http://webservices.ingv.it/swagger-ui/dist/?url=https://ingv.github.io/openapi/fdsnws/event/0.0.1/event.yaml#/fdsnws-event-1.1/get_query for details
       # @return [Array<Event>] A list of events
       def quake_events(**args)
         response = Faraday.get(URL, args)
         result = Nori.new.parse(response.body)
-        events = result.dig("q:quakeml", "eventParameters", "event")
-        return [] unless events
+        events = [result.dig("q:quakeml", "eventParameters", "event")].flatten
 
-        events.map do |event|
+        events.compact.reverse.map do |event|
           id = event.dig("@publicID").split("eventId=").last
+          next if @@processed_ids.include?(id)
 
+          @@processed_ids << id
           Event.new(
             id: id,
             url: "http://terremoti.ingv.it/event/#{id}",
