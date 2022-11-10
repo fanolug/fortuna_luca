@@ -1,17 +1,19 @@
 require "faraday"
 require "nori"
 require "ostruct"
+require_relative "../redis/client"
 
 module FortunaLuca
   module Quakes
     module Client
+      include FortunaLuca::Redis::Client
+
       URL = "http://webservices.ingv.it/fdsnws/event/1/query"
+      PAST_EVENT_IDS_KEY = "past_quake_event_ids"
 
       Event = Struct.new(
         'Event', :id, :url, :description, :time, :latitude, :longitude, :depth, :magnitude, keyword_init: true
       )
-
-      @@processed_ids = []
 
       # @params args Query arguments accepted by the web service
       #   See http://webservices.ingv.it/swagger-ui/dist/?url=https://ingv.github.io/openapi/fdsnws/event/0.0.1/event.yaml#/fdsnws-event-1.1/get_query for details
@@ -23,12 +25,12 @@ module FortunaLuca
 
         events.compact.reverse.map do |event|
           id = event.dig("@publicID").split("eventId=").last
-          next if @@processed_ids.include?(id)
+          next if past_event_ids&.include?(id)
 
-          @@processed_ids << id
+          redis.rpush(PAST_EVENT_IDS_KEY, id)
           Event.new(
             id: id,
-            url: "http://terremoti.ingv.it/event/#{id}",
+            url: url(id),
             description: event.dig("description", "text"),
             time: event.dig("origin", "time", "value"),
             latitude: event.dig("origin", "latitude", "value"),
@@ -36,7 +38,17 @@ module FortunaLuca
             depth: event.dig("origin", "depth", "value"),
             magnitude: event.dig("magnitude", "mag", "value"),
           )
-        end
+        end.compact
+      end
+
+      private
+
+      def past_event_ids
+        redis.lrange(PAST_EVENT_IDS_KEY, 0, -1)
+      end
+
+      def url(event_id)
+        "http://terremoti.ingv.it/event/#{event_id}"
       end
     end
   end
