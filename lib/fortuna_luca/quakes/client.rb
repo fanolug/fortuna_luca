@@ -25,7 +25,7 @@ module FortunaLuca
 
         events.compact.reverse.map do |event|
           id = event.dig("@publicID").split("eventId=").last
-          next if past_event_ids&.include?(id)
+          next if past_event_ids.include?(id)
 
           redis.rpush(PAST_EVENT_IDS_KEY, id)
           Event.new(
