@@ -7,18 +7,14 @@ module FortunaLuca
     module Client
       include Logging
 
-      def send_telegram_message(chat_id, text, disable_web_page_preview: false)
+      def send_telegram_message(chat_id, text, **options)
         if text.to_s == ""
           logger.info "Blank message text (#send_telegram_message)"
           return
         end
 
         begin
-          telegram_client.api.send_message(
-            chat_id: chat_id,
-            text: text,
-            disable_web_page_preview: disable_web_page_preview
-          )
+          telegram_client.api.send_message(chat_id: chat_id, text: text, **options)
         rescue ::Telegram::Bot::Exceptions::ResponseError => exception
           logger.error "#{exception.message} (#send_telegram_message chat_id: #{chat_id}, text: #{text})"
         end

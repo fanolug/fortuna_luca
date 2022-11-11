@@ -12,5 +12,16 @@ describe FortunaLuca::Telegram::Client do
       )
       instance.send_telegram_message('123', 'the text')
     end
+
+    describe "with some options" do
+      it "passes them to the Telegram API" do
+        ::Telegram::Bot::Api.any_instance.expects(:send_message).with(
+          chat_id: '123',
+          text: 'the text',
+          disable_web_page_preview: true
+        )
+        instance.send_telegram_message('123', 'the text', disable_web_page_preview: true)
+      end
+    end
   end
 end
