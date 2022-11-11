@@ -17,7 +17,7 @@ module FortunaLuca
       end
 
       def call
-        return false if !private? && !mention?
+        return false if !private? && !command?
 
         result = AI::Responder.new(clean_text).call
         send_telegram_message(chat_id, result)
@@ -35,8 +35,12 @@ module FortunaLuca
         message.chat.id
       end
 
-      def mention?
-        message.text.to_s.include?(ENV["TELEGRAM_BOT_NAME"].to_s)
+      def command
+        ENV['TELEGRAM_BOT_COMMAND']
+      end
+
+      def command?
+        message.text.to_s.start_with?("#{command} ")
       end
 
       def private?
@@ -44,13 +48,7 @@ module FortunaLuca
       end
 
       def clean_text
-        message.
-          text.
-          to_s.
-          gsub(ENV["TELEGRAM_BOT_NAME"].to_s, "").
-          tr("\n", ' ').
-          squeeze(' ').
-          strip
+        message.text.to_s.gsub(/^#{command} /, "").tr("\n", ' ').squeeze(' ').strip
       end
 
       def log_error(error)

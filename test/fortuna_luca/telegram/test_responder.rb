@@ -6,8 +6,8 @@ describe FortunaLuca::Telegram::Responder do
   let(:instance) { FortunaLuca::Telegram::Responder.new(telegram_message) }
 
   describe "#call" do
-    describe "with a message that is not including the bot name" do
-      let(:message_attributes) { { text: "Some message", chat: { id: 123 } } }
+    describe "with a message that has not the correct command" do
+      let(:message_attributes) { { text: "/wrong Some message", chat: { id: 123 } } }
 
       it "just returns false" do
         AI::Responder.any_instance.expects(:call).never
@@ -16,15 +16,15 @@ describe FortunaLuca::Telegram::Responder do
       end
     end
 
-    describe "with a message that is including the bot name" do
+    describe "with a message that has the correct command" do
       let(:message_attributes) do
         {
-          text: "@fortuna_luca some questions",
+          text: "/lucas some questions",
           chat: { id: 123 },
         }
       end
 
-      it "removes the bot name from the message" do
+      it "removes the command from the message" do
         ai_instance = AI::Responder.new("some questions")
         AI::Responder.expects(:new).with("some questions").returns(ai_instance)
         AI::Responder.any_instance.stubs(:call)
