@@ -1,0 +1,5 @@
+it:
+  quakes:
+    earthquake: Terremoto
+    earthquake_icon: ⚠️
+

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "dotenv/load"
+require "i18n"
 require_relative 'client'
 require_relative '../logging'
 
@@ -32,8 +33,18 @@ module FortunaLuca
       attr_reader :events
 
       def event_message(event)
-        time = event.time.to_time.getlocal('+01:00').strftime("%F %T")
-        "⚠️ Terremoto!!! M#{event.magnitude} #{event.description} - #{time}: #{event.url}"
+        time = event.time.to_time.getlocal(ENV['TIMEZONE']).strftime("%F %T")
+
+        [
+          I18n.t('quakes.earthquake_icon'),
+          " ",
+          I18n.t('quakes.earthquake'),
+          "!" * event.magnitude.to_f.round,
+          " M#{event.magnitude} ",
+          event.description,
+          " - #{time}: ",
+          event.url
+        ].join
       end
 
       def chat_ids
