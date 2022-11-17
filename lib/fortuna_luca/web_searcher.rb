@@ -1,8 +1,11 @@
 require "dotenv/load"
 require "google/apis/customsearch_v1"
+require_relative "logging"
 
 module FortunaLuca
   class WebSearcher
+    include Logging
+
     def initialize(query:, site: nil)
       @query = query
       @site = site
@@ -16,6 +19,7 @@ module FortunaLuca
         num: 1
       )
 
+      logger.info(result)
       result.items&.first&.link
     end
 
