@@ -3,6 +3,7 @@ require "mocha/minitest"
 require "minitest/reporters"
 require "rack/test"
 require "webmock/minitest"
+require "mock_redis"
 require_relative "../config/i18n"
 
 ENV["RACK_ENV"] = "test"
