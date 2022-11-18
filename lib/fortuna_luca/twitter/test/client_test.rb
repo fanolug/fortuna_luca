@@ -1,5 +1,5 @@
-require_relative "../../test_helper"
-require_relative "../../../lib/fortuna_luca/twitter/client"
+require_relative "../../../../test/test_helper"
+require_relative "../client"
 
 describe FortunaLuca::Twitter::Client do
   let(:instance) { Class.new { include FortunaLuca::Twitter::Client }.new }

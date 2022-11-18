@@ -1,5 +1,5 @@
-require_relative "../../test_helper"
-require_relative "../../../lib/fortuna_luca/wikipedia/summary"
+require_relative "../../../../test/test_helper"
+require_relative "../summary"
 
 describe FortunaLuca::Wikipedia::Summary do
   let(:instance) { FortunaLuca::Wikipedia::Summary.new("it") }
@@ -15,7 +15,7 @@ describe FortunaLuca::Wikipedia::Summary do
 
     describe "with valid data returned" do
       let(:data) do
-        File.read(File.dirname(__FILE__) + '/../../fixtures/wikipedia_linux.json')
+        File.read(File.dirname(__FILE__) + '/fixtures/wikipedia_linux.json')
       end
 
       it "returns the Wikipedia summary" do
