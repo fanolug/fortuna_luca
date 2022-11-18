@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require_relative "../test_helper"
+require_relative "../../../../../test/test_helper"
 require_relative "../support/dialogflow_responses"
-require_relative "../../lib/ai/simpsons_search_responder"
+require_relative "../../responders/simpsons_search"
 
 include DialogflowResponses
 
-describe AI::SimpsonsSearchResponder do
+describe FortunaLuca::AI::Responders::SimpsonsSearch do
   let(:responder) do
-    AI::SimpsonsSearchResponder.new(term_search_response(query: 'canionero'))
+    FortunaLuca::AI::Responders::SimpsonsSearch.new(term_search_response(query: 'canionero'))
   end
 
   describe "#call" do

@@ -10,7 +10,7 @@ describe FortunaLuca::Telegram::Responder do
       let(:message_attributes) { { text: "/wrong Some message", chat: { id: 123 } } }
 
       it "just returns false" do
-        AI::Responder.any_instance.expects(:call).never
+        FortunaLuca::AI::Responder.any_instance.expects(:call).never
         Telegram::Bot::Api.any_instance.expects(:send_message).never
         instance.call.must_equal(false)
       end
@@ -25,15 +25,15 @@ describe FortunaLuca::Telegram::Responder do
       end
 
       it "removes the command from the message" do
-        ai_instance = AI::Responder.new("some questions")
-        AI::Responder.expects(:new).with("some questions").returns(ai_instance)
-        AI::Responder.any_instance.stubs(:call)
+        ai_instance = FortunaLuca::AI::Responder.new("some questions")
+        FortunaLuca::AI::Responder.expects(:new).with("some questions").returns(ai_instance)
+        FortunaLuca::AI::Responder.any_instance.stubs(:call)
         Telegram::Bot::Api.any_instance.stubs(:send_message)
         instance.call
       end
 
       it "sends a telegram API request with AI response" do
-        AI::Responder.any_instance.expects(:call).returns("the response")
+        FortunaLuca::AI::Responder.any_instance.expects(:call).returns("the response")
         Telegram::Bot::Api.any_instance.expects(:send_message).with(
           { chat_id: 123, text: "the response" }
         )
@@ -50,7 +50,7 @@ describe FortunaLuca::Telegram::Responder do
       end
 
       it "sends a telegram API request with AI response" do
-        AI::Responder.any_instance.expects(:call).returns("the response")
+        FortunaLuca::AI::Responder.any_instance.expects(:call).returns("the response")
         Telegram::Bot::Api.any_instance.expects(:send_message).with(
           { chat_id: 123, text: "the response" }
         )

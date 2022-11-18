@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "../test_helper"
+require_relative "../../../../../test/test_helper"
 require_relative "../support/dialogflow_responses"
-require_relative "../../lib/ai/term_search_responder"
+require_relative "../../responders/term_search"
 
 include DialogflowResponses
 
-describe AI::TermSearchResponder do
-  let(:responder) { AI::TermSearchResponder.new(term_search_response(query: 'linux')) }
+describe FortunaLuca::AI::Responders::TermSearch do
+  let(:responder) { FortunaLuca::AI::Responders::TermSearch.new(term_search_response(query: 'linux')) }
 
   before do
     @searcher = FortunaLuca::WebSearcher.new(query: "linux", site: "it.wikipedia.org")

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "../test_helper"
-require_relative "../support/dialogflow_responses"
-require_relative "../../lib/ai/responder"
+require_relative "../../../../test/test_helper"
+require_relative "support/dialogflow_responses"
+require_relative "../responder"
 
 include DialogflowResponses
 
-describe AI::Responder do
-  let(:responder) { AI::Responder.new("ciao") }
+describe FortunaLuca::AI::Responder do
+  let(:responder) { FortunaLuca::AI::Responder.new("ciao") }
 
   before do
     stub_request(:post, "https://oauth2.googleapis.com/token").to_return(

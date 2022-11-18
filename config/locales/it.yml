@@ -6,9 +6,3 @@ it:
     snow: "neve"
     sleet: "nevischio"
     temp_between: "temperatura tra %{min} e %{max} °C"
-  responders:
-    at_location: "a %{where}"
-    bike_weather:
-      between_hours: "tra le %{start} e le %{end}"
-      good_for_ride: "fa uscire in bici"
-      not_good_for_ride: "%{when} a %{where} non fa uscire in bici"

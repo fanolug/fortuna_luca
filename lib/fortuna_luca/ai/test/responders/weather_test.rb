@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "../test_helper"
+require_relative "../../../../../test/test_helper"
 require_relative "../support/dialogflow_responses"
-require_relative "../../lib/ai/weather_responder"
+require_relative "../../responders/weather"
 
 include DialogflowResponses
 
-describe AI::WeatherResponder do
-  let(:responder) { AI::WeatherResponder.new(weather_response) }
+describe FortunaLuca::AI::Responders::Weather do
+  let(:responder) { FortunaLuca::AI::Responders::Weather.new(weather_response) }
   let(:date) { Time.parse("2021-11-29T12:00:00+01:00") }
 
   before do

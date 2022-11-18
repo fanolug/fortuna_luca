@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "../test_helper"
+require_relative "../../../../../test/test_helper"
 require_relative "../support/dialogflow_responses"
-require_relative "../../lib/ai/web_query_responder"
+require_relative "../../responders/web_query"
 
 include DialogflowResponses
 
-describe AI::WebQueryResponder do
-  let(:responder) { AI::WebQueryResponder.new(web_query_response(query: "fanolug")) }
+describe FortunaLuca::AI::Responders::WebQuery do
+  let(:responder) { FortunaLuca::AI::Responders::WebQuery.new(web_query_response(query: "fanolug")) }
 
   before do
     @searcher = FortunaLuca::WebSearcher.new(query: "result for fanolug")
