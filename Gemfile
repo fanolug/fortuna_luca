@@ -8,11 +8,11 @@ gem 'twitter-text', '~> 1.13.3'
 gem 'mail', github: 'mikel/mail'
 gem 'whenever', '~> 0.9.4', require: false
 gem 'google-api-client', '~> 0.9.11'
-gem 'rack', '~> 1.6'
+gem 'rack', '~> 2.2'
 gem 'api-ai-ruby', github: 'api-ai/apiai-ruby-client'
 gem 'forecast_io', '~> 2.0.1'
 gem 'geocoder', '~> 1.5.2', require: false
-gem 'sinatra', '~> 1.4.8'
+gem 'sinatra', '~> 3.0.4'
 gem 'puma', '~> 4.3.0'
 gem 'rake'
 
