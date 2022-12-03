@@ -4,11 +4,13 @@ require "httpclient"
 require "nori"
 require "ostruct"
 require_relative "../redis/client"
+require_relative "../logging"
 
 module FortunaLuca
   module Quakes
     module Client
       include FortunaLuca::Redis::Client
+      include Logging
 
       URL = "http://webservices.ingv.it/fdsnws/event/1/query"
       PAST_EVENT_IDS_KEY = "past_quake_event_ids"
@@ -22,6 +24,7 @@ module FortunaLuca
       # @return [Array<Event>] A list of events
       def quake_events(**args)
         response = HTTPClient.get(URL, args)
+        logger.info(response.body)
         result = Nori.new.parse(response.body)
         events = [result.dig("q:quakeml", "eventParameters", "event")].flatten
 

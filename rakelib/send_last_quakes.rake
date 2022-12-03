@@ -11,7 +11,7 @@ task :send_last_quakes do
     lat: 43.844109, # Fano
     lon: 13.017070,
     maxradiuskm: 250,
-    minmag: 3
+    minmag: 2
   )
 
   FortunaLuca::Telegram::Quakes.new(events).call

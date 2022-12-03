@@ -11,7 +11,7 @@ module FortunaLuca
       include Logging
       include FortunaLuca::Telegram::Client
 
-      # @param data [String] The Strava webhook payload
+      # @param data [String] The quakeml webhook payload
       def initialize(events)
         @events = events
       end
