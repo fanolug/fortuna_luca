@@ -8,7 +8,7 @@ module FortunaLuca
     module Client
       def redis
         $redis ||= ConnectionPool::Wrapper.new do
-          ::Redis.new(url: ENV["REDIS_URL"])
+          ::Redis.new(url: ENV["REDISCLOUD_URL"])
         end
       end
     end
