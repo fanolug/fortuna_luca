@@ -39,7 +39,7 @@ module FortunaLuca
         json 'hub.challenge' => params['hub.challenge']
       end
       post ENV['SECRET_STRAVA_WEBHOOK_PATH'] do
-        Strava.new(request.body.read).call
+        # Strava.new(request.body.read).call
         200
       end
 
