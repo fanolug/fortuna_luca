@@ -58,7 +58,7 @@ module FortunaLuca
       end
       precipitations = if forecast.precipType && forecast.precipProbability >= 0.2
         I18n.t(
-          'forecaster.precip_robability',
+          'forecaster.precip_probability',
           value: (forecast.precipProbability * 100).round,
           what: PRECIPITATIONS[forecast.precipType]
         )
@@ -67,8 +67,12 @@ module FortunaLuca
         'forecaster.pressure',
         value: forecast.pressure.round
       ) if forecast.pressure
+      humidity = I18n.t(
+        'forecaster.humidity',
+        value: (forecast.humidity * 100).round
+      ) if forecast.humidity
 
-      text = [summary, precipitations, temp, pressure].compact.join(", ")
+      text = [summary, precipitations, temp, pressure, humidity].compact.join(", ")
       [text, daily_forecast_icon].compact.join(" ")
     end
 

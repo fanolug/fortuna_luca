@@ -1,6 +1,7 @@
 it:
   forecaster:
-    precip_robability: "%{value}% di possibilità di %{what}"
+    humidity: "umidità %{value}%"
+    precip_probability: "%{value}% di possibilità di %{what}"
     pressure: "pressione %{value}"
     rain: "pioggia"
     snow: "neve"
