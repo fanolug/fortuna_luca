@@ -4,14 +4,14 @@ require_relative '../lib/fortuna_luca/telegram/quakes'
 include FortunaLuca::Quakes::Client
 
 task :send_last_quakes do
-  time = (Time.now - (60 * 60)).strftime("%FT%T")
+  start_time = (Time.now - (60 * 60)).strftime("%FT%T")
 
   events = quake_events(
-    starttime: time,
+    starttime: start_time,
     lat: 43.844109, # Fano
     lon: 13.017070,
-    maxradiuskm: 250,
-    minmag: 2
+    maxradiuskm: 300,
+    minmag: 3
   )
 
   FortunaLuca::Telegram::Quakes.new(events).call
