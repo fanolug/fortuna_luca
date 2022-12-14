@@ -1,4 +1,2 @@
-.env
-.ruby-gemset
+.ruby-version
 log/*.log
-client_secret.json
