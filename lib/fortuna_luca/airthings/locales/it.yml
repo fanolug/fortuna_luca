@@ -1,0 +1,7 @@
+it:
+  airthings:
+    humidity: Umidità
+    radonShortTermAvg: Radon
+    temp: Temperatura
+    voc: VOC
+

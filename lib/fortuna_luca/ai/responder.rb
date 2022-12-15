@@ -9,6 +9,7 @@ require_relative "responders/web_query"
 require_relative "responders/comparison"
 require_relative "responders/term_search"
 require_relative "responders/simpsons_search"
+require_relative "responders/airthings"
 
 module FortunaLuca
   module AI
@@ -50,6 +51,7 @@ module FortunaLuca
         when "comparison" then Responders::Comparison.new(result).call
         when "term_search" then Responders::TermSearch.new(result).call
         when "simpsons_search" then Responders::SimpsonsSearch.new(result).call
+        when "airthings" then Responders::Airthings.new.call
         else
           # TODO nothing?
         end

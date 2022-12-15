@@ -21,7 +21,7 @@ module FortunaLuca
 
       # Handle webhooks coming from Telegram
       post ENV['SECRET_WEBHOOK_PATH'] do
-        Responder.new(telegram_message(request)).call
+        Telegram::Responder.new(telegram_message(request)).call
         200
       end
 
