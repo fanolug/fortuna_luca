@@ -1,7 +1,8 @@
 it:
   airthings:
     humidity: Umidità
+    mold: Rischio muffa
     radonShortTermAvg: Radon
-    temp: Temperatura
+    temp: T
     voc: VOC
 
