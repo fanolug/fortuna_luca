@@ -24,8 +24,11 @@ module FortunaLuca
       end
 
       def send_last_tweets_media(minutes: 60)
+        logger.debug "#send_last_tweets_media"
+        logger.debug media_follow_config.inspect
         media_follow_config.each do |telegram_chat_id, handles|
           handles.each do |handle|
+            logger.debug handle
             media_for_last_minutes(handle: handle, minutes: minutes).each do |media_url|
               send_telegram_message(telegram_chat_id, media_url)
             end
