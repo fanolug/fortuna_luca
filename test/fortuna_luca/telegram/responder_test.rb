@@ -35,7 +35,7 @@ describe FortunaLuca::Telegram::Responder do
       it "sends a telegram API request with AI response" do
         FortunaLuca::AI::Responder.any_instance.expects(:call).returns("the response")
         Telegram::Bot::Api.any_instance.expects(:send_message).with(
-          { chat_id: 123, text: "the response" }
+          { chat_id: 123, text: "the response", parse_mode: 'HTML' }
         )
         instance.call.must_equal(true)
       end
@@ -52,7 +52,7 @@ describe FortunaLuca::Telegram::Responder do
       it "sends a telegram API request with AI response" do
         FortunaLuca::AI::Responder.any_instance.expects(:call).returns("the response")
         Telegram::Bot::Api.any_instance.expects(:send_message).with(
-          { chat_id: 123, text: "the response" }
+          { chat_id: 123, text: "the response", parse_mode: 'HTML' }
         )
         instance.call.must_equal(true)
       end

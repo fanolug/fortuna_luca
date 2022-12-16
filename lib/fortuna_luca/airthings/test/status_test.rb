@@ -33,7 +33,7 @@ describe FortunaLuca::Airthings::Status do
     }
   end
   let(:expected_result) do
-    "*Ufficio*: T 17.2°, Umidità 65% 🟡, Radon 33 Bq/m³ 🟢\n*Camera*: T 16.2°, Umidità 71% 🔴, VOC 65 ppb 🟢, Rischio muffa 2/10"
+    "<b>Ufficio</b>: T 17.2°, Umidità 65% 🟡, Radon 33 Bq/m³ 🟢\n<b>Camera</b>: T 16.2°, Umidità 71% 🔴, VOC 65 ppb 🟢, Rischio muffa 2/10"
   end
 
   before do

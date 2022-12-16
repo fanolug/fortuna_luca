@@ -20,7 +20,7 @@ module FortunaLuca
         return false if !private? && !command?
 
         result = AI::Responder.new(clean_text).call
-        send_telegram_message(chat_id, result)
+        send_telegram_message(chat_id, result, parse_mode: 'HTML')
         true
       rescue => error
         log_error(error)

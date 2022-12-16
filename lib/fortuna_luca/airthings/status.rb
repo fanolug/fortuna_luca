@@ -35,7 +35,7 @@ module FortunaLuca
             ].join(" ").strip
           end.join(", ")
 
-          ["*#{room}*", formatted_samples].join(": ")
+          ["<b>#{room}</b>", formatted_samples].join(": ")
         end.join("\n")
       end
 
