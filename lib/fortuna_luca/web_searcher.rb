@@ -20,12 +20,17 @@ module FortunaLuca
       )
 
       logger.info(result)
-      result.items&.first&.link
+      if result.items&.any?
+        result.items.first.link
+      elsif @query = result.spelling&.corrected_query
+        first_link
+      end
     end
 
     private
 
-    attr_reader :query, :site
+    attr_accessor :query
+    attr_reader :site
 
     def search_client
       client = Google::Apis::CustomsearchV1::CustomSearchAPIService.new
