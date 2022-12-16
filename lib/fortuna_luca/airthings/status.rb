@@ -25,7 +25,9 @@ module FortunaLuca
 
       # @return [String] Human-readabale status of all the sensors
       def airthings_status
-        airthings_client.samples.map do |room, samples|
+        data = airthings_client.samples
+        longest_room_name = data.map { |room, _| room.size }.max
+        data.map do |room, samples|
           formatted_samples = samples.slice(*KEYS).map do |key, value|
             formatted_value = "#{"%g" % value}#{UNITS[key]}"
             [
@@ -34,8 +36,9 @@ module FortunaLuca
               icon(key, value)
             ].join(" ").strip
           end.join(", ")
+          padding = " " * (longest_room_name - room.size)
 
-          ["<b>#{room}</b>", formatted_samples].join(": ")
+          "<pre>#{room}:#{padding} #{formatted_samples}</pre>"
         end.join("\n")
       end
 
