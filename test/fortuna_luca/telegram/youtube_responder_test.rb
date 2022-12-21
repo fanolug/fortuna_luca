@@ -4,6 +4,10 @@ require_relative "../../../lib/fortuna_luca/telegram/youtube_responder"
 describe FortunaLuca::Telegram::YoutubeResponder do
   let(:instance) { FortunaLuca::Telegram::YoutubeResponder.new(data) }
 
+  before do
+    Redis.stubs(:new).returns(MockRedis.new)
+  end
+
   describe "#call" do
     describe "with valid feed data" do
       let(:published) { "2015-03-06T21:40:57+00:00" }
@@ -40,8 +44,10 @@ describe FortunaLuca::Telegram::YoutubeResponder do
         instance.call
       end
 
-      describe "when entry is updated" do
-        let(:updated) { "2015-03-07T00:00:00+00:00" }
+      describe "when entry is already processed" do
+        before do
+          instance.expects(:process_id!).returns(false)
+        end
 
         it "does not send a message" do
           Telegram::Bot::Api.any_instance.expects(:send_message).never
