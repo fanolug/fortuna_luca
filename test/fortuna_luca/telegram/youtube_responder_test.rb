@@ -10,8 +10,6 @@ describe FortunaLuca::Telegram::YoutubeResponder do
 
   describe "#call" do
     describe "with valid feed data" do
-      let(:published) { "2015-03-06T21:40:57+00:00" }
-      let(:updated) { published }
       let(:data) do
         <<~DATA
           <feed xmlns:yt="http://www.youtube.com/xml/schemas/2015"
@@ -30,8 +28,8 @@ describe FortunaLuca::Telegram::YoutubeResponder do
                <name>Channel title</name>
                <uri>http://www.youtube.com/channel/CHANNEL_ID</uri>
               </author>
-              <published>#{published}</published>
-              <updated>#{updated}</updated>
+              <published>2015-03-06T21:40:57+00:00</published>
+              <updated>2015-03-06T21:40:57+00:00</updated>
             </entry>
           </feed>
         DATA

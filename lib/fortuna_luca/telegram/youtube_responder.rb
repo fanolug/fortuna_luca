@@ -24,7 +24,7 @@ module FortunaLuca
         feed.entries&.each do |entry|
           next unless process_id!(entry.entry_id)
 
-          if chat_id = ENV["YOUTUBE__#{entry.youtube_channel_id}"]
+          chats_for(entry.youtube_channel_id).each do |chat_id|
             send_telegram_message(chat_id, entry.url)
           end
         end
@@ -38,6 +38,14 @@ module FortunaLuca
 
       def processed_ids_redis_key
         "processed_youtube_ids"
+      end
+
+      def chats_for(youtube_channel_id)
+        JSON.parse(env_or_blank("YOUTUBE__#{youtube_channel_id}"))
+      end
+
+      def env_or_blank(key)
+        ENV[key] || "[]"
       end
     end
   end
