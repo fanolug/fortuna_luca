@@ -3,17 +3,16 @@
 require "httpclient"
 require "nori"
 require "ostruct"
-require_relative "../redis/client"
 require_relative "../logging"
+require_relative "../processed_ids"
 
 module FortunaLuca
   module Quakes
     module Client
-      include FortunaLuca::Redis::Client
+      include FortunaLuca::ProcessedIDs
       include Logging
 
       URL = "http://webservices.ingv.it/fdsnws/event/1/query"
-      PAST_EVENT_IDS_KEY = "past_quake_event_ids"
 
       Event = Struct.new(
         "Event", :id, :url, :description, :time, :latitude, :longitude, :depth, :magnitude, keyword_init: true
@@ -30,9 +29,8 @@ module FortunaLuca
 
         events.compact.reverse.map do |event|
           id = event.dig("@publicID").split("eventId=").last
-          next if past_event_ids.include?(id)
+          next unless process_id!(id)
 
-          redis.rpush(PAST_EVENT_IDS_KEY, id)
           Event.new(
             id: id,
             url: url(id),
@@ -48,12 +46,12 @@ module FortunaLuca
 
       private
 
-      def past_event_ids
-        redis.lrange(PAST_EVENT_IDS_KEY, 0, -1)
-      end
-
       def url(event_id)
         "http://terremoti.ingv.it/event/#{event_id}"
+      end
+
+      def processed_ids_redis_key
+        "processed_quake_event_ids"
       end
     end
   end
