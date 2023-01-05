@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require 'date'
 require_relative "../../../config/i18n"
 require_relative "../telegram/client"
-require_relative "../forecaster"
+require_relative "../weather/day_summary"
 require_relative "../logging"
 
 module FortunaLuca
@@ -36,7 +37,7 @@ module FortunaLuca
       end
 
       def daily_forecast(location)
-        Forecaster.new(location, Time.now).daily_forecast_summary
+        Weather::DaySummary.new(location: location, date: Date.today).call
       end
 
       # JSON Config format: {"chat_id":"location name"}

@@ -11,9 +11,10 @@ describe FortunaLuca::Reports::Morning do
   describe '#call' do
     it "sends a daily summary" do
       FortunaLuca::Reports::Morning.any_instance.expects(:good_morning).returns("Buongiorno!")
-      FortunaLuca::Forecaster.any_instance.expects(:daily_forecast_summary).returns(
-        "possibilità di pioggia"
-      )
+      FortunaLuca::Weather::DaySummary.any_instance.expects(:coordinates_for).
+        with("Fano").
+        returns(["43.8441", "13.0170"])
+      FortunaLuca::Weather::DaySummary.any_instance.expects(:call).returns("possibilità di pioggia")
       ::Telegram::Bot::Api.any_instance.expects(:send_message).with(
         chat_id: '12345',
         text: "Buongiorno! Oggi a Fano possibilità di pioggia"
