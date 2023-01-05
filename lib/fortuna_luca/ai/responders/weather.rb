@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+require "date"
 require "i18n"
 require_relative "base"
-require_relative "../../forecaster"
+require_relative "../../weather/day_summary"
 
 module FortunaLuca
   module AI
@@ -10,23 +13,22 @@ module FortunaLuca
         CONTEXT_NAME = "weather"
 
         def call
-          forecast = forecaster.daily_forecast_summary
-          return if !forecast
+          return if !daily_forecast
 
           [
             time_in_words,
             I18n.t('responders.at_location', where: weather_city),
-            forecast
+            daily_forecast
           ].compact.join(" ")
         end
 
         private
 
-        def forecaster
-          @forecaster ||= FortunaLuca::Forecaster.new(
-            weather_city,
-            weather_time
-          )
+        def daily_forecast
+          @daily_forecast ||= FortunaLuca::Weather::DaySummary.new(
+            location: weather_city,
+            date: weather_time.to_date
+          ).call
         end
 
         def weather_context
@@ -46,10 +48,10 @@ module FortunaLuca
           now = Time.now
 
           begin
-            date = Time.parse(date_string.to_s)
-            date < now ? now : date
+            time = Time.parse(date_string.to_s)
+            time < now ? now : time
           rescue ArgumentError => e
-            logger.debug("Invalid date string '#{date}': #{e.message}")
+            logger.debug("Invalid date string '#{date_string}': #{e.message}")
             now
           end
         end
