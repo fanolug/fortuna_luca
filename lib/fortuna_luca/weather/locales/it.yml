@@ -1,5 +1,25 @@
 it:
   weather:
+    codes:
+      thunderstorm: temporale
+      drizzle: pioviggine
+      rain: pioggia
+      heavy_rain: pioggia forte
+      light_rain: pioggia leggera
+      freezing_rain: pioggia ghiacciata
+      light_snow: neve leggera
+      snow: neve
+      heavy_snow: nevone
+      sleet: nevischio
+      fog: nebbia
+      sand: sabbia
+      squalls: burrasca
+      tornado: tornado
+      clear: sereno
+      mostly_clear: nubi sparse,
+      partly_cloudy: un pò nuvoloso,
+      mostly_cloudy: abbastanza nuvoloso,
+      cloudy: nuvoloso
     day_summary:
       humidity: ", umidità %{value}%. "
       precip_probability: ". %{value}% di possibilità di precipitazioni"

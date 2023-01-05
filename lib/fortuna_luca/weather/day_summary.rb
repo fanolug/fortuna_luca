@@ -19,7 +19,7 @@ module FortunaLuca
 
       def call
         [
-          result.text_summary,
+          text_summary,
           precipitations,
           I18n.t(
             'weather.day_summary.temp_between',
@@ -55,6 +55,12 @@ module FortunaLuca
         end
 
         [probability, rain, snow].compact.join
+      end
+
+      def text_summary
+        result.codes.map do |code|
+          I18n.t(code, scope: 'weather.codes')
+        end.join(", ")
       end
     end
   end
