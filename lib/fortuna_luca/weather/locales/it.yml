@@ -1,0 +1,9 @@
+it:
+  weather:
+    day_summary:
+      humidity: ", umidità %{value}%. "
+      precip_probability: ". %{value}% di possibilità di precipitazioni"
+      pressure: ", pressione %{value}"
+      rain: " (%{value}mm di pioggia)"
+      snow: " (%{value}mm di neve)"
+      temp_between: ", temperatura tra %{min} e %{max} °C"
