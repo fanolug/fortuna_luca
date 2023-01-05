@@ -8,16 +8,62 @@ module FortunaLuca
   module Weather
     module OpenWeather
       class Wrapper < Weather::Wrapper
-        ICONS = {
-          "01" => "\u{2600}", # clear sky
-          "02" => "\u{26c5}", # few clouds
-          "03" => "\u{2601}", # scattered clouds
-          "04" => "\u{2601}", # broken clouds
-          "09" => "\u{1f327}", # shower rain
-          "10" => "\u{1f327}", # rain
-          "11" => "\u{26c8}", # thunderstorm
-          "13" => "\u{1f328}", # snow
-          "50" => "\u{1f32b}", # mist
+        CODES = {
+          200 => %i[thunderstorm light_rain], # thunderstorm with light rain
+          201 => :thunderstorm, # thunderstorm with rain
+          202 => %i[thunderstorm heavy_rain], # thunderstorm with heavy rain
+          210 => :thunderstorm, # light thunderstorm
+          211 => :thunderstorm, # thunderstorm
+          212 => %i[thunderstorm heavy_rain], # heavy thunderstorm
+          221 => :thunderstorm, # ragged thunderstorm
+          230 => :thunderstorm, # thunderstorm with light drizzle
+          231 => :thunderstorm, # thunderstorm with drizzle
+          232 => :thunderstorm, # thunderstorm with heavy drizzle
+          300 => :drizzle, # light intensity drizzle
+          301 => :drizzle, # drizzle
+          302 => :rain, # heavy intensity drizzle
+          310 => :drizzle, # light intensity drizzle rain
+          311 => :drizzle, # drizzle rain
+          312 => :heavy_rain, # heavy intensity drizzle rain
+          313 => :rain, # shower rain and drizzle
+          314 => :heavy_rain, # heavy shower rain and drizzle
+          321 => :rain, # shower drizzle
+          500 => :light_rain, # light rain
+          501 => :rain, # moderate rain
+          502 => :heavy_rain, # heavy intensity rain
+          503 => :heavy_rain, # very heavy rain
+          504 => :heavy_rain, # extreme rain
+          511 => :freezing_rain, # freezing rain
+          520 => :light_rain, # light intensity shower rain
+          521 => :rain, # shower rain
+          522 => :heavy_rain, # heavy intensity shower rain
+          531 => :rain, # ragged shower rain
+          600 => :light_snow, # light snow
+          601 => :snow, # Snow
+          602 => :heavy_snow, # Heavy snow
+          611 => :sleet, # Sleet
+          612 => :sleet, # Light shower sleet
+          613 => :sleet, # Shower sleet
+          615 => :sleet, # Light rain and snow
+          616 => :sleet, # Rain and snow
+          620 => :light_snow, # Light shower snow
+          621 => :snow, # Shower snow
+          622 => :heavy_snow, # Heavy shower snow
+          701 => :fog, # mist
+          711 => :fog, # Smoke
+          721 => :fog, # Haze
+          731 => :sand, # sand/ dust whirls
+          741 => :fog, # fog
+          751 => :sand, # sand
+          761 => :sand, # dust
+          762 => :sand, # volcanic ash
+          771 => :squalls, # squalls
+          781 => :tornado, # tornado
+          800 => :clear, # clear sky
+          801 => :mostly_clear, # few clouds: 11-25%
+          802 => :partly_cloudy, # scattered clouds: 25-50%
+          803 => :mostly_cloudy, # broken clouds: 51-84%
+          804 => :cloudy, # overcast clouds: 85-100%
         }.freeze
 
         # @return [Weather::Result]
@@ -32,6 +78,7 @@ module FortunaLuca
 
           Weather::Result.new(
             success: true,
+            codes: data["weather"].flat_map { |d| CODES[d["id"]] },
             text_summary: data["weather"].map { |d| d["description"] }.join(", "),
             precipitations: {
               probability: (data["pop"] * 100).round,
@@ -49,7 +96,6 @@ module FortunaLuca
             },
             pressure: data["pressure"],
             humidity: data["humidity"],
-            icons: icons
           )
         end
 
@@ -68,13 +114,6 @@ module FortunaLuca
           @data ||= response["daily"].find do |day|
             Time.at(day["dt"]).to_date == date
           end
-        end
-
-        def icons
-          data["weather"].map do |d|
-            icon_number = d["icon"].delete("^0-9")
-            ICONS[icon_number]
-          end.uniq
         end
       end
     end
