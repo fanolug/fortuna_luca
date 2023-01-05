@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require_relative "../geo"
-require_relative 'source'
+require_relative "icons"
+require_relative "source"
 
 module FortunaLuca
   module Weather
     class DaySummary
       include Geo
+      include Icons
 
       # @param location [String]
       # @param date [Date]
@@ -26,7 +28,7 @@ module FortunaLuca
           ),
           I18n.t('weather.day_summary.pressure', value: result.pressure),
           I18n.t('weather.day_summary.humidity', value: result.humidity),
-          result.icons.join
+          icons_for(result.codes).join
         ].compact.join
       end
 

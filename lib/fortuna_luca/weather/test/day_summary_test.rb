@@ -22,7 +22,7 @@ describe FortunaLuca::Weather::DaySummary do
       result = instance.call
 
       result.must_equal(
-        "pioggia leggera. 88% di possibilità di precipitazioni (2mm di pioggia), temperatura tra 10 e 14 °C, pressione 1005, umidità 60%. 🌧"
+        "pioggia leggera. 88% di possibilità di precipitazioni (2mm di pioggia), temperatura tra 10 e 14 °C, pressione 1005, umidità 60%. 🌦"
       )
     end
   end
