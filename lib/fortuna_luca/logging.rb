@@ -1,3 +1,4 @@
+require "logger"
 require "dotenv/load"
 
 module FortunaLuca
@@ -5,9 +6,9 @@ module FortunaLuca
     def self.logger
       @logger ||= begin
         if ENV["RACK_ENV"] == "test"
-          Logger.new('log/test.log')
+          ::Logger.new('log/test.log')
         else
-          Logger.new(STDOUT)
+          ::Logger.new(STDOUT)
         end
       end
     end
