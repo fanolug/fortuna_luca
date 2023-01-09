@@ -78,26 +78,8 @@ module FortunaLuca
 
           Weather::Forecast.new(
             success: true,
-            daily: {
-              codes: daily_data["weather"].flat_map { |d| CODES[d["id"]] },
-              text_summary: daily_data["weather"].map { |d| d["description"] }.join(", "),
-              precipitations: {
-                probability: (daily_data["pop"] * 100).round,
-                rain: daily_data["rain"]&.round || 0,
-                snow: daily_data["snow"]&.round || 0
-              },
-              temperatures: {
-                min: daily_data["temp"]["min"].round,
-                max: daily_data["temp"]["max"].round
-              },
-              wind: {
-                speed: daily_data["wind_speed"].round,
-                deg: daily_data["wind_deg"],
-                gust: daily_data["wind_gust"]&.round
-              },
-              pressure: daily_data["pressure"],
-              humidity: daily_data["humidity"],
-            }
+            daily: mapping(daily_data),
+            hourly: response["hourly"].map { |data| mapping(data) }
           )
         end
 
@@ -116,6 +98,40 @@ module FortunaLuca
           @daily_data ||= response["daily"].find do |day|
             Time.at(day["dt"]).to_date == date
           end
+        end
+
+        def mapping(data)
+          {
+            time: data["dt"],
+            codes: data["weather"].flat_map { |d| CODES[d["id"]] },
+            text_summary: data["weather"].map { |d| d["description"] }.join(", "),
+            precipitations: {
+              probability: (data["pop"] * 100).round,
+              rain: precipitation(data, "rain"),
+              snow: precipitation(data, "snow")
+            },
+            temperatures: {
+              min: temperature(data, "min"),
+              max: temperature(data, "max")
+            },
+            wind: {
+              speed: data["wind_speed"].round,
+              deg: data["wind_deg"],
+              gust: data["wind_gust"]&.round
+            },
+            pressure: data["pressure"],
+            humidity: data["humidity"],
+          }
+        end
+
+        def temperature(data, type)
+          (data["temp"].respond_to?(:round) ? data["temp"] : data["temp"][type]).round
+        end
+
+        def precipitation(data, type)
+          return 0 unless data[type]
+          return data[type].round if data[type]&.respond_to?(:round)
+          (data[type]["1h"] * 100).round
         end
       end
     end

@@ -30,26 +30,29 @@
   "hourly": [
     {
       "dt": 1672826400,
-      "temp": 9.6,
-      "feels_like": 8.1,
-      "pressure": 1030,
-      "humidity": 96,
-      "dew_point": 8.99,
-      "uvi": 0.63,
-      "clouds": 95,
+      "temp": 9.2,
+      "feels_like": 5.81,
+      "pressure": 1004,
+      "humidity": 82,
+      "dew_point": 6.29,
+      "uvi": 0,
+      "clouds": 68,
       "visibility": 10000,
-      "wind_speed": 2.89,
-      "wind_deg": 313,
-      "wind_gust": 3.2,
+      "wind_speed": 7.35,
+      "wind_deg": 315,
+      "wind_gust": 11.04,
       "weather": [
         {
-          "id": 804,
-          "main": "Clouds",
-          "description": "cielo coperto",
-          "icon": "04d"
+          "id": 500,
+          "main": "Rain",
+          "description": "pioggia leggera",
+          "icon": "10n"
         }
       ],
-      "pop": 0
+      "pop": 0.61,
+      "rain": {
+        "1h": 0.23
+      }
     },
     {
       "dt": 1672830000,

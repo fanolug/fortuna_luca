@@ -20,7 +20,7 @@ describe FortunaLuca::Weather::OpenWeather::Client do
       result["lat"].must_equal(43.8321)
       result["timezone"].must_equal("Europe/Rome")
       result["current"]["temp"].must_equal(9.6)
-      result["hourly"].first["pressure"].must_equal(1030)
+      result["hourly"].first["pressure"].must_equal(1004)
       result["daily"].last["temp"]["day"].must_equal(10.13)
     end
   end

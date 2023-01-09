@@ -26,6 +26,7 @@ module FortunaLuca
     end
 
     class Detail < Dry::Struct
+      attribute :time, Types::Strict::Integer # unix epoch
       attribute :codes, Types::Strict::Array.of(Types::Strict::Symbol)
       attribute :text_summary, Types::Strict::String.optional.default(nil)
       attribute :precipitations, Precipitations
@@ -39,6 +40,7 @@ module FortunaLuca
       attribute :success, Types::Strict::Bool
       attribute :error, Types::Strict::String.optional.default(nil)
       attribute :daily, Detail
+      attribute :hourly, Types::Strict::Array.of(Detail)
     end
   end
 end
