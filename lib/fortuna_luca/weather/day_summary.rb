@@ -23,12 +23,12 @@ module FortunaLuca
           precipitations,
           I18n.t(
             'weather.day_summary.temp_between',
-            min: result.temperatures[:min],
-            max: result.temperatures[:max]
+            min: data.temperatures.min,
+            max: data.temperatures.max
           ),
-          I18n.t('weather.day_summary.pressure', value: result.pressure),
-          I18n.t('weather.day_summary.humidity', value: result.humidity),
-          icons_for(result.codes).join
+          I18n.t('weather.day_summary.pressure', value: data.pressure),
+          I18n.t('weather.day_summary.humidity', value: data.humidity),
+          icons_for(data.codes).join
         ].compact.join
       end
 
@@ -40,25 +40,29 @@ module FortunaLuca
         @result ||= Weather::Source.new(lat: lat, lon: lon, date: date).call
       end
 
+      def data
+        result[:daily]
+      end
+
       def precipitations
-        return if result.precipitations[:probability] < 30
+        return if data.precipitations.probability < 30
 
         probability = I18n.t(
           'weather.day_summary.precip_probability',
-          value: result.precipitations[:probability]
+          value: data.precipitations.probability
         )
-        rain = if result.precipitations[:rain] > 0
-          I18n.t('weather.day_summary.rain', value: result.precipitations[:rain])
+        rain = if data.precipitations.rain > 0
+          I18n.t('weather.day_summary.rain', value: data.precipitations.rain)
         end
-        snow = if result.precipitations[:snow] > 0
-          I18n.t('weather.day_summary.snow', value: result.precipitations[:snow])
+        snow = if data.precipitations.snow > 0
+          I18n.t('weather.day_summary.snow', value: data.precipitations.snow)
         end
 
         [probability, rain, snow].compact.join
       end
 
       def text_summary
-        result.codes.map do |code|
+        data.codes.map do |code|
           I18n.t(code, scope: 'weather.codes')
         end.join(", ")
       end

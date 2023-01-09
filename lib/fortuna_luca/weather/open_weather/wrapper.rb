@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "client"
-require_relative "../result"
+require_relative "../types/forecast"
 require_relative "../wrapper"
 
 module FortunaLuca
@@ -66,36 +66,38 @@ module FortunaLuca
           804 => :cloudy, # overcast clouds: 85-100%
         }.freeze
 
-        # @return [Weather::Result]
+        # @return [Weather::Forecast]
         def call
           if out_of_range?
-            return Weather::Result.new(success: false, error: 'Day is out of range')
+            return Weather::Forecast.new(success: false, error: 'Day is out of range')
           end
 
-          if !data
-            return Weather::Result.new(success: false, error: 'Not found')
+          if !daily_data
+            return Weather::Forecast.new(success: false, error: 'Not found')
           end
 
-          Weather::Result.new(
+          Weather::Forecast.new(
             success: true,
-            codes: data["weather"].flat_map { |d| CODES[d["id"]] },
-            text_summary: data["weather"].map { |d| d["description"] }.join(", "),
-            precipitations: {
-              probability: (data["pop"] * 100).round,
-              rain: data["rain"]&.round || 0,
-              snow: data["snow"]&.round || 0
-            },
-            temperatures: {
-              min: data["temp"]["min"].round,
-              max: data["temp"]["max"].round
-            },
-            wind: {
-              speed: data["wind_speed"].round,
-              deg: data["wind_deg"],
-              gust: data["wind_gust"]&.round
-            },
-            pressure: data["pressure"],
-            humidity: data["humidity"],
+            daily: {
+              codes: daily_data["weather"].flat_map { |d| CODES[d["id"]] },
+              text_summary: daily_data["weather"].map { |d| d["description"] }.join(", "),
+              precipitations: {
+                probability: (daily_data["pop"] * 100).round,
+                rain: daily_data["rain"]&.round || 0,
+                snow: daily_data["snow"]&.round || 0
+              },
+              temperatures: {
+                min: daily_data["temp"]["min"].round,
+                max: daily_data["temp"]["max"].round
+              },
+              wind: {
+                speed: daily_data["wind_speed"].round,
+                deg: daily_data["wind_deg"],
+                gust: daily_data["wind_gust"]&.round
+              },
+              pressure: daily_data["pressure"],
+              humidity: daily_data["humidity"],
+            }
           )
         end
 
@@ -110,8 +112,8 @@ module FortunaLuca
           date > (Date.today + 8)
         end
 
-        def data
-          @data ||= response["daily"].find do |day|
+        def daily_data
+          @daily_data ||= response["daily"].find do |day|
             Time.at(day["dt"]).to_date == date
           end
         end

@@ -20,15 +20,17 @@ describe FortunaLuca::Weather::OpenWeather::Wrapper do
       result = instance.call
 
       result.must_equal(
-        FortunaLuca::Weather::Result.new(
+        FortunaLuca::Weather::Forecast.new(
           success: true,
-          codes: [:light_rain],
-          text_summary: "pioggia leggera",
-          precipitations: { probability: 88, rain: 2, snow: 0 },
-          temperatures: { min: 10, max: 14 },
-          wind: { speed: 10, deg: 260, gust: 16 },
-          pressure: 1005,
-          humidity: 60
+          daily: {
+            codes: [:light_rain],
+            text_summary: "pioggia leggera",
+            precipitations: { probability: 88, rain: 2, snow: 0 },
+            temperatures: { min: 10, max: 14 },
+            wind: { speed: 10, deg: 260, gust: 16 },
+            pressure: 1005,
+            humidity: 60
+          }
         )
       )
     end
