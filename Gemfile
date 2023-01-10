@@ -11,6 +11,7 @@ gem 'frinkiac', github: 'alepore/frinkiac', branch: 'loose-deps'
 gem 'geocoder', '~> 1.6.1', require: false
 gem 'google-api-client', '~> 0.53'
 gem 'google-cloud-dialogflow-v2', '~> 0.11'
+gem 'holidays', '~> 8.6'
 gem 'httpclient', '~> 2.8'
 gem 'i18n', '~> 1.8.7'
 gem 'nokogiri', '~> 1.13'
