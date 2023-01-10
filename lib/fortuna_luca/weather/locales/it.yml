@@ -39,4 +39,11 @@ it:
       temp: "%{value}°C"
       rain: pioggia
       snow: neve
+      commuting:
+        cold_alert: (ma fa freddino)
+        very_cold_alert: (ma fa freddissimo)
+        ok: Oggi fa andare al lavoro in bici! 🚲
+        maybe: Oggi andare al lavoro in bici dovrebbe fare 🚲
+        risky: Oggi andare al lavoro in bici è rischioso...
+        ko: Oggi non fa andare al lavoro in bici! 🚳
 

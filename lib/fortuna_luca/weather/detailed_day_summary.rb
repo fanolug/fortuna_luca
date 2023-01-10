@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'date'
+require 'holidays'
 require_relative "day_summary"
 
 module FortunaLuca
@@ -8,6 +10,7 @@ module FortunaLuca
       MORNING = 7
       AFTERNOON = 13
       EVENING = 19
+      COMMUTING = [7, 14, 15]
 
       def call
         morning = [
@@ -38,6 +41,7 @@ module FortunaLuca
           #{I18n.t('weather.detailed_day_summary.afternoon')} #{afternoon} #{afternoon_icons}
           #{I18n.t('weather.detailed_day_summary.evening')} #{evening} #{evening_icons}
           #{day}
+          #{commuting}
         TEXT
       end
 
@@ -90,6 +94,40 @@ module FortunaLuca
         average = (data.sum { |d| d.temperatures.max }.to_f / data.size).round
 
         I18n.t('weather.detailed_day_summary.temp', value: average)
+      end
+
+      def commuting
+        return if holiday?(date)
+
+        data = forecast.hourly.select do |data|
+          time = Time.at(data.time)
+          time.to_date == date && COMMUTING.include?(time.hour)
+        end
+        max_probability = data.map { |d| d.precipitations.probability }.max
+        min_temp = data.map { |d| d.temperatures.min }.min
+
+        result = if max_probability < 25
+          I18n.t('weather.detailed_day_summary.commuting.ok')
+        elsif max_probability < 50
+          I18n.t('weather.detailed_day_summary.commuting.maybe')
+        elsif max_probability < 75
+          I18n.t('weather.detailed_day_summary.commuting.risky')
+        else
+          I18n.t('weather.detailed_day_summary.commuting.ko')
+        end
+        cold_alert = if max_probability < 75
+          if min_temp < 10
+            I18n.t('weather.detailed_day_summary.commuting.cold_alert')
+          elsif min_temp < 2
+            I18n.t('weather.detailed_day_summary.commuting.very_cold_alert')
+          end
+        end
+
+        [result, cold_alert].compact.join(" ")
+      end
+
+      def holiday?(date)
+        date.saturday? || date.sunday? || Holidays.on(date, :it).any?
       end
     end
   end

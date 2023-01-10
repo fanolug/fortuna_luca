@@ -27,6 +27,7 @@ describe FortunaLuca::Weather::DetailedDaySummary do
         Nel pomeriggio nuvoloso, 12°C ☁🌥🌤
         Alla sera sereno, 11°C 🌞🌞🌤🌤🌥
         Pressione 1005, umidità 60%
+        Oggi fa andare al lavoro in bici.
         TEXT
       )
     end
