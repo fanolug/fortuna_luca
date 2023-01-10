@@ -6,7 +6,7 @@ it:
       rain: pioggia
       heavy_rain: pioggia forte
       light_rain: pioggia leggera
-      freezing_rain: pioggia ghiacciata
+      freezing_rain: pioggia gelata
       light_snow: neve leggera
       snow: neve
       heavy_snow: nevone
@@ -20,6 +20,8 @@ it:
       partly_cloudy: un pò nuvoloso,
       mostly_cloudy: abbastanza nuvoloso,
       cloudy: nuvoloso
+      light_fog: foschia
+      hail: grandine
     day_summary:
       humidity: ", umidità %{value}%. "
       precip_probability: ". %{value}% di possibilità di precipitazioni"
@@ -27,3 +29,14 @@ it:
       rain: " (%{value}mm di pioggia)"
       snow: " (%{value}mm di neve)"
       temp_between: ", temperatura tra %{min} e %{max} °C"
+    detailed_day_summary:
+      morning: "In mattinata"
+      afternoon: "Nel pomeriggio"
+      evening: "Alla sera"
+      pressure: "Pressione %{value}"
+      humidity: "umidità %{value}%"
+      precip_probability_up_to: "fino al %{value}% di possibilità di %{what}"
+      temp: "%{value}°C"
+      rain: pioggia
+      snow: neve
+

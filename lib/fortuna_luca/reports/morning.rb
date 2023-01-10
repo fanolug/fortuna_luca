@@ -3,7 +3,7 @@
 require 'date'
 require_relative "../../../config/i18n"
 require_relative "../telegram/client"
-require_relative "../weather/day_summary"
+require_relative "../weather/detailed_day_summary"
 require_relative "../logging"
 
 module FortunaLuca
@@ -37,7 +37,7 @@ module FortunaLuca
       end
 
       def daily_forecast(location)
-        Weather::DaySummary.new(location: location, date: Date.today).call
+        Weather::DetailedDaySummary.new(location: location, date: Date.today).call
       end
 
       # JSON Config format: {"chat_id":"location name"}

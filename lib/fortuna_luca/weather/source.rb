@@ -14,7 +14,7 @@ module FortunaLuca
         @date = date
       end
 
-      # @return [Weather::Result]
+      # @return [Weather::Forecast]
       def call
         Weather::OpenWeather::Wrapper.new(lat: lat, lon: lon, date: date).call
       end

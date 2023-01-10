@@ -36,12 +36,12 @@ module FortunaLuca
 
       attr_reader :date, :lat, :lon
 
-      def result
-        @result ||= Weather::Source.new(lat: lat, lon: lon, date: date).call
+      def forecast
+        @forecast ||= Weather::Source.new(lat: lat, lon: lon, date: date).call
       end
 
       def data
-        result[:daily]
+        forecast.daily
       end
 
       def precipitations
