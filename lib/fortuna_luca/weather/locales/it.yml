@@ -16,9 +16,9 @@ it:
       squalls: burrasca
       tornado: tornado
       clear: sereno
-      mostly_clear: nubi sparse,
-      partly_cloudy: un pò nuvoloso,
-      mostly_cloudy: abbastanza nuvoloso,
+      mostly_clear: nubi sparse
+      partly_cloudy: un pò nuvoloso
+      mostly_cloudy: abbastanza nuvoloso
       cloudy: nuvoloso
       light_fog: foschia
       hail: grandine
@@ -30,7 +30,7 @@ it:
       snow: " (%{value}mm di neve)"
       temp_between: ", temperatura tra %{min} e %{max} °C"
     detailed_day_summary:
-      morning: "In mattinata"
+      morning: "in mattinata"
       afternoon: "Nel pomeriggio"
       evening: "Alla sera"
       pressure: "Pressione %{value}"

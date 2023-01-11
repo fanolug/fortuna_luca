@@ -4,7 +4,7 @@ require_relative "../detailed_day_summary"
 
 describe FortunaLuca::Weather::DetailedDaySummary do
   let(:instance) { FortunaLuca::Weather::DetailedDaySummary.new(location: "Fano", date: date) }
-  let(:date) { Date.new(2023, 1, 9) }
+  let(:date) { Date.new(2023, 1, 5) }
 
   describe '#call' do
     let(:open_weather_response) do
@@ -23,11 +23,11 @@ describe FortunaLuca::Weather::DetailedDaySummary do
 
       result.must_equal(
         <<~TEXT
-        In mattinata pioggia leggera, fino al 61% di possibilità di pioggia, 11°C 🌦☁🌤🌞
-        Nel pomeriggio nuvoloso, 12°C ☁🌥🌤
-        Alla sera sereno, 11°C 🌞🌞🌤🌤🌥
-        Pressione 1005, umidità 60%
-        Oggi fa andare al lavoro in bici.
+        in mattinata nuvoloso, fino al 61% di possibilità di pioggia, 11°C ☁
+        Nel pomeriggio abbastanza nuvoloso, 13°C 🌥
+        Alla sera un pò nuvoloso, 11°C 🌤
+        Pressione 1023, umidità 72%
+        Oggi andare al lavoro in bici è rischioso... (ma fa freddino)
         TEXT
       )
     end

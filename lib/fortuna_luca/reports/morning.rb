@@ -12,6 +12,11 @@ module FortunaLuca
       include Logging
       include FortunaLuca::Telegram::Client
 
+      # @param [Date] date
+      def initialize(date)
+        @date = date
+      end
+
       def call
         config.each do |chat_id, location|
           send_telegram_message(chat_id, message(location))
@@ -22,22 +27,16 @@ module FortunaLuca
 
       private
 
-      def message(location)
-        [
-          good_morning,
-          I18n.t('reports.today'),
-          I18n.t('reports.in'),
-          location,
-          daily_forecast(location),
-        ].join(" ")
-      end
+      attr_reader :date
 
-      def good_morning
-        I18n.t('reports.good_mornings').sample
+      def message(location)
+        <<~TEXT
+          #{I18n.t('reports.today_in')} #{location} #{daily_forecast(location)}
+        TEXT
       end
 
       def daily_forecast(location)
-        Weather::DetailedDaySummary.new(location: location, date: Date.today).call
+        Weather::DetailedDaySummary.new(location: location, date: date).call
       end
 
       # JSON Config format: {"chat_id":"location name"}

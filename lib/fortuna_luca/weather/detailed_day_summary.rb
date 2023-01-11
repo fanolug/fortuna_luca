@@ -14,32 +14,29 @@ module FortunaLuca
 
       def call
         morning = [
-          text_summary(morning_data),
+          I18n.t(main_code(morning_data), scope: 'weather.codes'),
           precipitations(morning_data),
           temperature(morning_data)
         ].compact.join(", ")
-        morning_icons = icons_for(morning_data.flat_map(&:codes)).uniq.join
         afternoon = [
-          text_summary(afternoon_data),
+          I18n.t(main_code(afternoon_data), scope: 'weather.codes'),
           precipitations(afternoon_data),
           temperature(afternoon_data)
         ].compact.join(", ")
-        afternoon_icons = icons_for(afternoon_data.flat_map(&:codes)).uniq.join
         evening = [
-          text_summary(evening_data),
+          I18n.t(main_code(evening_data), scope: 'weather.codes'),
           precipitations(evening_data),
           temperature(evening_data)
         ].compact.join(", ")
-        evening_icons = icons_for(evening_data.flat_map(&:codes)).uniq.join
         day = [
           I18n.t('weather.detailed_day_summary.pressure', value: data.pressure),
           I18n.t('weather.detailed_day_summary.humidity', value: data.humidity)
         ].join(", ")
 
         <<~TEXT
-          #{I18n.t('weather.detailed_day_summary.morning')} #{morning} #{morning_icons}
-          #{I18n.t('weather.detailed_day_summary.afternoon')} #{afternoon} #{afternoon_icons}
-          #{I18n.t('weather.detailed_day_summary.evening')} #{evening} #{evening_icons}
+          #{I18n.t('weather.detailed_day_summary.morning')} #{morning} #{main_icon(morning_data)}
+          #{I18n.t('weather.detailed_day_summary.afternoon')} #{afternoon} #{main_icon(afternoon_data)}
+          #{I18n.t('weather.detailed_day_summary.evening')} #{evening} #{main_icon(evening_data)}
           #{day}
           #{commuting}
         TEXT
@@ -49,26 +46,33 @@ module FortunaLuca
 
       def morning_data
         @morning_data ||= forecast.hourly.select do |data|
-          Time.at(data.time).hour.between?(MORNING, AFTERNOON - 1)
+          time = Time.at(data.time)
+          time.to_date == date && time.hour.between?(MORNING, AFTERNOON - 1)
         end
       end
 
       def afternoon_data
         @afternoon_data ||= forecast.hourly.select do |data|
-          Time.at(data.time).hour.between?(AFTERNOON, EVENING - 1)
+          time = Time.at(data.time)
+          time.to_date == date && time.hour.between?(AFTERNOON, EVENING - 1)
         end
       end
 
       def evening_data
         @evening_data ||= forecast.hourly.select do |data|
-          Time.at(data.time).hour > EVENING
+          time = Time.at(data.time)
+          time.to_date == date && time.hour > EVENING
         end
       end
 
-      def text_summary(data)
-        values = data.flat_map(&:codes)
-        grouped = values.tally.sort_by { |_value, count| count }
-        I18n.t(grouped.first.first, scope: 'weather.codes')
+      def main_code(data)
+        data.flat_map(&:codes).tally.sort_by do |_value, count|
+          count
+        end.reverse.first.first
+      end
+
+      def main_icon(data)
+        icons_for([main_code(data)]).join
       end
 
       def precipitations(data)

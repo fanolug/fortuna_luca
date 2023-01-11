@@ -2,7 +2,8 @@ require_relative "../../../../test/test_helper"
 require_relative "../morning"
 
 describe FortunaLuca::Reports::Morning do
-  let(:instance) { FortunaLuca::Reports::Morning.new }
+  let(:instance) { FortunaLuca::Reports::Morning.new(date) }
+  let(:date) { Date.new(2023, 1, 5) }
 
   before do
     ENV["REPORTS_MORNING_CONFIG"] = '{"12345": "Fano"}'
@@ -17,7 +18,7 @@ describe FortunaLuca::Reports::Morning do
       FortunaLuca::Weather::DetailedDaySummary.any_instance.expects(:call).returns("possibilità di pioggia")
       ::Telegram::Bot::Api.any_instance.expects(:send_message).with(
         chat_id: '12345',
-        text: "Buongiorno! Oggi a Fano possibilità di pioggia"
+        text: "Oggi a Fano possibilità di pioggia\n"
       )
       instance.call
     end

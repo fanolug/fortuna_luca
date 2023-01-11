@@ -493,8 +493,8 @@
     },
     {
       "dt": 1672898400,
-      "temp": 9.96,
-      "feels_like": 9.96,
+      "temp": 3,
+      "feels_like": 3,
       "pressure": 1024,
       "humidity": 85,
       "dew_point": 7.28,
@@ -512,7 +512,10 @@
           "icon": "03n"
         }
       ],
-      "pop": 0
+      "pop": 0.61,
+      "rain": {
+        "1h": 0.23
+      }
     },
     {
       "dt": 1672902000,
