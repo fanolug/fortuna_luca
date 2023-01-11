@@ -36,7 +36,11 @@ module FortunaLuca
       end
 
       def daily_forecast(location)
-        Weather::DetailedDaySummary.new(location: location, date: date).call
+        Weather::DetailedDaySummary.new(
+          location: location,
+          date: date,
+          show_commuting: true
+        ).call
       end
 
       # JSON Config format: {"chat_id":"location name"}

@@ -3,7 +3,13 @@ require_relative "../../../../test/test_helper"
 require_relative "../detailed_day_summary"
 
 describe FortunaLuca::Weather::DetailedDaySummary do
-  let(:instance) { FortunaLuca::Weather::DetailedDaySummary.new(location: "Fano", date: date) }
+  let(:instance) do
+    FortunaLuca::Weather::DetailedDaySummary.new(
+      location: "Fano",
+      date: date,
+      show_commuting: true
+    )
+  end
   let(:date) { Date.new(2023, 1, 5) }
 
   describe '#call' do

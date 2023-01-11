@@ -3,7 +3,7 @@
 require "date"
 require "i18n"
 require_relative "base"
-require_relative "../../weather/day_summary"
+require_relative "../../weather/detailed_day_summary"
 
 module FortunaLuca
   module AI
@@ -25,7 +25,7 @@ module FortunaLuca
         private
 
         def daily_forecast
-          @daily_forecast ||= FortunaLuca::Weather::DaySummary.new(
+          @daily_forecast ||= FortunaLuca::Weather::DetailedDaySummary.new(
             location: weather_city,
             date: weather_time.to_date
           ).call

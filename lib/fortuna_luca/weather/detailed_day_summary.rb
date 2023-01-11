@@ -12,6 +12,15 @@ module FortunaLuca
       EVENING = 19
       COMMUTING = [7, 14, 15]
 
+      # @param location [String]
+      # @param date [Date]
+      # @param show_commuting [Bool] Show commuting text if true
+      def initialize(location:, date:, show_commuting: false)
+        @lat, @lon = coordinates_for(location)
+        @date = date
+        @show_commuting = show_commuting
+      end
+
       def call
         morning = [
           I18n.t(main_code(morning_data), scope: 'weather.codes'),
@@ -43,6 +52,8 @@ module FortunaLuca
       end
 
       private
+
+      attr_reader :show_commuting
 
       def morning_data
         @morning_data ||= forecast.hourly.select do |data|
@@ -101,7 +112,7 @@ module FortunaLuca
       end
 
       def commuting
-        return if holiday?(date)
+        return if !show_commuting || holiday?(date)
 
         data = forecast.hourly.select do |data|
           time = Time.at(data.time)
