@@ -1,19 +1,4 @@
 it:
   reports:
-    in: a
-    good_mornings:
-      - Buongiorno!
-      - Buongiorno.
-      - Buongiornissimo!!!
-      - Ciao!
-      - Ciao.
-      - Pronti.
-      - Salve a tutti.
-      - Good morning.
-      - Ciao raga.
-      - Siete svegli?
-      - Yawn...
-      - Eccoci.
-      - Al chiaror del mattin, al chiaror del mattin, ci sveglia una canzon, ci sveglia una canzon.
-    today: Oggi
+    today_in: Oggi a
 

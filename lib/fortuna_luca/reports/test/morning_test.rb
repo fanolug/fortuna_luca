@@ -11,7 +11,6 @@ describe FortunaLuca::Reports::Morning do
 
   describe '#call' do
     it "sends a daily summary" do
-      FortunaLuca::Reports::Morning.any_instance.expects(:good_morning).returns("Buongiorno!")
       FortunaLuca::Weather::DetailedDaySummary.any_instance.expects(:coordinates_for).
         with("Fano").
         returns(["43.8441", "13.0170"])
