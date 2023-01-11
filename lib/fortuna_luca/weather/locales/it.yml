@@ -1,5 +1,6 @@
 it:
   weather:
+    and: e
     codes:
       thunderstorm: temporale
       drizzle: pioviggine
@@ -39,6 +40,7 @@ it:
       temp: "%{value}°C"
       rain: pioggia
       snow: neve
+      precipitations: precipitazioni
       commuting:
         cold_alert: (ma fa freddino)
         very_cold_alert: (ma fa freddissimo)

@@ -92,11 +92,11 @@ module FortunaLuca
 
         max_rain = data.map { |d| d.precipitations.rain }.max
         max_snow = data.map { |d| d.precipitations.snow }.max
-        what = if max_rain > 0
-          I18n.t('weather.detailed_day_summary.rain')
-        elsif max_snow > 0
-          I18n.t('weather.detailed_day_summary.snow')
-        end
+        what = [
+          (I18n.t('weather.detailed_day_summary.rain') if max_rain > 0),
+          (I18n.t('weather.detailed_day_summary.snow') if max_snow > 0)
+        ].compact.join(" #{I18n.t('weather.and')} ")
+        what = I18n.t('weather.detailed_day_summary.precipitations') if what == ""
 
         I18n.t(
           'weather.detailed_day_summary.precip_probability_up_to',
