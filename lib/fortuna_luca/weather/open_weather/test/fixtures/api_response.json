@@ -527,9 +527,9 @@
       "uvi": 0,
       "clouds": 100,
       "visibility": 10000,
-      "wind_speed": 1.56,
+      "wind_speed": 15,
       "wind_deg": 223,
-      "wind_gust": 1.69,
+      "wind_gust": 30,
       "weather": [
         {
           "id": 804,
