@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'date'
-require 'holidays'
 require_relative "day_summary"
 
 module FortunaLuca
@@ -112,7 +111,7 @@ module FortunaLuca
       end
 
       def commuting
-        return if !show_commuting || holiday?(date)
+        return if !show_commuting
 
         data = forecast.hourly.select do |data|
           time = Time.at(data.time)
@@ -139,10 +138,6 @@ module FortunaLuca
         end
 
         [result, cold_alert].compact.join(" ")
-      end
-
-      def holiday?(date)
-        date.saturday? || date.sunday? || Holidays.on(date, :it).any?
       end
     end
   end

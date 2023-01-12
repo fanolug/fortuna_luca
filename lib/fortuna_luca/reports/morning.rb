@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'holidays'
 require_relative "../../../config/i18n"
 require_relative "../telegram/client"
 require_relative "../weather/detailed_day_summary"
@@ -18,6 +19,8 @@ module FortunaLuca
       end
 
       def call
+        return unless show_today?
+
         config.each do |chat_id, location|
           send_telegram_message(chat_id, message(location))
         end
@@ -39,7 +42,7 @@ module FortunaLuca
         Weather::DetailedDaySummary.new(
           location: location,
           date: date,
-          show_commuting: true
+          show_commuting: !holiday?
         ).call
       end
 
@@ -50,6 +53,14 @@ module FortunaLuca
 
       def env_or_blank(key)
         ENV[key] || "{}"
+      end
+
+      def holiday?
+        date.saturday? || date.sunday? || Holidays.on(date, :it).any?
+      end
+
+      def show_today?
+        true
       end
     end
   end
