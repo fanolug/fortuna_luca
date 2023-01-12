@@ -22,7 +22,10 @@ module FortunaLuca
         return unless show_today?
 
         config.each do |chat_id, location|
-          send_telegram_message(chat_id, message(location))
+          message = message(location)
+          next unless message
+
+          send_telegram_message(chat_id, message)
         end
 
         true

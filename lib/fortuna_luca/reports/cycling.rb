@@ -8,6 +8,16 @@ module FortunaLuca
     class Cycling < Morning
       private
 
+      def message(location)
+        forecast = daily_forecast(location)
+        return unless forecast
+
+        <<~TEXT
+          #{welcome}
+          #{I18n.t('reports.today_in')} #{location} #{forecast}
+        TEXT
+      end
+
       def daily_forecast(location)
         Weather::Cycling.new(location: location, date: date).call
       end
@@ -19,6 +29,10 @@ module FortunaLuca
 
       def show_today?
         holiday?
+      end
+
+      def welcome
+        I18n.t('reports.cycling.welcomes').sample
       end
     end
   end

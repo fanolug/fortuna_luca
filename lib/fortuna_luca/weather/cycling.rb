@@ -25,7 +25,7 @@ module FortunaLuca
 
       # @return [String]
       def call
-        return I18n.t("weather.cycling.ko") if grouped_good_hours.none?
+        return false if good_hours_data.none?
 
         <<~TEXT
           #{I18n.t("weather.cycling.ok")} #{hours_text} #{icons}.

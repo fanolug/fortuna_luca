@@ -26,7 +26,6 @@ it:
     cycling:
       between_hours: "tra le %{start} e le %{end}!"
       ok: "fa uscire in bici"
-      ko: "non fa uscire in bici"
       temp_between: "Temperatura tra %{min} e %{max} °C"
       wind: Vento fino a %{value}km/h
     day_summary:
