@@ -61,9 +61,10 @@ module FortunaLuca
         end
 
         def weather_city
+          return DEFAULT_CITY unless address
+
           city = address["city"]&.string_value
-          city = DEFAULT_CITY if !city || city == ""
-          city
+          city.to_s == "" ? DEFAULT_CITY : city
         end
       end
     end
