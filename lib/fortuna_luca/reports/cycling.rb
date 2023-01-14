@@ -27,7 +27,7 @@ module FortunaLuca
         @config ||= JSON.parse(env_or_blank("REPORTS_CYCLING_CONFIG"))
       end
 
-      def show_today?
+      def show?
         holiday?
       end
 
