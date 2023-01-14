@@ -13,7 +13,7 @@ module FortunaLuca
         return unless forecast
 
         <<~TEXT
-          #{welcome}
+          #{welcome} 🚲
           #{I18n.t('reports.today_in')} #{location} #{forecast}
         TEXT
       end

@@ -28,7 +28,7 @@ module FortunaLuca
         return false if good_hours_data.none?
 
         <<~TEXT
-          #{I18n.t("weather.cycling.ok")} #{hours_text} #{icons}.
+          #{I18n.t("weather.cycling.ok")} #{hours_text}! #{icons}
           #{temperatures_text}
           #{wind_text}
         TEXT
@@ -96,7 +96,7 @@ module FortunaLuca
       end
 
       def icons
-        icons_for(good_hours_data.flat_map { |d| d.codes }.uniq).join
+        icons_for(good_hours_data.flat_map(&:codes)).uniq.join
       end
     end
   end

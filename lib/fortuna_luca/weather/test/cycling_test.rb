@@ -23,7 +23,7 @@ describe FortunaLuca::Weather::Cycling do
 
       result.must_equal(
         <<~TEXT
-        fa uscire in bici tra le 8 e le 20! ☁🌥🌤.
+        fa uscire in bici tra le 8 e le 20! ☁🌥🌤
         Temperatura tra 10 e 14 °C
         Vento fino a 15km/h
         TEXT
