@@ -10,7 +10,7 @@ task :send_last_quakes do
     starttime: start_time,
     lat: 43.844109, # Fano
     lon: 13.017070,
-    maxradiuskm: 300,
+    maxradiuskm: 250,
     minmag: 3
   )
 
