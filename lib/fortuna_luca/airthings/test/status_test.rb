@@ -32,15 +32,18 @@ describe FortunaLuca::Airthings::Status do
       }
     }
   end
-  let(:expected_result) do
-    "<pre>Ufficio: T 17.2°, Umidità 65% 🟡, Radon 33 Bq/m³ 🟢</pre>\n<pre>Camera:  T 16.2°, Umidità 71% 🔴, VOC 65 ppb 🟢, Rischio muffa 2/10</pre>"
-  end
 
   before do
     FortunaLuca::Airthings::Client.any_instance.expects(:samples).returns(samples)
   end
 
-  it 'returns the array of events' do
-    instance.airthings_status.must_equal(expected_result)
+  describe '#airthings_status' do
+    let(:expected_result) do
+      "<pre>Ufficio: 17.2°, 65% 🟡, Rn 33Bq/m³ 🟢</pre>\n<pre>Camera:  16.2°, 71% 🔴, VOC 65ppb 🟢, Muffa 2/10</pre>"
+    end
+
+    it 'returns the formatted text report' do
+      instance.airthings_status.must_equal(expected_result)
+    end
   end
 end
