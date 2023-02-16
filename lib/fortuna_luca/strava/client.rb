@@ -7,13 +7,13 @@ module FortunaLuca
   module Strava
     module Client
       def strava_client
-        Strava::Api::Client.new(access_token: access_token)
+        ::Strava::Api::Client.new(access_token: access_token)
       end
 
       private
 
       def oauth_client
-        @oauth_client ||= Strava::OAuth::Client.new(
+        @oauth_client ||= ::Strava::OAuth::Client.new(
           client_id: ENV["STRAVA_CLIENT_ID"],
           client_secret: ENV["STRAVA_CLIENT_SECRET"]
         )
