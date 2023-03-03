@@ -26,8 +26,6 @@ gem 'sinatra', '~> 2.2.0'
 gem 'sinatra-contrib'
 gem 'strava-ruby-client'
 gem 'telegram-bot-ruby', '~> 0.11.0'
-gem 'twitter-text', '~> 1.13.3'
-gem 'twitter', '~> 7.0.0'
 
 group :development do
   gem 'derailed_benchmarks'
