@@ -15,12 +15,17 @@ module FortunaLuca
       # @param date [Date]
       # @param show_commuting [Bool] Show commuting text if true
       def initialize(location:, date:, show_commuting: false)
+        @location = location
         @lat, @lon = coordinates_for(location)
         @date = date
         @show_commuting = show_commuting
       end
 
       def call
+        if hourly_data.none?
+          return DaySummary.new(location: location, date: date).call
+        end
+
         morning = [
           I18n.t(main_code(morning_data), scope: 'weather.codes'),
           precipitations(morning_data),
@@ -52,26 +57,29 @@ module FortunaLuca
 
       private
 
-      attr_reader :show_commuting
+      attr_reader :location, :show_commuting
+
+      def hourly_data
+        @hourly_data ||= forecast.hourly.select do |data|
+          Time.at(data.time).to_date == date
+        end
+      end
 
       def morning_data
-        @morning_data ||= forecast.hourly.select do |data|
-          time = Time.at(data.time)
-          time.to_date == date && time.hour.between?(MORNING, AFTERNOON - 1)
+        @morning_data ||= hourly_data.select do |data|
+          Time.at(data.time).hour.between?(MORNING, AFTERNOON - 1)
         end
       end
 
       def afternoon_data
-        @afternoon_data ||= forecast.hourly.select do |data|
-          time = Time.at(data.time)
-          time.to_date == date && time.hour.between?(AFTERNOON, EVENING - 1)
+        @afternoon_data ||= hourly_data.select do |data|
+          Time.at(data.time).hour.between?(AFTERNOON, EVENING - 1)
         end
       end
 
       def evening_data
-        @evening_data ||= forecast.hourly.select do |data|
-          time = Time.at(data.time)
-          time.to_date == date && time.hour > EVENING
+        @evening_data ||= hourly_data.select do |data|
+          Time.at(data.time).hour > EVENING
         end
       end
 

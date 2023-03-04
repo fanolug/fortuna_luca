@@ -19,7 +19,7 @@ describe FortunaLuca::Weather::DetailedDaySummary do
 
     before do
       stub_request(:get, %r{https://api.openweathermap.org/data/3.0/onecall}).to_return(body: open_weather_response)
-      FortunaLuca::Weather::DetailedDaySummary.any_instance.expects(:coordinates_for).
+      FortunaLuca::Weather::DaySummary.any_instance.expects(:coordinates_for).
         with("Fano").
         returns(["43.8441", "13.0170"])
     end
@@ -36,6 +36,19 @@ describe FortunaLuca::Weather::DetailedDaySummary do
         Oggi andare al lavoro in bici è rischioso... (ma fa freddino)
         TEXT
       )
+    end
+
+    describe 'hourly details are not available' do
+      let(:date) { Date.new(2023, 1, 7) }
+
+      it 'falls back to daily summary' do
+        FortunaLuca::Weather::DaySummary.any_instance.expects(:coordinates_for).
+          with("Fano").
+          returns(["43.8441", "13.0170"])
+        result = instance.call
+
+        result.must_equal("nuvoloso, temperatura tra 11 e 13 °C, pressione 1022, umidità 83%. ☁")
+      end
     end
   end
 end
