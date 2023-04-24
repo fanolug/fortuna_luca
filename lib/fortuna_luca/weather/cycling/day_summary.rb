@@ -1,32 +1,24 @@
 # frozen_string_literal: true
 
-require_relative "../../geo"
+require_relative "hours"
 require_relative "../icons"
-require_relative "../source"
 
 module FortunaLuca
   module Weather
     module Cycling
-      class DaySummary
-        include Geo
+      class DaySummary < Hours
         include Icons
-
-        START_HOUR = 7
-        END_HOUR = 19
-        MIN_TEMP = 0
-        MAX_PRECIPITATION_PROBABILITY = 35
-        MAX_WIND_SPEED = 50
 
         # @param location [String]
         # @param date [Date]
         def initialize(location:, date:)
+          @location = location
           @date = date
-          @lat, @lon = coordinates_for(location)
         end
 
         # @return [String]
         def call
-          return false if good_hours_data.none?
+          return I18n.t("weather.cycling.ko") if good_hours_data.none?
 
           <<~TEXT
             #{I18n.t("weather.cycling.ok")} #{hours_text}! #{icons}
@@ -37,20 +29,10 @@ module FortunaLuca
 
         private
 
-        attr_reader :date, :lat, :lon
-
-        def forecast
-          @forecast ||= Weather::Source.new(lat: lat, lon: lon, date: date).call
-        end
+        attr_reader :location, :date
 
         def good_hours_data
-          @good_hours_data ||=
-            forecast.hourly.select do |data|
-              time = Time.at(data.time)
-
-              time.to_date == date &&
-                time.hour.between?(START_HOUR, END_HOUR) && good_for_bike?(data)
-            end
+          @good_hours_data ||= Hours.new(location: location, date: date).call
         end
 
         def grouped_good_hours
@@ -61,23 +43,15 @@ module FortunaLuca
             .to_a
         end
 
-        def good_for_bike?(data)
-          data.temperatures.min > MIN_TEMP &&
-            data.precipitations.probability < MAX_PRECIPITATION_PROBABILITY &&
-            data.wind.speed < MAX_WIND_SPEED
-        end
-
         def hours_text
-          grouped_good_hours
-            .map do |group|
-              group = [group].flatten
-              I18n.t(
-                "weather.cycling.between_hours",
-                start: group.first,
-                end: group.last.next
-              )
-            end
-            .join(", ")
+          grouped_good_hours.map do |group|
+            group = [group].flatten
+            I18n.t(
+              "weather.cycling.between_hours",
+              start: group.first,
+              end: group.last.next
+            )
+          end.join(", ")
         end
 
         def temperatures_text

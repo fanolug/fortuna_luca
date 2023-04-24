@@ -1,9 +1,9 @@
 require "date"
 require_relative "../../../../../test/test_helper"
-require_relative "../../cycling/day_summary"
+require_relative "../../cycling/hours"
 
-describe FortunaLuca::Weather::Cycling::DaySummary do
-  let(:instance) { FortunaLuca::Weather::Cycling::DaySummary.new(location: "Fano", date: date) }
+describe FortunaLuca::Weather::Cycling::Hours do
+  let(:instance) { FortunaLuca::Weather::Cycling::Hours.new(location: "Fano", date: date) }
   let(:date) { Date.new(2023, 1, 5) }
 
   describe '#call' do
@@ -18,16 +18,12 @@ describe FortunaLuca::Weather::Cycling::DaySummary do
         returns(["43.8441", "13.0170"])
     end
 
-    it 'returns the text summary' do
+    it 'returns a list of details for the good bike hours' do
       result = instance.call
 
-      result.must_equal(
-        <<~TEXT
-        fa uscire in bici tra le 8 e le 20! ☁🌥🌤
-        Temperatura tra 10 e 14 °C
-        Vento fino a 15km/h
-        TEXT
-      )
+      result.first.codes.first.must_equal(:cloudy)
+      result.first.precipitations.probability.must_equal(0)
+      result.first.temperatures.min.must_equal(10)
     end
   end
 end
