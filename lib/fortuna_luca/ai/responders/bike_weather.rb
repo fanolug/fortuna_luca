@@ -1,5 +1,5 @@
 require_relative "weather"
-require_relative "../../weather/cycling"
+require_relative "../../weather/cycling/day_summary"
 
 module FortunaLuca
   module AI
@@ -8,10 +8,11 @@ module FortunaLuca
         private
 
         def daily_forecast
-          @daily_forecast ||= FortunaLuca::Weather::Cycling.new(
-            location: weather_city,
-            date: weather_time.to_date
-          ).call
+          @daily_forecast ||=
+            FortunaLuca::Weather::Cycling::DaySummary.new(
+              location: weather_city,
+              date: weather_time.to_date
+            ).call
         end
       end
     end
