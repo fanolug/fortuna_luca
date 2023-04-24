@@ -14,7 +14,7 @@ module FortunaLuca
 
         <<~TEXT
           #{welcome} 🚲
-          #{I18n.t('reports.today_in')} #{location} #{forecast}
+          #{I18n.t("reports.today_in")} #{location} #{forecast}
         TEXT
       end
 
@@ -28,11 +28,11 @@ module FortunaLuca
       end
 
       def show?
-        holiday?
+        holiday? || weekend?
       end
 
       def welcome
-        I18n.t('reports.cycling.welcomes').sample
+        I18n.t("reports.cycling.welcomes").sample
       end
     end
   end

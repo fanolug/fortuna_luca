@@ -47,7 +47,11 @@ module FortunaLuca
       end
 
       def holiday?
-        date.saturday? || date.sunday? || Holidays.on(date, :it).any?
+        Holidays.on(date, :it).any?
+      end
+
+      def weekend?
+        date.saturday? || date.sunday?
       end
 
       def show?

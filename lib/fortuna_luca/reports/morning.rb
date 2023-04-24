@@ -20,7 +20,7 @@ module FortunaLuca
         Weather::DetailedDaySummary.new(
           location: location,
           date: date,
-          show_commuting: !holiday?
+          show_commuting: !holiday? && !weekend?
         ).call
       end
 
