@@ -28,7 +28,7 @@ module FortunaLuca
         ::OpenAI.configure do |config|
           config.access_token = ENV["OPENAI_ACCESS_TOKEN"]
           config.organization_id = ENV["OPENAI_ORGANIZATION_ID"]
-          config.request_timeout = 60
+          config.request_timeout = 25
         end
       end
 
