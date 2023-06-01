@@ -7,6 +7,8 @@ require_relative "../logging"
 module FortunaLuca
   module OpenAI
     class ChatGPTClient
+      include FortunaLuca::Logging
+
       def initialize
         configure!
       end
