@@ -11,6 +11,7 @@ require_relative "responders/term_search"
 require_relative "responders/simpsons_search"
 require_relative "responders/airthings"
 require_relative "responders/chat_gpt"
+require_relative "responders/dall_e"
 
 module FortunaLuca
   module AI
@@ -53,6 +54,7 @@ module FortunaLuca
         when "term_search" then Responders::TermSearch.new(result).call
         when "simpsons_search" then Responders::SimpsonsSearch.new(result).call
         when "airthings" then Responders::Airthings.new.call
+        when "image_generation" then Responders::DallE.new(result).call
         else
           Responders::ChatGPT.new(result).call
         end
