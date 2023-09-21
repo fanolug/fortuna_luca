@@ -13,5 +13,6 @@ ENV["SECRET_WEBHOOK_PATH"] = "/the-secret-path"
 ENV["SECRET_YT_WEBHOOK_PATH"] = "/the-yt-secret-path"
 ENV["TELEGRAM_BOT_COMMAND"] = "/lucas"
 ENV["YOUTUBE__abcdefg"] = '["-12345"]'
+ENV["WIKIPEDIA_ON_THIS_DAY_CHAT_IDS"] = '["12345"]'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
