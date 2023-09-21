@@ -29,7 +29,10 @@ module FortunaLuca
           end.map do |item|
             "#{item["year"]}: #{item["text"]}"
           end
-          message = [I18n.t("wikipedia.on_this_day.title"), items].flatten.join("\n")
+          message = [
+            I18n.t("wikipedia.on_this_day.title", month: month, day: day),
+            items
+          ].flatten.join("\n")
 
           chat_ids.each do |chat_id|
             send_telegram_message(chat_id, message)

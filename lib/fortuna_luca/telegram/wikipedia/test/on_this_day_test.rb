@@ -31,7 +31,7 @@ describe FortunaLuca::Telegram::Wikipedia::OnThisDay do
     it "sends the formatted Telegram message" do
       ::Telegram::Bot::Api.any_instance.expects(:send_message).with(
         chat_id: "12345",
-        text: "Accadde oggi...\n2022: old event\n2023: new event"
+        text: "Accadde oggi 20/09...\n2022: old event\n2023: new event"
       )
       instance.call
     end
