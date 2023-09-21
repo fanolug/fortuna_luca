@@ -4,7 +4,7 @@ require "dotenv/load"
 require "i18n"
 require_relative '../client'
 require_relative '../../logging'
-require_relative '../wikipedia/on_this_day'
+require_relative '../../wikipedia/on_this_day'
 
 module FortunaLuca
   module Telegram
