@@ -3,21 +3,19 @@
 [![Build Status](https://travis-ci.org/fanolug/fortuna_luca.svg?branch=master)](https://travis-ci.org/fanolug/fortuna_luca)
 [![Code Climate](https://codeclimate.com/github/fanolug/fortuna_luca/badges/gpa.svg)](https://codeclimate.com/github/fanolug/fortuna_luca)
 
-## The Telegram bot of the Fortunae Lug, also known as FanoLUG
+## The Telegram bot of the Fortunae LUG, also known as FanoLUG
 
 ### Setup
+
+Copy .env.example to .env and fill required credentials, if needed.
 
     bundle
 
 
-### Running locally
+### Run the console
 
-You must have a complete `.env` file with all the required credentials.
+    bin/console.sh
 
-    DEVELOPMENT=true bundle exec bin/bot
-
-WARNING: if you use production credentials this will disconnect the production
-bot!
 
 ### Running tests
 
@@ -26,4 +24,4 @@ bot!
 
 Powered by [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby)
 
-Copyright (c) 2019 FanoLUG, released under the MIT License.
+Copyright (c) 2023 FanoLUG, released under the MIT License.
