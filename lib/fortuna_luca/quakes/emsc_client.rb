@@ -2,21 +2,21 @@
 
 module FortunaLuca
   module Quakes
-    class INGVClient
+    class EMSCClient
       include FDSNClient
 
       private
 
       def extract_event_id(event)
-        event.dig("@publicID").split("eventId=").last
+        event.dig("@publicID").split("/event/").last
       end
 
       def webservice_url
-        "http://webservices.ingv.it"
+        "https://seismicportal.eu"
       end
 
       def event_detail_url(event_id)
-        "http://terremoti.ingv.it/event/#{event_id}"
+        "https://seismicportal.eu/eventdetails.html?unid=#{event_id}"
       end
     end
   end

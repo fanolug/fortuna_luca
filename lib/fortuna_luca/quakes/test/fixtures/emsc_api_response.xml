@@ -1,0 +1,66 @@
+<q:quakeml xmlns:q="http://quakeml.org/xmlns/quakeml/1.2"  xmlns="http://quakeml.org/xmlns/bed/1.2">
+<eventParameters publicID="smi:eu.emsc/unid">
+<event publicID="quakeml:eu.emsc/event/20230922_0000053">
+  <preferredOriginID>quakeml:eu.emsc/event/20230922_0000053/origin/IDCCSHGJI</preferredOriginID>
+  <preferredMagnitudeID>quakeml:eu.emsc/event/20230922_0000053/origin/IDCCSHGJI/mag/1</preferredMagnitudeID>
+  <creationInfo>
+    <agencyURI>smi:smi-registry/organization/EMSC</agencyURI>
+    <authorURI>smi:smi-registry/organization/INGV</authorURI>
+    <creationTime>2023-09-22T05:51:36.610524Z</creationTime>
+  </creationInfo>
+  <description>
+    <text>CENTRAL ITALY</text>
+    <type>Flinn-Engdahl region</type>
+  </description>
+  <origin publicID="quakeml:eu.emsc/event/20230922_0000053/origin/IDCCSHGJI">
+    <time>
+      <value>2023-09-22T05:35:14.31Z</value>
+      <uncertainty>0.07</uncertainty>
+    </time>
+    <latitude>
+      <value>42.4610</value>
+      <uncertainty>0.52</uncertainty>
+    </latitude>
+    <longitude>
+      <value>13.2875</value>
+      <uncertainty>0.07</uncertainty>
+    </longitude>
+    <depth>
+      <value>14500.0</value>
+      <uncertainty>0.9</uncertainty>
+    </depth>
+    <depthType>from location</depthType>
+    <methodID>smi:eu.emsc-csem/origin_method/GEIGER</methodID>
+    <quality>
+      <usedPhaseCount>91</usedPhaseCount>
+      <usedStationCount>75</usedStationCount>
+      <standardError>0.29</standardError>
+      <azimuthalGap>63.1</azimuthalGap>
+      <minimumDistance>0.072</minimumDistance>
+      <maximumDistance>5.092</maximumDistance>
+    </quality>
+    <evaluationMode>manual</evaluationMode>
+    <creationInfo>
+      <agencyURI>smi:smi-registry/organization/EMSC</agencyURI>
+      <authorURI>smi:smi-registry/organization/INGV</authorURI>
+    </creationInfo>
+    <originUncertainty>
+      <azimuthMaxHorizontalUncertainty>266.0</azimuthMaxHorizontalUncertainty>
+    </originUncertainty>
+  </origin>
+  <magnitude publicID="quakeml:eu.emsc/event/20230922_0000053/origin/IDCCSHGJI/mag/1">
+    <mag>
+      <value>3.0</value>
+      <uncertainty>0.30</uncertainty>
+    </mag>
+    <type>ml</type>
+    <originID>quakeml:eu.emsc/event/20230922_0000053/origin/IDCCSHGJI</originID>
+    <stationCount>137</stationCount>
+    <creationInfo>
+      <agencyURI>smi:smi-registry/organization/EMSC</agencyURI>
+      <authorURI>smi:smi-registry/organization/INGV</authorURI>
+    </creationInfo>
+  </magnitude>
+</event>
+</eventParameters>
+</q:quakeml>

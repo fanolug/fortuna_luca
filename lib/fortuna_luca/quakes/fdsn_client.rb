@@ -68,7 +68,7 @@ module FortunaLuca
       end
 
       def webservice_path
-        raise NotImplementedError
+        "/fdsnws/event/1/query"
       end
 
       def event_detail_url(event_id)
