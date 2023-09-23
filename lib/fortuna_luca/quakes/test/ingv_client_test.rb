@@ -5,9 +5,9 @@ describe FortunaLuca::Quakes::INGVClient do
   let(:instance) { FortunaLuca::Quakes::INGVClient.new }
   let(:redis_instance) { MockRedis.new }
 
-  describe '#call' do
+  describe "#call" do
     let(:api_response) do
-      File.read(File.dirname(__FILE__) + '/fixtures/api_response.xml')
+      File.read(File.dirname(__FILE__) + "/fixtures/ingv_api_response.xml")
     end
     let(:expected_result) do
       [
@@ -35,11 +35,11 @@ describe FortunaLuca::Quakes::INGVClient do
     end
 
     before do
-      stub_request(:get, FortunaLuca::Quakes::INGVClient::URL).to_return(body: api_response)
+      stub_request(:get, "http://webservices.ingv.it/fdsnws/event/1/query").to_return(body: api_response)
       Redis.stubs(:new).returns(redis_instance)
     end
 
-    it 'returns the array of events' do
+    it "returns the array of events" do
       instance.call.must_equal(expected_result)
     end
   end

@@ -11,6 +11,7 @@ loader.inflector.inflect(
   "chat_gpt" => "ChatGPT",
   "chat_gpt_client" => "ChatGPTClient",
   "emsc_client" => "EMSCClient",
+  "fdsn_client" => "FDSNClient",
   "ingv_client" => "INGVClient",
   "tomorrow_io" => "TomorrowIO",
   "open_ai" => "OpenAI",
