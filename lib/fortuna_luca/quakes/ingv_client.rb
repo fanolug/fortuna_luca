@@ -8,7 +8,7 @@ require_relative "../processed_ids"
 
 module FortunaLuca
   module Quakes
-    module Client
+    class INGVClient
       include FortunaLuca::ProcessedIDs
       include Logging
 
@@ -21,7 +21,7 @@ module FortunaLuca
       # @params args Query arguments accepted by the web service
       #   See http://webservices.ingv.it/swagger-ui/dist/?url=https://ingv.github.io/openapi/fdsnws/event/0.0.1/event.yaml#/fdsnws-event-1.1/get_query for details
       # @return [Array<Event>] A list of events
-      def quake_events(**args)
+      def call(**args)
         response = HTTPClient.get(URL, args)
         logger.info(response.body)
         result = Nori.new.parse(response.body)
