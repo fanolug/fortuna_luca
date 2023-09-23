@@ -1,3 +1,5 @@
+require "logger"
+
 module FortunaLuca
   module Logging
     def self.logger
