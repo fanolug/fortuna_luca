@@ -8,6 +8,7 @@ end
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect(
   "ai" => "AI",
+  "chat_gpt" => "ChatGPT",
   "chat_gpt_client" => "ChatGPTClient",
   "emsc_client" => "EMSCClient",
   "ingv_client" => "INGVClient",

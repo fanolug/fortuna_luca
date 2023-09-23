@@ -1,3 +1,3 @@
-require './lib/fortuna_luca/telegram/webhook_server'
+require './lib/fortuna_luca'
 
 run FortunaLuca::Telegram::WebhookServer
