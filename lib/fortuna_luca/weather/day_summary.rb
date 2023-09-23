@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../geo"
-require_relative "icons"
-require_relative "source"
-
 module FortunaLuca
   module Weather
     class DaySummary

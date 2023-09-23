@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "dotenv/load"
-require_relative 'client'
-require_relative '../logging'
-require_relative '../ai/responder'
-
 module FortunaLuca
   module Telegram
     class Responder

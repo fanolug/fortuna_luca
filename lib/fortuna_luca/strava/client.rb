@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "dotenv/load"
 require "strava-ruby-client"
 
 module FortunaLuca

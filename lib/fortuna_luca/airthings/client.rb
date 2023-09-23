@@ -2,7 +2,6 @@
 
 require "oauth2"
 require "httpclient"
-require "dotenv/load"
 
 module FortunaLuca
   module Airthings

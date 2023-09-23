@@ -1,6 +1,3 @@
-require "logger"
-require "dotenv/load"
-
 module FortunaLuca
   module Logging
     def self.logger

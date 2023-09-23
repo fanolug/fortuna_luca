@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../../../config/i18n"
-require_relative "../telegram/client"
-require_relative "client"
-
 module FortunaLuca
   module Airthings
     module Status

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "../../../../../test/test_helper"
-require_relative "../../responders/airthings"
 
 describe FortunaLuca::AI::Responders::Airthings do
   let(:responder) { FortunaLuca::AI::Responders::Airthings.new }

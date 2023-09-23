@@ -1,5 +1,4 @@
 require_relative "../../../../test/test_helper"
-require_relative "../summary"
 
 describe FortunaLuca::Wikipedia::Summary do
   let(:instance) { FortunaLuca::Wikipedia::Summary.new("it") }

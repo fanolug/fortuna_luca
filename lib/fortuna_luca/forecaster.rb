@@ -1,15 +1,5 @@
 # frozen_string_literal: true
 
-require "i18n"
-require "forecast_io"
-require "geocoder/configuration"
-require "geocoder/logger"
-require "geocoder/kernel_logger"
-require "geocoder/query"
-require "geocoder/lookup"
-require "geocoder/exceptions"
-require_relative "logging"
-
 module FortunaLuca
   class Forecaster
     include Logging

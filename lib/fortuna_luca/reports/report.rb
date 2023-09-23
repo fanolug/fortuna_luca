@@ -2,9 +2,6 @@
 
 require "date"
 require "holidays"
-require_relative "../../../config/i18n"
-require_relative "../telegram/client"
-require_relative "../logging"
 
 module FortunaLuca
   module Reports

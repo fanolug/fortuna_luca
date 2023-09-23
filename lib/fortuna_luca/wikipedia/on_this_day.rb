@@ -3,7 +3,6 @@
 require "i18n"
 require "httpclient"
 require "json"
-require_relative "../logging"
 
 module FortunaLuca
   module Wikipedia

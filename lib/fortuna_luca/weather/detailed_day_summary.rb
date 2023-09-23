@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'date'
-require_relative "day_summary"
 
 module FortunaLuca
   module Weather

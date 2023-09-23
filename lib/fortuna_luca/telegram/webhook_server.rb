@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
 require 'sinatra/base'
 require 'sinatra/json'
 require 'json'
 require 'telegram/bot'
-require_relative '../../../config/i18n'
-require_relative 'responder'
-require_relative 'youtube_responder'
-require_relative 'strava'
 
 module FortunaLuca
   module Telegram

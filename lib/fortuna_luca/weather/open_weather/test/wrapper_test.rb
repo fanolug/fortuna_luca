@@ -1,6 +1,5 @@
 require "date"
 require_relative "../../../../../test/test_helper"
-require_relative "../wrapper"
 
 describe FortunaLuca::Weather::OpenWeather::Wrapper do
   let(:instance) do
@@ -21,7 +20,7 @@ describe FortunaLuca::Weather::OpenWeather::Wrapper do
 
       result.success.must_equal(true)
       result.daily.must_equal(
-        FortunaLuca::Weather::Detail.new(
+        FortunaLuca::Weather::Types::Detail.new(
           time: 1673262000,
           codes: [:light_rain],
           text_summary: "pioggia leggera",
@@ -33,7 +32,7 @@ describe FortunaLuca::Weather::OpenWeather::Wrapper do
         )
       )
       result.hourly.first.must_equal(
-        FortunaLuca::Weather::Detail.new(
+        FortunaLuca::Weather::Types::Detail.new(
           time: 1672826400,
           codes: [:light_rain],
           text_summary: "pioggia leggera",

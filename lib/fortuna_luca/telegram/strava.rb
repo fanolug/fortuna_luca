@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require "dotenv/load"
-require "json"
 require "strava-ruby-client"
-require_relative 'client'
-require_relative '../logging'
 
 module FortunaLuca
   module Telegram

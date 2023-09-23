@@ -1,5 +1,3 @@
-require_relative "../../logging"
-
 module FortunaLuca
   module AI
     module Responders

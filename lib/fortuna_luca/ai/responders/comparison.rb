@@ -1,5 +1,3 @@
-require_relative "base"
-
 module FortunaLuca
   module AI
     module Responders

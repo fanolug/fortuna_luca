@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-require "geocoder/configuration"
-require "geocoder/logger"
-require "geocoder/kernel_logger"
-require "geocoder/query"
-require "geocoder/lookup"
-require "geocoder/exceptions"
-
 module FortunaLuca
   module Geo
     # @param location_name [String] A city name that can be geocoded

@@ -1,17 +1,5 @@
-require "dotenv/load"
 require "google/cloud/dialogflow/v2"
 require "securerandom"
-
-require_relative "../logging"
-require_relative "responders/weather"
-require_relative "responders/bike_weather"
-require_relative "responders/web_query"
-require_relative "responders/comparison"
-require_relative "responders/term_search"
-require_relative "responders/simpsons_search"
-require_relative "responders/airthings"
-require_relative "responders/chat_gpt"
-require_relative "responders/dall_e"
 
 module FortunaLuca
   module AI

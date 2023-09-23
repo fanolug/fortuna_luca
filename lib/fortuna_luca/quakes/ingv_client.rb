@@ -3,8 +3,6 @@
 require "httpclient"
 require "nori"
 require "ostruct"
-require_relative "../logging"
-require_relative "../processed_ids"
 
 module FortunaLuca
   module Quakes

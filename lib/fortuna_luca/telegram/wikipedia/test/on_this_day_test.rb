@@ -1,5 +1,4 @@
 require_relative "../../../../../test/test_helper"
-require_relative "../on_this_day"
 
 describe FortunaLuca::Telegram::Wikipedia::OnThisDay do
   let(:instance) do

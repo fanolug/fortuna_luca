@@ -1,6 +1,3 @@
-require_relative "weather"
-require_relative "../../weather/cycling/day_summary"
-
 module FortunaLuca
   module AI
     module Responders

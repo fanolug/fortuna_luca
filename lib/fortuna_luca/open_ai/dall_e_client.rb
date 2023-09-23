@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "chat_gpt_client"
-
 module FortunaLuca
   module OpenAI
     class DallEClient < ChatGPTClient

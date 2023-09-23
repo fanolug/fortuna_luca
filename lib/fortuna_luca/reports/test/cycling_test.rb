@@ -1,5 +1,4 @@
 require_relative "../../../../test/test_helper"
-require_relative "../cycling"
 
 describe FortunaLuca::Reports::Cycling do
   let(:instance) { FortunaLuca::Reports::Cycling.new(date) }

@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "openai"
-require "json"
-require_relative "../logging"
-
 module FortunaLuca
   module OpenAI
     class ChatGPTClient

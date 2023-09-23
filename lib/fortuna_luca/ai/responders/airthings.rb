@@ -1,6 +1,3 @@
-require_relative "base"
-require_relative "../../airthings/status"
-
 module FortunaLuca
   module AI
     module Responders

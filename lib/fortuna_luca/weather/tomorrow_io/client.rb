@@ -4,7 +4,6 @@ require "httpclient"
 require "json"
 require "dotenv/load"
 require_relative "../../../../config/i18n"
-require_relative "../../logging"
 
 module FortunaLuca
   module Weather

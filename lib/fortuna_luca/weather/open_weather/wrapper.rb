@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "client"
-require_relative "../types/forecast"
-require_relative "../wrapper"
-
 module FortunaLuca
   module Weather
     module OpenWeather
@@ -66,17 +62,17 @@ module FortunaLuca
           804 => :cloudy, # overcast clouds: 85-100%
         }.freeze
 
-        # @return [Weather::Forecast]
+        # @return [Weather::Types::Forecast]
         def call
           if out_of_range?
-            return Weather::Forecast.new(success: false, error: 'Day is out of range')
+            return Weather::Types::Forecast.new(success: false, error: 'Day is out of range')
           end
 
           if !daily_data
-            return Weather::Forecast.new(success: false, error: 'Not found')
+            return Weather::Types::Forecast.new(success: false, error: 'Not found')
           end
 
-          Weather::Forecast.new(
+          Weather::Types::Forecast.new(
             success: true,
             daily: mapping(daily_data),
             hourly: response["hourly"].map { |data| mapping(data) }

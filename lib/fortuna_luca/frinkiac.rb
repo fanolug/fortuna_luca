@@ -1,6 +1,3 @@
-require 'frinkiac'
-require_relative "logging"
-
 module FortunaLuca
   class Frinkiac
     include Logging

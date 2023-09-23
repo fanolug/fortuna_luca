@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../../geo"
-require_relative "../source"
-
 module FortunaLuca
   module Weather
     module Cycling

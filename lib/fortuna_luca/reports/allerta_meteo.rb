@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "report"
-require_relative "../weather/allerta_meteo/client"
-
 module FortunaLuca
   module Reports
     class AllertaMeteo
-      include Report
+      include Reports::Report
 
       def call
         return unless show?

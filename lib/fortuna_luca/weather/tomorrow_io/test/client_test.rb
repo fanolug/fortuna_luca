@@ -1,6 +1,5 @@
 require "date"
 require_relative "../../../../../test/test_helper"
-require_relative "../client"
 
 describe FortunaLuca::Weather::TomorrowIO::Client do
   let(:instance) { FortunaLuca::Weather::TomorrowIO::Client.new }

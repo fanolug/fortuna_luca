@@ -1,6 +1,3 @@
-require_relative "base"
-require_relative "../../openai/dall_e_client"
-
 module FortunaLuca
   module AI
     module Responders

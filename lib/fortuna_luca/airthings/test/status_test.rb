@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "../../../../test/test_helper"
-require_relative "../status"
 
 describe FortunaLuca::Airthings::Status do
   let(:instance) do

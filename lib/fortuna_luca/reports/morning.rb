@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "report"
-require_relative "../weather/detailed_day_summary"
-
 module FortunaLuca
   module Reports
     class Morning

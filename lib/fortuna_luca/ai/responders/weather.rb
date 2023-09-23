@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "date"
-require "i18n"
-require_relative "base"
-require_relative "../../weather/detailed_day_summary"
-
 module FortunaLuca
   module AI
     module Responders

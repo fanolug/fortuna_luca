@@ -2,7 +2,6 @@
 
 require_relative "../../../../../test/test_helper"
 require_relative "../support/dialogflow_responses"
-require_relative "../../responders/weather"
 
 include DialogflowResponses
 

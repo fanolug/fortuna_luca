@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "hours"
-require_relative "../icons"
-
 module FortunaLuca
   module Weather
     module Cycling

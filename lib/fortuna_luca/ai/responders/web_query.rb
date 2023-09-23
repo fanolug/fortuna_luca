@@ -1,6 +1,3 @@
-require_relative "base"
-require_relative "../../web_searcher"
-
 module FortunaLuca
   module AI
     module Responders

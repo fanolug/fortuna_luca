@@ -1,5 +1,4 @@
 require_relative "../../test_helper"
-require_relative "../../../lib/fortuna_luca/telegram/client"
 
 describe FortunaLuca::Telegram::Client do
   let(:instance) { Class.new { include FortunaLuca::Telegram::Client }.new }

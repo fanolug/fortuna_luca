@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require "dotenv/load"
 require "feedjira"
-require_relative "client"
-require_relative "../logging"
-require_relative "../processed_ids"
 
 module FortunaLuca
   module Telegram

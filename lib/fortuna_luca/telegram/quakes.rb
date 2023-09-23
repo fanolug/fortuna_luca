@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "dotenv/load"
-require "i18n"
-require_relative 'client'
-require_relative '../logging'
-
 module FortunaLuca
   module Telegram
     class Quakes

@@ -1,6 +1,4 @@
-require "dotenv/load"
 require "google/apis/customsearch_v1"
-require_relative "logging"
 
 module FortunaLuca
   class WebSearcher

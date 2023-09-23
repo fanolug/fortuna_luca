@@ -1,5 +1,4 @@
 require_relative "../test_helper"
-require_relative "../../lib/fortuna_luca/xkcd"
 
 describe FortunaLuca::Xkcd do
   let(:instance) { FortunaLuca::Xkcd.new }
