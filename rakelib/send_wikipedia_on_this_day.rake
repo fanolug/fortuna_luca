@@ -1,5 +1,3 @@
-require_relative '../lib/fortuna_luca/telegram/wikipedia/on_this_day'
-
 task :send_wikipedia_on_this_day do
   now = Time.now
   month = "%02d" % now.month
