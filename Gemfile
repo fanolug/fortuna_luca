@@ -39,3 +39,5 @@ group :development do
   gem 'stackprof'
   gem 'webmock'
 end
+
+gem 'simplecov', require: false, group: :test

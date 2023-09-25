@@ -1,3 +1,5 @@
 .ruby-version
 log/*.log
 .env
+coverage
+.DS_Store

@@ -1,9 +1,16 @@
+require "simplecov"
+
+SimpleCov.start do
+  add_filter %r{/test/}
+end
+
 require "minitest/autorun"
 require "mocha/minitest"
 require "minitest/reporters"
 require "rack/test"
 require "webmock/minitest"
 require "mock_redis"
+
 require_relative "../lib/fortuna_luca"
 
 ENV["RACK_ENV"] = "test"
