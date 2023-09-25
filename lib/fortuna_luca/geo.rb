@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'geocoder'
+
 module FortunaLuca
   module Geo
     # @param location_name [String] A city name that can be geocoded
@@ -7,7 +9,7 @@ module FortunaLuca
     def coordinates_for(location_name)
       geocoder_init
 
-      Geocoder::Query.new(location_name).
+      ::Geocoder::Query.new(location_name).
         execute.
         first&.
         coordinates
@@ -16,7 +18,7 @@ module FortunaLuca
     private
 
     def geocoder_init
-      Geocoder.configure(timeout: 10)
+      ::Geocoder.configure(timeout: 10)
     end
   end
 end
