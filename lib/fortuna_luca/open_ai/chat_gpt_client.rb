@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'openai'
+
 module FortunaLuca
   module OpenAI
     class ChatGPTClient
