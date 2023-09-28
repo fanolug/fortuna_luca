@@ -18,18 +18,20 @@ module FortunaLuca
         def call
           return if !response || response.size == 0
 
-          items = response.sort_by do |item|
-            item["year"]
-          end.map do |item|
-            "#{item["year"]}: #{item["text"]}"
-          end
+          items = response.sort_by { |item| item["year"] }.map { |item| message_from(item) }
           message = [
-            I18n.t("wikipedia.on_this_day.title", month: month, day: day),
+            "<b>#{I18n.t("wikipedia.on_this_day.title", month: month, day: day)}</b>",
             items
           ].flatten.join("\n")
 
           chat_ids.each do |chat_id|
-            send_telegram_message(chat_id, message)
+            send_telegram_message(
+              chat_id,
+              message,
+              parse_mode: 'HTML',
+              disable_web_page_preview: true,
+              disable_notification: true
+            )
           end
         end
 
@@ -51,6 +53,19 @@ module FortunaLuca
 
         def env_or_blank(key)
           ENV[key] || "[]"
+        end
+
+        def message_from(item)
+          text = "<i>#{item["year"]}</i>: #{item["text"]}"
+          return text unless item["pages"]
+
+          item["pages"].each do |page|
+            url = page["content_urls"]["desktop"]["page"]
+            term = page["titles"]["normalized"]
+            text.gsub!(/#{term}/i, "<a href='#{url}'>#{term}</a>")
+          end
+
+          text
         end
       end
     end
