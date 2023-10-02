@@ -41,6 +41,10 @@ module FortunaLuca
       def config
         @config ||= JSON.parse(env_or_blank("REPORTS_ALLERTA_METEO_CONFIG"))
       end
+
+      def disable_notification?
+        false
+      end
     end
   end
 end

@@ -16,7 +16,8 @@ describe FortunaLuca::Reports::Morning do
       FortunaLuca::Weather::DetailedDaySummary.any_instance.expects(:call).returns("possibilità di pioggia")
       ::Telegram::Bot::Api.any_instance.expects(:send_message).with(
         chat_id: '12345',
-        text: "Oggi a Fano possibilità di pioggia\n"
+        text: "Oggi a Fano possibilità di pioggia\n",
+        disable_notification: true
       )
       instance.call
     end

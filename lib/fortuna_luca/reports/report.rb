@@ -21,7 +21,7 @@ module FortunaLuca
           message = message(subject)
           next unless message
 
-          send_telegram_message(chat_id, message)
+          send_telegram_message(chat_id, message, disable_notification: disable_notification?)
         end
 
         true
@@ -52,6 +52,10 @@ module FortunaLuca
       end
 
       def show?
+        true
+      end
+
+      def disable_notification?
         true
       end
     end

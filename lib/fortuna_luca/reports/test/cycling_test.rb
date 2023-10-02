@@ -15,7 +15,8 @@ describe FortunaLuca::Reports::Cycling do
       FortunaLuca::Reports::Cycling.any_instance.expects(:welcome).returns("Ciao")
       ::Telegram::Bot::Api.any_instance.expects(:send_message).with(
         chat_id: "12345",
-        text: "Ciao 🚲\nOggi a Fano non fa uscire in bici\n"
+        text: "Ciao 🚲\nOggi a Fano non fa uscire in bici\n",
+        disable_notification: true
       )
       instance.call
     end
