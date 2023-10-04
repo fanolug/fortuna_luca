@@ -59,10 +59,19 @@ module FortunaLuca
           text = "<i>#{item["year"]}</i>: #{item["text"]}"
           return text unless item["pages"]
 
-          item["pages"].each do |page|
+          linked_terms = []
+          item["pages"].sort_by do |page|
+            page["titles"]["normalized"].length
+          end.reverse.each do |page|
             url = page["content_urls"]["desktop"]["page"]
             term = page["titles"]["normalized"]
+
+            next if linked_terms.any? do |linked_term|
+              linked_term.downcase.include?(term.downcase)
+            end
+
             text.gsub!(/#{term}/i, "<a href='#{url}'>#{term}</a>")
+            linked_terms << term
           end
 
           text

@@ -1,503 +1,57 @@
 {
   "selected": [
     {
-      "text": "L'imperatore Bokassa I viene rovesciato da un colpo di Stato.",
+      "text": "Papa Paolo VI è il primo Papa a fare visita ufficiale negli Stati Uniti.",
       "pages": [
         {
           "type": "standard",
-          "title": "Jean-Bedel_Bokassa",
-          "displaytitle": "<span class=\"mw-page-title-main\">Jean-Bedel Bokassa</span>",
+          "title": "Papa_Paolo_VI",
+          "displaytitle": "<span class=\"mw-page-title-main\">Papa Paolo VI</span>",
           "namespace": {
             "id": 0,
             "text": ""
           },
-          "wikibase_item": "Q162708",
+          "wikibase_item": "Q16975",
           "titles": {
-            "canonical": "Jean-Bedel_Bokassa",
-            "normalized": "Jean-Bedel Bokassa",
-            "display": "<span class=\"mw-page-title-main\">Jean-Bedel Bokassa</span>"
+            "canonical": "Papa_Paolo_VI",
+            "normalized": "Papa Paolo VI",
+            "display": "<span class=\"mw-page-title-main\">Papa Paolo VI</span>"
           },
-          "pageid": 338770,
+          "pageid": 38788,
           "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Bokassa_signature_1964.jpg",
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Paulus_VI%2C_by_Fotografia_Felici%2C_1969.jpg/320px-Paulus_VI%2C_by_Fotografia_Felici%2C_1969.jpg",
             "width": 320,
-            "height": 277
+            "height": 417
           },
           "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Bokassa_signature_1964.jpg",
-            "width": 320,
-            "height": 277
+            "source": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Paulus_VI%2C_by_Fotografia_Felici%2C_1969.jpg",
+            "width": 2768,
+            "height": 3609
           },
           "lang": "it",
           "dir": "ltr",
-          "revision": "135056604",
-          "tid": "a08ffba0-3fc2-11ee-a699-df5d79c945c1",
-          "timestamp": "2023-08-21T01:32:41Z",
-          "description": "politico, militare, imperatore e dittatore centrafricano",
+          "revision": "135610845",
+          "tid": "e3e6b6c0-5983-11ee-9dad-9157cd230e7c",
+          "timestamp": "2023-09-22T20:09:05Z",
+          "description": "262º vescovo di Roma e papa della Chiesa cattolica (1897-1978)",
           "description_source": "central",
           "content_urls": {
             "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Jean-Bedel_Bokassa",
-              "revisions": "https://it.wikipedia.org/wiki/Jean-Bedel_Bokassa?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Jean-Bedel_Bokassa?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Jean-Bedel_Bokassa"
+              "page": "https://it.wikipedia.org/wiki/Papa_Paolo_VI",
+              "revisions": "https://it.wikipedia.org/wiki/Papa_Paolo_VI?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Papa_Paolo_VI?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Papa_Paolo_VI"
             },
             "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Jean-Bedel_Bokassa",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Jean-Bedel_Bokassa",
-              "edit": "https://it.m.wikipedia.org/wiki/Jean-Bedel_Bokassa?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Jean-Bedel_Bokassa"
+              "page": "https://it.m.wikipedia.org/wiki/Papa_Paolo_VI",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Papa_Paolo_VI",
+              "edit": "https://it.m.wikipedia.org/wiki/Papa_Paolo_VI?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Papa_Paolo_VI"
             }
           },
-          "extract": "Jean-Bedel Bokassa, noto anche come Salah Eddine Ahmed Bokassa, è stato un politico, militare e dittatore centrafricano, presidente della Repubblica Centrafricana e poi imperatore dell'Impero Centrafricano col nome di Bokassa I.",
-          "extract_html": "<p><b>Jean-Bedel Bokassa</b>, noto anche come <b>Salah Eddine Ahmed Bokassa</b>, è stato un politico, militare e dittatore centrafricano, presidente della Repubblica Centrafricana e poi imperatore dell'Impero Centrafricano col nome di <b>Bokassa I</b>.</p>",
-          "normalizedtitle": "Jean-Bedel Bokassa"
-        },
-        {
-          "type": "standard",
-          "title": "Colpo_di_Stato",
-          "displaytitle": "<span class=\"mw-page-title-main\">Colpo di Stato</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q45382",
-          "titles": {
-            "canonical": "Colpo_di_Stato",
-            "normalized": "Colpo di Stato",
-            "display": "<span class=\"mw-page-title-main\">Colpo di Stato</span>"
-          },
-          "pageid": 73916,
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135203463",
-          "tid": "d5559750-4b2a-11ee-b651-e3e7e89fda96",
-          "timestamp": "2023-08-30T15:56:28Z",
-          "description": "mutamento di potere illegale in uno stato",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Colpo_di_Stato",
-              "revisions": "https://it.wikipedia.org/wiki/Colpo_di_Stato?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Colpo_di_Stato?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Colpo_di_Stato"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Colpo_di_Stato",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Colpo_di_Stato",
-              "edit": "https://it.m.wikipedia.org/wiki/Colpo_di_Stato?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Colpo_di_Stato"
-            }
-          },
-          "extract": "Un colpo di Stato consiste nel rovesciamento — da parte di uno o più soggetti, popolari o delle élite nazionali, autonomamente o con l'appoggio diretto o indiretto di un organismo istituzionale quale per esempio le forze armate — in maniera violenta o incruenta, del potere costituito, al fine di causare un mutamento di regime.",
-          "extract_html": "<p>Un <b>colpo di Stato</b> consiste nel rovesciamento — da parte di uno o più soggetti, popolari o delle élite nazionali, autonomamente o con l'appoggio diretto o indiretto di un organismo istituzionale quale per esempio le forze armate — in maniera violenta o incruenta, del potere costituito, al fine di causare un mutamento di regime.</p>",
-          "normalizedtitle": "Colpo di Stato"
-        }
-      ],
-      "year": 1979
-    },
-    {
-      "text": "Entra in vigore la legge Merlin per regolamentare la prostituzione in Italia.",
-      "pages": [
-        {
-          "type": "standard",
-          "title": "Legge_Merlin",
-          "displaytitle": "<span class=\"mw-page-title-main\">Legge Merlin</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q3829735",
-          "titles": {
-            "canonical": "Legge_Merlin",
-            "normalized": "Legge Merlin",
-            "display": "<span class=\"mw-page-title-main\">Legge Merlin</span>"
-          },
-          "pageid": 563357,
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135490027",
-          "tid": "7981b290-54b9-11ee-a45a-c7d5794529e6",
-          "timestamp": "2023-09-16T17:50:06Z",
-          "description": "legge italiana",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Legge_Merlin",
-              "revisions": "https://it.wikipedia.org/wiki/Legge_Merlin?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Legge_Merlin?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Legge_Merlin"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Legge_Merlin",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Legge_Merlin",
-              "edit": "https://it.m.wikipedia.org/wiki/Legge_Merlin?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Legge_Merlin"
-            }
-          },
-          "extract": "La legge n. 75 del 20 febbraio 1958 è una legge della Repubblica Italiana. È nota come legge Merlin dal nome della promotrice nonché prima firmataria della norma, la senatrice Lina Merlin.",
-          "extract_html": "<p>La <b>legge n. 75 del 20 febbraio 1958</b> è una legge della Repubblica Italiana. È nota come <b>legge Merlin</b> dal nome della promotrice nonché prima firmataria della norma, la senatrice Lina Merlin.</p>",
-          "normalizedtitle": "Legge Merlin"
-        },
-        {
-          "type": "standard",
-          "title": "Prostituzione",
-          "displaytitle": "<span class=\"mw-page-title-main\">Prostituzione</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q36633",
-          "titles": {
-            "canonical": "Prostituzione",
-            "normalized": "Prostituzione",
-            "display": "<span class=\"mw-page-title-main\">Prostituzione</span>"
-          },
-          "pageid": 2960590,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Prostitute_tj.jpg/320px-Prostitute_tj.jpg",
-            "width": 320,
-            "height": 486
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/8/85/Prostitute_tj.jpg",
-            "width": 2575,
-            "height": 3913
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135531537",
-          "tid": "d9aae660-565c-11ee-ab52-2bd692ea2bb3",
-          "timestamp": "2023-09-18T19:52:04Z",
-          "description": "attività di chi offre prestazioni sessuali, dietro pagamento di un corrispettivo in denaro",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Prostituzione",
-              "revisions": "https://it.wikipedia.org/wiki/Prostituzione?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Prostituzione?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Prostituzione"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Prostituzione",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Prostituzione",
-              "edit": "https://it.m.wikipedia.org/wiki/Prostituzione?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Prostituzione"
-            }
-          },
-          "extract": "Con il termine prostituzione si indica l'attività di chi offre prestazioni sessuali dietro pagamento di un corrispettivo in denaro, rientrando nella categoria del lavoro sessuale. L'attività, fornita da e a persone di qualsiasi genere e orientamento sessuale, può avere carattere autonomo, sottoposto, professionale, abituale o saltuario.",
-          "extract_html": "<p>Con il termine <b>prostituzione</b> si indica l'attività di chi offre prestazioni sessuali dietro pagamento di un corrispettivo in denaro, rientrando nella categoria del lavoro sessuale. L'attività, fornita da e a persone di qualsiasi genere e orientamento sessuale, può avere carattere autonomo, sottoposto, professionale, abituale o saltuario.</p>",
-          "normalizedtitle": "Prostituzione"
-        },
-        {
-          "type": "standard",
-          "title": "Italia",
-          "displaytitle": "<span class=\"mw-page-title-main\">Italia</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q38",
-          "titles": {
-            "canonical": "Italia",
-            "normalized": "Italia",
-            "display": "<span class=\"mw-page-title-main\">Italia</span>"
-          },
-          "pageid": 2340360,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/langit-320px-Flag_of_Italy.svg.png",
-            "width": 320,
-            "height": 213
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/langit-1500px-Flag_of_Italy.svg.png",
-            "width": 1500,
-            "height": 1000
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135406428",
-          "tid": "f8505970-56ec-11ee-9445-7bc2912f7016",
-          "timestamp": "2023-09-11T00:01:01Z",
-          "description": "Stato dell'Europa centro-meridionale, membro e cofondatore dell'Unione europea",
-          "description_source": "central",
-          "coordinates": {
-            "lat": 42.5,
-            "lon": 12.5
-          },
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Italia",
-              "revisions": "https://it.wikipedia.org/wiki/Italia?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Italia?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Italia"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Italia",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Italia",
-              "edit": "https://it.m.wikipedia.org/wiki/Italia?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Italia"
-            }
-          },
-          "extract": "L'Italia, ufficialmente Repubblica Italiana, è uno Stato membro dell'Unione europea, situato nell'Europa meridionale e occidentale, il cui territorio coincide in gran parte con l'omonima regione geografica. L'Italia è una repubblica parlamentare unitaria e conta una popolazione di circa 59 milioni di abitanti, che ne fanno il terzo Stato dell'Unione europea per numero di abitanti. La capitale è Roma.",
-          "extract_html": "<p>L'<b>Italia</b>, ufficialmente <b>Repubblica Italiana</b>, è uno Stato membro dell'Unione europea, situato nell'Europa meridionale e occidentale, il cui territorio coincide in gran parte con l'omonima regione geografica. L'Italia è una repubblica parlamentare unitaria e conta una popolazione di circa 59 milioni di abitanti, che ne fanno il terzo Stato dell'Unione europea per numero di abitanti. La capitale è Roma.</p>",
-          "normalizedtitle": "Italia"
-        }
-      ],
-      "year": 1958
-    },
-    {
-      "text": "Si tiene la prima edizione del Festival di Cannes.",
-      "pages": [
-        {
-          "type": "standard",
-          "title": "Festival_di_Cannes",
-          "displaytitle": "<span class=\"mw-page-title-main\">Festival di Cannes</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q42369",
-          "titles": {
-            "canonical": "Festival_di_Cannes",
-            "normalized": "Festival di Cannes",
-            "display": "<span class=\"mw-page-title-main\">Festival di Cannes</span>"
-          },
-          "pageid": 22176,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/70_eme_Festival_du_film_Cannes.jpg/320px-70_eme_Festival_du_film_Cannes.jpg",
-            "width": 320,
-            "height": 335
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/b/b2/70_eme_Festival_du_film_Cannes.jpg",
-            "width": 1500,
-            "height": 1570
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "134441367",
-          "tid": "a3aa5350-3c46-11ee-9929-fbddca4d2108",
-          "timestamp": "2023-07-12T16:26:56Z",
-          "description": "festival cinematografico internazionale",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Festival_di_Cannes",
-              "revisions": "https://it.wikipedia.org/wiki/Festival_di_Cannes?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Festival_di_Cannes?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Festival_di_Cannes"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Festival_di_Cannes",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Festival_di_Cannes",
-              "edit": "https://it.m.wikipedia.org/wiki/Festival_di_Cannes?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Festival_di_Cannes"
-            }
-          },
-          "extract": "Il Festival di Cannes è un festival cinematografico che si svolge annualmente, a maggio, per la durata di due settimane, al Palais des Festivals et des Congrès della città di Cannes.",
-          "extract_html": "<p>Il <b>Festival di Cannes</b> è un festival cinematografico che si svolge annualmente, a maggio, per la durata di due settimane, al <i>Palais des Festivals et des Congrès</i> della città di Cannes.</p>",
-          "normalizedtitle": "Festival di Cannes"
-        }
-      ],
-      "year": 1946
-    },
-    {
-      "text": "I bersaglieri entrano a Roma attraverso la breccia di Porta Pia. Termina il potere temporale dei papi.",
-      "pages": [
-        {
-          "type": "standard",
-          "title": "Bersaglieri",
-          "displaytitle": "<span class=\"mw-page-title-main\">Bersaglieri</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q827218",
-          "titles": {
-            "canonical": "Bersaglieri",
-            "normalized": "Bersaglieri",
-            "display": "<span class=\"mw-page-title-main\">Bersaglieri</span>"
-          },
-          "pageid": 1187637,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/2june_2007_367.jpg/320px-2june_2007_367.jpg",
-            "width": 320,
-            "height": 240
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/8/82/2june_2007_367.jpg",
-            "width": 2592,
-            "height": 1944
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "134874099",
-          "tid": "25805d90-3605-11ee-bf87-a98012a578b3",
-          "timestamp": "2023-08-08T16:03:38Z",
-          "description": "corpo militare italiano",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Bersaglieri",
-              "revisions": "https://it.wikipedia.org/wiki/Bersaglieri?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Bersaglieri?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Bersaglieri"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Bersaglieri",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Bersaglieri",
-              "edit": "https://it.m.wikipedia.org/wiki/Bersaglieri?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Bersaglieri"
-            }
-          },
-          "extract": "I Bersaglieri sono una specialità dell'arma di fanteria dell'Esercito italiano così chiamata perché in origine formata da soldati addestrati al tiro con fucili di precisione a canna rigata. Ogni 18 giugno si festeggia l'anniversario della loro costituzione, avvenuta nel 1836. Fu denominato \"Corpo\" dalla fondazione fino al 1861. L'associazione d'arma di riferimento è l'Associazione nazionale bersaglieri. Il cappello piumato, detto moretto da bersagliere o vaira dal nome di colui che lo indossò per primo, è il simbolo della specialità.",
-          "extract_html": "<p>I <b>Bersaglieri</b> sono una specialità dell'arma di fanteria dell'Esercito italiano così chiamata perché in origine formata da soldati addestrati al tiro con fucili di precisione a canna rigata. Ogni 18 giugno si festeggia l'anniversario della loro costituzione, avvenuta nel 1836. Fu denominato \"Corpo\" dalla fondazione fino al 1861. L'associazione d'arma di riferimento è l'Associazione nazionale bersaglieri. Il cappello piumato, detto <b>moretto da bersagliere</b> o <b>vaira</b> dal nome di colui che lo indossò per primo, è il simbolo della specialità.</p>",
-          "normalizedtitle": "Bersaglieri"
-        },
-        {
-          "type": "standard",
-          "title": "Roma",
-          "displaytitle": "<span class=\"mw-page-title-main\">Roma</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q220",
-          "titles": {
-            "canonical": "Roma",
-            "normalized": "Roma",
-            "display": "<span class=\"mw-page-title-main\">Roma</span>"
-          },
-          "pageid": 2318427,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Flag_of_Rome.svg/langit-320px-Flag_of_Rome.svg.png",
-            "width": 320,
-            "height": 213
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Flag_of_Rome.svg/langit-1200px-Flag_of_Rome.svg.png",
-            "width": 1200,
-            "height": 800
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135506266",
-          "tid": "ece03320-5607-11ee-abec-673355b18d87",
-          "timestamp": "2023-09-17T07:24:22Z",
-          "description": "capitale d'Italia, capoluogo dell'omonima città metropolitana e della regione Lazio",
-          "description_source": "central",
-          "coordinates": {
-            "lat": 41.893056,
-            "lon": 12.482778
-          },
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Roma",
-              "revisions": "https://it.wikipedia.org/wiki/Roma?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Roma?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Roma"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Roma",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Roma",
-              "edit": "https://it.m.wikipedia.org/wiki/Roma?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Roma"
-            }
-          },
-          "extract": "Roma è la capitale d'Italia. Inoltre è capoluogo dell'omonima città metropolitana e della regione Lazio. Il comune di Roma è dotato di un ordinamento amministrativo speciale, denominato Roma Capitale e disciplinato dalla legge dello Stato.",
-          "extract_html": "<p><b>Roma</b> è la capitale d'Italia. Inoltre è capoluogo dell'omonima città metropolitana e della regione Lazio. Il comune di Roma è dotato di un ordinamento amministrativo speciale, denominato Roma Capitale e disciplinato dalla legge dello Stato.</p>",
-          "normalizedtitle": "Roma"
-        },
-        {
-          "type": "standard",
-          "title": "Presa_di_Roma",
-          "displaytitle": "<span class=\"mw-page-title-main\">Presa di Roma</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q2604547",
-          "titles": {
-            "canonical": "Presa_di_Roma",
-            "normalized": "Presa di Roma",
-            "display": "<span class=\"mw-page-title-main\">Presa di Roma</span>"
-          },
-          "pageid": 720314,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/BrecciaPortaPia.jpg/320px-BrecciaPortaPia.jpg",
-            "width": 320,
-            "height": 197
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/3/39/BrecciaPortaPia.jpg",
-            "width": 6048,
-            "height": 3728
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135561364",
-          "tid": "f95ba850-5783-11ee-bd41-2bc571f9f993",
-          "timestamp": "2023-09-20T07:04:39Z",
-          "description": "evento storico del 1870, parte del Risorgimento italiano",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Presa_di_Roma",
-              "revisions": "https://it.wikipedia.org/wiki/Presa_di_Roma?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Presa_di_Roma?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Presa_di_Roma"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Presa_di_Roma",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Presa_di_Roma",
-              "edit": "https://it.m.wikipedia.org/wiki/Presa_di_Roma?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Presa_di_Roma"
-            }
-          },
-          "extract": "La Presa di Roma, nota anche come Breccia di Porta Pia, fu l'episodio del Risorgimento che sancì la conquista di Roma da parte del Regno d'Italia.",
-          "extract_html": "<p>La <b>Presa di Roma</b>, nota anche come <b>Breccia di Porta Pia</b>, fu l'episodio del Risorgimento che sancì la conquista di Roma da parte del Regno d'Italia.</p>",
-          "normalizedtitle": "Presa di Roma"
-        },
-        {
-          "type": "standard",
-          "title": "Potere_temporale",
-          "displaytitle": "<span class=\"mw-page-title-main\">Potere temporale</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q929806",
-          "titles": {
-            "canonical": "Potere_temporale",
-            "normalized": "Potere temporale",
-            "display": "<span class=\"mw-page-title-main\">Potere temporale</span>"
-          },
-          "pageid": 541283,
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135169200",
-          "tid": "5410b7d0-45ab-11ee-b895-bdb8f56f8107",
-          "timestamp": "2023-08-28T14:01:03Z",
-          "description": "sovranità esercitata dal papa sullo Stato della Chiesa",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Potere_temporale",
-              "revisions": "https://it.wikipedia.org/wiki/Potere_temporale?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Potere_temporale?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Potere_temporale"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Potere_temporale",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Potere_temporale",
-              "edit": "https://it.m.wikipedia.org/wiki/Potere_temporale?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Potere_temporale"
-            }
-          },
-          "extract": "L'espressione potere temporale si usa di solito in riferimento al periodo storico in cui il Papa, oltre ad essere sommo pontefice della Chiesa cattolica, è stato anche sovrano dello Stato Pontificio (752-1870). Il termine \"temporale\" indica il governo sugli uomini. Il termine viene spesso giustapposto al potere spirituale, ovvero il governo sulle anime.",
-          "extract_html": "<p>L'espressione <b>potere temporale</b> si usa di solito in riferimento al periodo storico in cui il Papa, oltre ad essere sommo pontefice della Chiesa cattolica, è stato anche sovrano dello Stato Pontificio (752-1870). Il termine \"temporale\" indica il governo sugli uomini. Il termine viene spesso giustapposto al <b>potere spirituale</b>, ovvero il governo sulle anime.</p>",
-          "normalizedtitle": "Potere temporale"
+          "extract": "Papa Paolo VI, in latino: Paulus PP. VI, nato Giovanni Battista Enrico Antonio Maria Montini, è stato il 262º vescovo di Roma e papa della Chiesa cattolica, primate d'Italia e 4º sovrano dello Stato della Città del Vaticano, oltre agli altri titoli propri del romano pontefice, a partire dal 21 giugno 1963 fino alla morte. Beatificato nel 2014, fu proclamato santo il 14 ottobre 2018 da papa Francesco.",
+          "extract_html": "<p><b>Papa</b> <b>Paolo VI</b>, in latino: <i>Paulus PP. VI</i>, nato <b>Giovanni Battista Enrico Antonio Maria Montini</b>, è stato il 262º vescovo di Roma e papa della Chiesa cattolica, primate d'Italia e 4º sovrano dello Stato della Città del Vaticano, oltre agli altri titoli propri del romano pontefice, a partire dal 21 giugno 1963 fino alla morte. Beatificato nel 2014, fu proclamato santo il 14 ottobre 2018 da papa Francesco.</p>",
+          "normalizedtitle": "Papa Paolo VI"
         },
         {
           "type": "standard",
@@ -526,9 +80,9 @@
           },
           "lang": "it",
           "dir": "ltr",
-          "revision": "135515344",
-          "tid": "2942afd0-558d-11ee-bf95-e3712c40c24e",
-          "timestamp": "2023-09-17T19:05:22Z",
+          "revision": "135577227",
+          "tid": "a9d6dc30-61cb-11ee-a94d-25f1d184a2a7",
+          "timestamp": "2023-09-20T15:08:53Z",
           "description": "capo della Chiesa Cattolica",
           "description_source": "central",
           "content_urls": {
@@ -545,116 +99,496 @@
               "talk": "https://it.m.wikipedia.org/wiki/Discussione:Papa"
             }
           },
-          "extract": "Il Papa è il vescovo di Roma, massima autorità religiosa riconosciuta nella Chiesa cattolica. I suoi trattamenti possono essere Santo Padre, Sua Santità, Vostra Santità o semplicemente Santità.",
-          "extract_html": "<p>Il <b>Papa</b> è il vescovo di Roma, massima autorità religiosa riconosciuta nella Chiesa cattolica. I suoi trattamenti possono essere <i>Santo Padre</i>, <i>Sua Santità</i>, <i>Vostra Santità</i> o semplicemente <i>Santità</i>.</p>",
+          "extract": "Il papa è il vescovo di Roma, massima autorità religiosa riconosciuta nella Chiesa cattolica. I suoi trattamenti possono essere Santo Padre, Sua Santità, Vostra Santità o semplicemente Santità.",
+          "extract_html": "<p>Il <b>papa</b> è il vescovo di Roma, massima autorità religiosa riconosciuta nella Chiesa cattolica. I suoi trattamenti possono essere <i>Santo Padre</i>, <i>Sua Santità</i>, <i>Vostra Santità</i> o semplicemente <i>Santità</i>.</p>",
           "normalizedtitle": "Papa"
-        }
-      ],
-      "year": 1870
-    },
-    {
-      "text": "Ferdinando Magellano inizia il suo viaggio intorno al mondo.",
-      "pages": [
-        {
-          "type": "standard",
-          "title": "Ferdinando_Magellano",
-          "displaytitle": "<span class=\"mw-page-title-main\">Ferdinando Magellano</span>",
-          "namespace": {
-            "id": 0,
-            "text": ""
-          },
-          "wikibase_item": "Q1496",
-          "titles": {
-            "canonical": "Ferdinando_Magellano",
-            "normalized": "Ferdinando Magellano",
-            "display": "<span class=\"mw-page-title-main\">Ferdinando Magellano</span>"
-          },
-          "pageid": 71444,
-          "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ferdinand_Magellan.jpg/320px-Ferdinand_Magellan.jpg",
-            "width": 320,
-            "height": 395
-          },
-          "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Ferdinand_Magellan.jpg",
-            "width": 562,
-            "height": 693
-          },
-          "lang": "it",
-          "dir": "ltr",
-          "revision": "135548750",
-          "tid": "48a38060-56dd-11ee-9651-19a6447c0350",
-          "timestamp": "2023-09-19T11:11:26Z",
-          "description": "navigatore ed esploratore portoghese al servizio della Spagna",
-          "description_source": "central",
-          "content_urls": {
-            "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Ferdinando_Magellano",
-              "revisions": "https://it.wikipedia.org/wiki/Ferdinando_Magellano?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Ferdinando_Magellano?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Ferdinando_Magellano"
-            },
-            "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Ferdinando_Magellano",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Ferdinando_Magellano",
-              "edit": "https://it.m.wikipedia.org/wiki/Ferdinando_Magellano?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Ferdinando_Magellano"
-            }
-          },
-          "extract": "Ferdinando Magellano è stato un esploratore e navigatore portoghese.",
-          "extract_html": "<p><b>Ferdinando Magellano</b> è stato un esploratore e navigatore portoghese.</p>",
-          "normalizedtitle": "Ferdinando Magellano"
         },
         {
           "type": "standard",
-          "title": "Spedizione_di_Ferdinando_Magellano",
-          "displaytitle": "<span class=\"mw-page-title-main\">Spedizione di Ferdinando Magellano</span>",
+          "title": "Stati_Uniti_d'America",
+          "displaytitle": "<span class=\"mw-page-title-main\">Stati Uniti d&#039;America</span>",
           "namespace": {
             "id": 0,
             "text": ""
           },
-          "wikibase_item": "Q1225170",
+          "wikibase_item": "Q30",
           "titles": {
-            "canonical": "Spedizione_di_Ferdinando_Magellano",
-            "normalized": "Spedizione di Ferdinando Magellano",
-            "display": "<span class=\"mw-page-title-main\">Spedizione di Ferdinando Magellano</span>"
+            "canonical": "Stati_Uniti_d'America",
+            "normalized": "Stati Uniti d'America",
+            "display": "<span class=\"mw-page-title-main\">Stati Uniti d&#039;America</span>"
           },
-          "pageid": 308272,
+          "pageid": 1563740,
           "thumbnail": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/2/21/Azulejo_conmemora_primera_circunnavegacion_mundial.jpg",
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/langit-320px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png",
             "width": 320,
-            "height": 248
+            "height": 168
           },
           "originalimage": {
-            "source": "https://upload.wikimedia.org/wikipedia/commons/2/21/Azulejo_conmemora_primera_circunnavegacion_mundial.jpg",
-            "width": 320,
-            "height": 248
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/langit-1235px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png",
+            "width": 1235,
+            "height": 650
           },
           "lang": "it",
           "dir": "ltr",
-          "revision": "133915366",
-          "tid": "1b7f37d0-5180-11ee-b001-539c4de99c8d",
-          "timestamp": "2023-06-10T18:31:24Z",
+          "revision": "135808817",
+          "tid": "7c7d74a0-6226-11ee-bd80-61c3b5b06530",
+          "timestamp": "2023-10-03T19:53:05Z",
+          "description": "Stato dell'America settentrionale",
+          "description_source": "central",
+          "coordinates": {
+            "lat": 39.828175,
+            "lon": -98.5795
+          },
           "content_urls": {
             "desktop": {
-              "page": "https://it.wikipedia.org/wiki/Spedizione_di_Ferdinando_Magellano",
-              "revisions": "https://it.wikipedia.org/wiki/Spedizione_di_Ferdinando_Magellano?action=history",
-              "edit": "https://it.wikipedia.org/wiki/Spedizione_di_Ferdinando_Magellano?action=edit",
-              "talk": "https://it.wikipedia.org/wiki/Discussione:Spedizione_di_Ferdinando_Magellano"
+              "page": "https://it.wikipedia.org/wiki/Stati_Uniti_d'America",
+              "revisions": "https://it.wikipedia.org/wiki/Stati_Uniti_d'America?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Stati_Uniti_d'America?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Stati_Uniti_d'America"
             },
             "mobile": {
-              "page": "https://it.m.wikipedia.org/wiki/Spedizione_di_Ferdinando_Magellano",
-              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Spedizione_di_Ferdinando_Magellano",
-              "edit": "https://it.m.wikipedia.org/wiki/Spedizione_di_Ferdinando_Magellano?action=edit",
-              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Spedizione_di_Ferdinando_Magellano"
+              "page": "https://it.m.wikipedia.org/wiki/Stati_Uniti_d'America",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Stati_Uniti_d'America",
+              "edit": "https://it.m.wikipedia.org/wiki/Stati_Uniti_d'America?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Stati_Uniti_d'America"
             }
           },
-          "extract": "La spedizione di Ferdinando Magellano fu la prima circumnavigazione del globo terrestre che ebbe inizio il 10 agosto 1519 e si concluse il 6 settembre 1522 al porto di Sanlúcar de Barrameda e l'8 settembre a Siviglia, da dove era iniziata, da una flotta di cinque navi, capitanate dall'esploratore portoghese Ferdinando Magellano al servizio della Corona spagnola. Dopo la morte di Magellano nelle Filippine, nell'aprile 1521 il comando della spedizione venne preso dall'esploratore spagnolo Juan Sebastián Elcano e dal veneziano Antonio Pigafetta",
-          "extract_html": "<p>La <b>spedizione di Ferdinando Magellano</b> fu la prima circumnavigazione del globo terrestre che ebbe inizio il 10 agosto 1519 e si concluse il 6 settembre 1522 al porto di Sanlúcar de Barrameda e l'8 settembre a Siviglia, da dove era iniziata, da una flotta di cinque navi, capitanate dall'esploratore portoghese Ferdinando Magellano al servizio della Corona spagnola. Dopo la morte di Magellano nelle Filippine, nell'aprile 1521 il comando della spedizione venne preso dall'esploratore spagnolo Juan Sebastián Elcano e dal veneziano Antonio Pigafetta</p>",
-          "normalizedtitle": "Spedizione di Ferdinando Magellano"
+          "extract": "Gli Stati Uniti d'America sono una repubblica federale dell'America settentrionale composta da cinquanta Stati e un distretto federale. I quarantotto stati contigui e il distretto di Columbia ove si trova Washington occupano la fascia centrale dell'America settentrionale tra il Canada e il Messico e sono bagnati dall'Oceano Atlantico a est e dall'Oceano Pacifico a ovest. Con 9834000 km² in totale e circa 335 milioni di abitanti, gli Stati Uniti sono il terzo Paese al mondo per superficie e il terzo per popolazione. La geografia e il clima degli Stati Uniti sono estremamente vari, con deserti, pianure, foreste e montagne che sono anche sede di una grande varietà di fauna selvatica. È una delle nazioni più multietniche e multiculturali al mondo, prodotto di larga scala dell'immigrazione da molti Paesi.",
+          "extract_html": "<p>Gli <b>Stati Uniti d'America</b> sono una repubblica federale dell'America settentrionale composta da cinquanta Stati e un distretto federale. I quarantotto stati contigui e il distretto di Columbia ove si trova Washington occupano la fascia centrale dell'America settentrionale tra il Canada e il Messico e sono bagnati dall'Oceano Atlantico a est e dall'Oceano Pacifico a ovest. Con <span class=\"nowrap\">9<span>834</span><span>000</span> km²</span> in totale e circa 335 milioni di abitanti, gli Stati Uniti sono il terzo Paese al mondo per superficie e il terzo per popolazione. La geografia e il clima degli Stati Uniti sono estremamente vari, con deserti, pianure, foreste e montagne che sono anche sede di una grande varietà di fauna selvatica. È una delle nazioni più multietniche e multiculturali al mondo, prodotto di larga scala dell'immigrazione da molti Paesi.</p>",
+          "normalizedtitle": "Stati Uniti d'America"
         }
       ],
-      "year": 1519
+      "year": 1965
+    },
+    {
+      "text": "Viene lanciato lo Sputnik 1, il primo satellite artificiale a orbitare intorno alla Terra.",
+      "pages": [
+        {
+          "type": "standard",
+          "title": "Sputnik_1",
+          "displaytitle": "<span class=\"mw-page-title-main\">Sputnik 1</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q80811",
+          "titles": {
+            "canonical": "Sputnik_1",
+            "normalized": "Sputnik 1",
+            "display": "<span class=\"mw-page-title-main\">Sputnik 1</span>"
+          },
+          "pageid": 53988,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Sputnik_asm.jpg/320px-Sputnik_asm.jpg",
+            "width": 320,
+            "height": 262
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/b/be/Sputnik_asm.jpg",
+            "width": 1094,
+            "height": 896
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "135811413",
+          "tid": "9b878540-625b-11ee-9594-f72ccfb818f2",
+          "timestamp": "2023-10-04T02:13:25Z",
+          "description": "primo satellite artificiale terrestre",
+          "description_source": "central",
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Sputnik_1",
+              "revisions": "https://it.wikipedia.org/wiki/Sputnik_1?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Sputnik_1?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Sputnik_1"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Sputnik_1",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Sputnik_1",
+              "edit": "https://it.m.wikipedia.org/wiki/Sputnik_1?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Sputnik_1"
+            }
+          },
+          "extract": "Sputnik 1 fu il primo satellite artificiale ad essere stato mandato in orbita intorno alla Terra. Venne lanciato dal cosmodromo di Bajkonur dall'Unione Sovietica raggiungendo un'orbita ellittica bassa terrestre il 4 ottobre 1957 ; rimase in orbita per tre settimane prima che le sue batterie si esaurissero, quindi continuò a orbitare per altri due mesi prima di rientrare nell'atmosfera distruggendosi. Era costituito da una sfera di metallo levigata del diametro di 58 cm con quattro antenne radio esterne per trasmettere gli impulsi.",
+          "extract_html": "<p><b>Sputnik 1</b> fu il primo satellite artificiale ad essere stato mandato in orbita intorno alla Terra. Venne lanciato dal <b>cosmodromo di Bajkonur</b> dall'Unione Sovietica raggiungendo un'orbita ellittica bassa terrestre il 4 ottobre 1957 ; rimase in orbita per tre settimane prima che le sue batterie si esaurissero, quindi continuò a orbitare per altri due mesi prima di rientrare nell'atmosfera distruggendosi. Era costituito da una sfera di metallo levigata del diametro di 58 cm con quattro antenne radio esterne per trasmettere gli impulsi.</p>",
+          "normalizedtitle": "Sputnik 1"
+        },
+        {
+          "type": "standard",
+          "title": "Satellite_artificiale",
+          "displaytitle": "<span class=\"mw-page-title-main\">Satellite artificiale</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q26540",
+          "titles": {
+            "canonical": "Satellite_artificiale",
+            "normalized": "Satellite artificiale",
+            "display": "<span class=\"mw-page-title-main\">Satellite artificiale</span>"
+          },
+          "pageid": 25742,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Sputnik_asm.jpg/320px-Sputnik_asm.jpg",
+            "width": 320,
+            "height": 262
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/b/be/Sputnik_asm.jpg",
+            "width": 1094,
+            "height": 896
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "135285265",
+          "tid": "9fcb0e00-5e0b-11ee-b9fe-23df9208cb58",
+          "timestamp": "2023-09-04T17:51:12Z",
+          "description": "oggetto costruito dall'uomo e posto in orbita intorno ad un corpo celeste",
+          "description_source": "central",
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Satellite_artificiale",
+              "revisions": "https://it.wikipedia.org/wiki/Satellite_artificiale?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Satellite_artificiale?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Satellite_artificiale"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Satellite_artificiale",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Satellite_artificiale",
+              "edit": "https://it.m.wikipedia.org/wiki/Satellite_artificiale?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Satellite_artificiale"
+            }
+          },
+          "extract": "Un satellite artificiale è un apparecchio realizzato dall'uomo e messo in orbita intorno alla Terra o ad un altro pianeta per varie finalità. L'insieme di più satelliti artificiali adibiti a uno stesso scopo forma una costellazione o flotta.",
+          "extract_html": "<p>Un <b>satellite artificiale</b> è un apparecchio realizzato dall'uomo e messo in orbita intorno alla Terra o ad un altro pianeta per varie finalità. L'insieme di più satelliti artificiali adibiti a uno stesso scopo forma una costellazione o flotta.</p>",
+          "normalizedtitle": "Satellite artificiale"
+        },
+        {
+          "type": "standard",
+          "title": "Terra",
+          "displaytitle": "<span class=\"mw-page-title-main\">Terra</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q2",
+          "titles": {
+            "canonical": "Terra",
+            "normalized": "Terra",
+            "display": "<span class=\"mw-page-title-main\">Terra</span>"
+          },
+          "pageid": 4215,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/320px-The_Blue_Marble_%28remastered%29.jpg",
+            "width": 320,
+            "height": 320
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg",
+            "width": 3000,
+            "height": 3000
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "135624185",
+          "tid": "948cf120-5e0b-11ee-8352-151fba4c9ed4",
+          "timestamp": "2023-09-23T19:25:32Z",
+          "description": "terzo pianeta del sistema solare",
+          "description_source": "central",
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Terra",
+              "revisions": "https://it.wikipedia.org/wiki/Terra?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Terra?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Terra"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Terra",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Terra",
+              "edit": "https://it.m.wikipedia.org/wiki/Terra?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Terra"
+            }
+          },
+          "extract": "La Terra è il terzo pianeta in ordine di distanza dal Sole e il più grande dei pianeti terrestri del sistema solare, sia per massa sia per diametro. Sulla sua superficie, si trova acqua, presente in tutti e tre gli stati di aggregazione e un'atmosfera composta in prevalenza da azoto e ossigeno che, insieme al campo magnetico che avvolge il pianeta, protegge la Terra dai raggi cosmici e dalle radiazioni solari. Essendo l'unico corpo planetario del sistema solare adatto a sostenere la vita come concepita e conosciuta dagli esseri umani, è l'unico luogo nel quale vivono tutte le specie viventi conosciute.",
+          "extract_html": "<p>La <b>Terra</b> è il terzo pianeta in ordine di distanza dal Sole e il più grande dei pianeti terrestri del sistema solare, sia per massa sia per diametro. Sulla sua superficie, si trova acqua, presente in tutti e tre gli stati di aggregazione e un'atmosfera composta in prevalenza da azoto e ossigeno che, insieme al campo magnetico che avvolge il pianeta, protegge la Terra dai raggi cosmici e dalle radiazioni solari. Essendo l'unico corpo planetario del sistema solare adatto a sostenere la vita come concepita e conosciuta dagli esseri umani, è l'unico luogo nel quale vivono tutte le specie viventi conosciute.</p>",
+          "normalizedtitle": "Terra"
+        }
+      ],
+      "year": 1957
+    },
+    {
+      "text": "Viene creato, dopo la separazione dai Paesi Bassi, lo stato del Belgio.",
+      "pages": [
+        {
+          "type": "standard",
+          "title": "Paesi_Bassi",
+          "displaytitle": "<span class=\"mw-page-title-main\">Paesi Bassi</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q55",
+          "titles": {
+            "canonical": "Paesi_Bassi",
+            "normalized": "Paesi Bassi",
+            "display": "<span class=\"mw-page-title-main\">Paesi Bassi</span>"
+          },
+          "pageid": 2046110,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/langit-320px-Flag_of_the_Netherlands.svg.png",
+            "width": 320,
+            "height": 213
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/langit-900px-Flag_of_the_Netherlands.svg.png",
+            "width": 900,
+            "height": 600
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "135655735",
+          "tid": "21168b30-5e0f-11ee-a70e-27c19724d839",
+          "timestamp": "2023-09-26T03:09:58Z",
+          "description": "nazione costitutiva del Regno dei Paesi Bassi",
+          "description_source": "central",
+          "coordinates": {
+            "lat": 52.316667,
+            "lon": 5.55
+          },
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Paesi_Bassi",
+              "revisions": "https://it.wikipedia.org/wiki/Paesi_Bassi?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Paesi_Bassi?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Paesi_Bassi"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Paesi_Bassi",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Paesi_Bassi",
+              "edit": "https://it.m.wikipedia.org/wiki/Paesi_Bassi?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Paesi_Bassi"
+            }
+          },
+          "extract": "I Paesi Bassi, spesso colloquialmente indicati come Olanda, sono una delle quattro nazioni costitutive del Regno dei Paesi Bassi; si trovano principalmente in Europa ma comprendono anche i cosiddetti Paesi Bassi caraibici. Il nome Paesi Bassi è un riferimento alla sua bassa elevazione e alla sua topografia piatta, con solo il 50% circa del suo territorio che supera 1 metro sopra il livello del mare e quasi il 26% che scende sotto il livello del mare.",
+          "extract_html": "<p>I <b>Paesi Bassi</b>, spesso colloquialmente indicati come <i>Olanda</i>, sono una delle quattro nazioni costitutive del Regno dei Paesi Bassi; si trovano principalmente in Europa ma comprendono anche i cosiddetti Paesi Bassi caraibici. Il nome Paesi Bassi è un riferimento alla sua bassa elevazione e alla sua topografia piatta, con solo il 50% circa del suo territorio che supera 1 metro sopra il livello del mare e quasi il 26% che scende sotto il livello del mare.</p>",
+          "normalizedtitle": "Paesi Bassi"
+        },
+        {
+          "type": "standard",
+          "title": "Belgio",
+          "displaytitle": "<span class=\"mw-page-title-main\">Belgio</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q31",
+          "titles": {
+            "canonical": "Belgio",
+            "normalized": "Belgio",
+            "display": "<span class=\"mw-page-title-main\">Belgio</span>"
+          },
+          "pageid": 2683625,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/langit-320px-Flag_of_Belgium.svg.png",
+            "width": 320,
+            "height": 277
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/langit-900px-Flag_of_Belgium.svg.png",
+            "width": 900,
+            "height": 780
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "135655518",
+          "tid": "2f1c03f0-61c9-11ee-a480-952245b5888d",
+          "timestamp": "2023-09-26T01:43:21Z",
+          "description": "stato dell'Europa occidentale, membro dell'Unione europea",
+          "description_source": "central",
+          "coordinates": {
+            "lat": 50.641111,
+            "lon": 4.668056
+          },
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Belgio",
+              "revisions": "https://it.wikipedia.org/wiki/Belgio?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Belgio?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Belgio"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Belgio",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Belgio",
+              "edit": "https://it.m.wikipedia.org/wiki/Belgio?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Belgio"
+            }
+          },
+          "extract": "Il Belgio, ufficialmente Regno del Belgio, è uno Stato federale retto da una monarchia parlamentare. È uno Stato membro dell'Unione europea situato nell'Europa occidentale. Confina a nord con i Paesi Bassi, a est con la Germania e con il Lussemburgo, a sud e sud-ovest con la Francia e a nord-ovest si affaccia sul mare del Nord.",
+          "extract_html": "<p>Il <b>Belgio</b>, ufficialmente <b>Regno del Belgio</b>, è uno Stato federale retto da una monarchia parlamentare. È uno Stato membro dell'Unione europea situato nell'Europa occidentale. Confina a nord con i Paesi Bassi, a est con la Germania e con il Lussemburgo, a sud e sud-ovest con la Francia e a nord-ovest si affaccia sul mare del Nord.</p>",
+          "normalizedtitle": "Belgio"
+        }
+      ],
+      "year": 1830
+    },
+    {
+      "text": "Papa Gregorio XIII introduce il calendario gregoriano.",
+      "pages": [
+        {
+          "type": "standard",
+          "title": "Papa_Gregorio_XIII",
+          "displaytitle": "<span class=\"mw-page-title-main\">Papa Gregorio XIII</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q83029",
+          "titles": {
+            "canonical": "Papa_Gregorio_XIII",
+            "normalized": "Papa Gregorio XIII",
+            "display": "<span class=\"mw-page-title-main\">Papa Gregorio XIII</span>"
+          },
+          "pageid": 65108,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Lavinia_Fontana_-_Portrait_of_Pope_Gregory_XIII.jpg/320px-Lavinia_Fontana_-_Portrait_of_Pope_Gregory_XIII.jpg",
+            "width": 320,
+            "height": 384
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/1/12/Lavinia_Fontana_-_Portrait_of_Pope_Gregory_XIII.jpg",
+            "width": 1689,
+            "height": 2026
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "133947582",
+          "tid": "bda23700-5e0b-11ee-b365-f3d962161548",
+          "timestamp": "2023-06-12T17:50:27Z",
+          "description": "226° vescovo di Roma e papa della Chiesa cattolica",
+          "description_source": "central",
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Papa_Gregorio_XIII",
+              "revisions": "https://it.wikipedia.org/wiki/Papa_Gregorio_XIII?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Papa_Gregorio_XIII?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Papa_Gregorio_XIII"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Papa_Gregorio_XIII",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Papa_Gregorio_XIII",
+              "edit": "https://it.m.wikipedia.org/wiki/Papa_Gregorio_XIII?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Papa_Gregorio_XIII"
+            }
+          },
+          "extract": "Gregorio XIII, in latino: Gregorius XIII, nato Ugo Boncompagni, è stato il 226º papa della Chiesa cattolica dal 13 maggio 1572 alla morte. Per la storiografia successiva è considerato come uno dei pontefici più importanti dell'età moderna, soprattutto per quanto riguarda l'attuazione della Riforma cattolica e la riforma apportata al calendario che prende il suo nome.",
+          "extract_html": "<p><b>Gregorio XIII</b>, in latino: <i>Gregorius XIII</i>, nato <b>Ugo Boncompagni</b>, è stato il 226º papa della Chiesa cattolica dal 13 maggio 1572 alla morte. Per la storiografia successiva è considerato come uno dei pontefici più importanti dell'età moderna, soprattutto per quanto riguarda l'attuazione della Riforma cattolica e la riforma apportata al calendario che prende il suo nome.</p>",
+          "normalizedtitle": "Papa Gregorio XIII"
+        },
+        {
+          "type": "standard",
+          "title": "Calendario_gregoriano",
+          "displaytitle": "<span class=\"mw-page-title-main\">Calendario gregoriano</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q12138",
+          "titles": {
+            "canonical": "Calendario_gregoriano",
+            "normalized": "Calendario gregoriano",
+            "display": "<span class=\"mw-page-title-main\">Calendario gregoriano</span>"
+          },
+          "pageid": 1207,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Inter-grav.jpg/320px-Inter-grav.jpg",
+            "width": 320,
+            "height": 491
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/1/17/Inter-grav.jpg",
+            "width": 596,
+            "height": 914
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "134781729",
+          "tid": "e37a7a50-5e0b-11ee-9520-1bcd11e762fe",
+          "timestamp": "2023-08-03T06:53:44Z",
+          "description": "calendario in uso in quasi tutto il mondo",
+          "description_source": "central",
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Calendario_gregoriano",
+              "revisions": "https://it.wikipedia.org/wiki/Calendario_gregoriano?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Calendario_gregoriano?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Calendario_gregoriano"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Calendario_gregoriano",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Calendario_gregoriano",
+              "edit": "https://it.m.wikipedia.org/wiki/Calendario_gregoriano?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Calendario_gregoriano"
+            }
+          },
+          "extract": "Il calendario gregoriano è il calendario solare ufficiale di quasi tutti i paesi del mondo.\nPrende il nome dal papa Gregorio XIII, che lo introdusse il 4 ottobre 1582 con la bolla papale Inter gravissimas, promulgata a Villa Mondragone.",
+          "extract_html": "<p>Il <b>calendario gregoriano</b> è il calendario solare ufficiale di quasi tutti i paesi del mondo.\nPrende il nome dal papa Gregorio XIII, che lo introdusse il 4 ottobre 1582 con la bolla papale <i>Inter gravissimas</i>, promulgata a Villa Mondragone.</p>",
+          "normalizedtitle": "Calendario gregoriano"
+        }
+      ],
+      "year": 1582
+    },
+    {
+      "text": "Finisce la Guerra tra Genova, Bisanzio e Venezia.",
+      "pages": [
+        {
+          "type": "standard",
+          "title": "Guerra_tra_Genova,_Bisanzio_e_Venezia",
+          "displaytitle": "<span class=\"mw-page-title-main\">Guerra tra Genova, Bisanzio e Venezia</span>",
+          "namespace": {
+            "id": 0,
+            "text": ""
+          },
+          "wikibase_item": "Q3778732",
+          "titles": {
+            "canonical": "Guerra_tra_Genova,_Bisanzio_e_Venezia",
+            "normalized": "Guerra tra Genova, Bisanzio e Venezia",
+            "display": "<span class=\"mw-page-title-main\">Guerra tra Genova, Bisanzio e Venezia</span>"
+          },
+          "pageid": 1827235,
+          "thumbnail": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/THE_TRIUMPH_OF_LAMBA_DORIA.jpg/320px-THE_TRIUMPH_OF_LAMBA_DORIA.jpg",
+            "width": 320,
+            "height": 128
+          },
+          "originalimage": {
+            "source": "https://upload.wikimedia.org/wikipedia/commons/c/c5/THE_TRIUMPH_OF_LAMBA_DORIA.jpg",
+            "width": 757,
+            "height": 302
+          },
+          "lang": "it",
+          "dir": "ltr",
+          "revision": "133810925",
+          "tid": "9b876980-5e0e-11ee-8cd2-db619c32de87",
+          "timestamp": "2023-06-04T07:18:53Z",
+          "content_urls": {
+            "desktop": {
+              "page": "https://it.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia",
+              "revisions": "https://it.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia?action=history",
+              "edit": "https://it.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia?action=edit",
+              "talk": "https://it.wikipedia.org/wiki/Discussione:Guerra_tra_Genova%2C_Bisanzio_e_Venezia"
+            },
+            "mobile": {
+              "page": "https://it.m.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia",
+              "revisions": "https://it.m.wikipedia.org/wiki/Special:History/Guerra_tra_Genova%2C_Bisanzio_e_Venezia",
+              "edit": "https://it.m.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia?action=edit",
+              "talk": "https://it.m.wikipedia.org/wiki/Discussione:Guerra_tra_Genova%2C_Bisanzio_e_Venezia"
+            }
+          },
+          "extract": "La guerra tra Genova e Venezia combattuta tra il 1293 e il 1299 fu uno scontro armato tra la Repubblica di Venezia e la Repubblica di Genova nel corso delle guerre veneziano-genovesi per il controllo del commercio orientale, proseguito poi, dopo la pace tra le due repubbliche marinare, fino al 1302 tra Venezia e l'Impero bizantino.",
+          "extract_html": "<p>La <b>guerra tra Genova e Venezia</b> combattuta tra il 1293 e il 1299 fu uno scontro armato tra la Repubblica di Venezia e la Repubblica di Genova nel corso delle guerre veneziano-genovesi per il controllo del commercio orientale, proseguito poi, dopo la pace tra le due repubbliche marinare, fino al 1302 tra Venezia e l'Impero bizantino.</p>",
+          "normalizedtitle": "Guerra tra Genova, Bisanzio e Venezia"
+        }
+      ],
+      "year": 1302
     }
   ]
 }

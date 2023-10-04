@@ -23,11 +23,11 @@ describe FortunaLuca::Telegram::Wikipedia::OnThisDay do
     let(:expected_result) do
       <<~TEXT.chomp
       <b>Accadde oggi 20/09...</b>
-      <i>1519</i>: <a href='https://it.wikipedia.org/wiki/Ferdinando_Magellano'>Ferdinando Magellano</a> inizia il suo viaggio intorno al mondo.
-      <i>1870</i>: I <a href='https://it.wikipedia.org/wiki/Bersaglieri'>Bersaglieri</a> entrano a <a href='https://it.wikipedia.org/wiki/Roma'>Roma</a> attraverso la breccia di Porta Pia. Termina il <a href='https://it.wikipedia.org/wiki/Potere_temporale'>Potere temporale</a> dei papi.
-      <i>1946</i>: Si tiene la prima edizione del <a href='https://it.wikipedia.org/wiki/Festival_di_Cannes'>Festival di Cannes</a>.
-      <i>1958</i>: Entra in vigore la <a href='https://it.wikipedia.org/wiki/Legge_Merlin'>Legge Merlin</a> per regolamentare la <a href='https://it.wikipedia.org/wiki/Prostituzione'>Prostituzione</a> in <a href='https://it.wikipedia.org/wiki/Italia'>Italia</a>.
-      <i>1979</i>: L'imperatore Bokassa I viene rovesciato da un <a href='https://it.wikipedia.org/wiki/Colpo_di_Stato'>Colpo di Stato</a>.
+      <i>1302</i>: Finisce la <a href='https://it.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia'>Guerra tra Genova, Bisanzio e Venezia</a>.
+      <i>1582</i>: <a href='https://it.wikipedia.org/wiki/Papa_Gregorio_XIII'>Papa Gregorio XIII</a> introduce il <a href='https://it.wikipedia.org/wiki/Calendario_gregoriano'>Calendario gregoriano</a>.
+      <i>1830</i>: Viene creato, dopo la separazione dai <a href='https://it.wikipedia.org/wiki/Paesi_Bassi'>Paesi Bassi</a>, lo stato del <a href='https://it.wikipedia.org/wiki/Belgio'>Belgio</a>.
+      <i>1957</i>: Viene lanciato lo <a href='https://it.wikipedia.org/wiki/Sputnik_1'>Sputnik 1</a>, il primo <a href='https://it.wikipedia.org/wiki/Satellite_artificiale'>Satellite artificiale</a> a orbitare intorno alla <a href='https://it.wikipedia.org/wiki/Terra'>Terra</a>.
+      <i>1965</i>: <a href='https://it.wikipedia.org/wiki/Papa_Paolo_VI'>Papa Paolo VI</a> è il primo Papa a fare visita ufficiale negli Stati Uniti.
       TEXT
     end
 
