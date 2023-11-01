@@ -5,6 +5,7 @@ ruby '~> 3.1.2'
 
 gem 'dotenv', '~> 2.1.0'
 gem 'dry-struct', '~> 1.4.0'
+gem 'faraday', '~> 1.9.3'
 gem 'feedjira', '~> 3.2.2'
 gem 'forecast_io', '~> 2.0.1'
 gem 'frinkiac', github: 'alepore/frinkiac', branch: 'loose-deps'
