@@ -70,7 +70,7 @@ module FortunaLuca
               linked_term.downcase.include?(term.downcase)
             end
 
-            text.gsub!(/#{term}/i, "<a href='#{url}'>#{term}</a>")
+            text.gsub!(/#{term}/i, "<a href=\"#{url}\">#{term}</a>")
             linked_terms << term
           end
 
