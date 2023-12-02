@@ -18,10 +18,10 @@ module FortunaLuca
         feed = ::Feedjira.parse(data)
         logger.info(feed)
         feed.entries&.each do |entry|
-          next unless process_id!(entry.entry_id)
-
-          chats_for(entry.youtube_channel_id).each do |chat_id|
-            send_telegram_message(chat_id, entry.url)
+          process_once(entry.entry_id) do
+            chats_for(entry.youtube_channel_id).each do |chat_id|
+              send_telegram_message(chat_id, entry.url)
+            end
           end
         end
       rescue Feedjira::NoParserAvailable => error

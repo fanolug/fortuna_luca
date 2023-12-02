@@ -44,7 +44,7 @@ describe FortunaLuca::Telegram::YoutubeResponder do
 
       describe "when entry is already processed" do
         before do
-          instance.expects(:process_id!).returns(false)
+          instance.expects(:process_once).returns(false)
         end
 
         it "does not send a message" do

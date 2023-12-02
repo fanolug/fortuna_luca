@@ -40,9 +40,7 @@ module FortunaLuca
       def parse_events(events)
         events.compact.reverse.map do |event|
           id = extract_event_id(event)
-          next unless process_id!(id)
-
-          build_event(id, event)
+          process_once(id) { build_event(id, event) }
         end.compact
       end
 

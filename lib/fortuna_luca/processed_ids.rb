@@ -14,11 +14,12 @@ module FortunaLuca
     end
 
     # @return [Boolean] false if the ID was already processed, true otherwise.
-    def process_id!(id)
+    def process_once(id)
       return false if processed_ids.include?(id)
 
+      result = yield
       push_processed_id(id)
-      true
+      result
     end
 
     def push_processed_id(id)
