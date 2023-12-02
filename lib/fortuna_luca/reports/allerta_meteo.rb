@@ -4,12 +4,18 @@ module FortunaLuca
   module Reports
     class AllertaMeteo
       include Reports::Report
+      include FortunaLuca::ProcessedIDs
+
+      def initialize; end
 
       def call
         return unless show?
+        return unless message
 
-        config.each do |chat_id|
-          send_telegram_message(chat_id, message) if message
+        process_once(last_entry.id) do
+          config.each do |chat_id|
+            send_telegram_message(chat_id, message, parse_mode: "HTML")
+          end
         end
 
         true
@@ -18,19 +24,17 @@ module FortunaLuca
       private
 
       def message
-        return unless tomorrow_entry
+        return unless last_entry
 
         [
-          "⚠️ #{tomorrow_entry.title}",
-          tomorrow_entry.summary,
-          tomorrow_entry.links.first
+          "⚠️ <b>#{last_entry.title}</b>",
+          last_entry.summary,
+          last_entry.links.first
         ].join("\n")
       end
 
-      def tomorrow_entry
-        @tomorrow_entry ||= feed_entries.find do |entry|
-          entry.title.match?(/^Allerta .* valida .* #{date.strftime("%d-%m-%Y")}/)
-        end
+      def last_entry
+        @last_entry ||= feed_entries.max_by(&:id)
       end
 
       def feed_entries
@@ -42,8 +46,8 @@ module FortunaLuca
         @config ||= JSON.parse(env_or_blank("REPORTS_ALLERTA_METEO_CONFIG"))
       end
 
-      def disable_notification?
-        false
+      def processed_ids_redis_key
+        "allerta_meteo"
       end
     end
   end

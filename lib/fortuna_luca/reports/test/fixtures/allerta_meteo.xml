@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Allerte e bollettini di vigilanza</title>
+  <link href="https://allertameteo.regione.marche.it/allerte-e-bollettini" />
+  <updated>2023-12-02T11:55:03Z</updated>
+  <author>
+    <name>Regione Marche</name>
+  </author>
+  <id>allerteER:feed:allerte-bollettini</id>
+  <entry>
+    <title>Allerta 088/2023 valida dalle 12:00 del 02-12-2023: vento</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2282110/allerta088_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2282110/allerta088_2023.pdf</id>
+    <updated>2023-12-02T11:55:03Z</updated>
+    <summary>Per il pomeriggio odierno (sabato 2) sono previsti ancora venti intensi sud occidentali
+      con velocitÃ media di vento moderato o teso e raffiche fino a burrasca forte o tempesta.
+      L'intensitÃ del vento Ã¨ prevista in attenuazione dal tardo pomeriggio anche se le raffiche
+      potranno ancora raggiungere il grado di vento forte o burrasca almeno fino alla serata quando,
+      con la rotazione dei venti da nord ovest la loro intensitÃ diminuirÃ nelle zone collinari e
+      montane mentre lungo la costa, seppure attenuata, sarÃ di vento moderato con raffiche fino a
+      vento forte.
+      Per la giornata di domenica saranno possibili brevi rovesci per nubi in ingresso dal mare piÃ¹
+      probabili in mattinata nel settore centro settentrionale e nel primo pomeriggio in quello
+      centro meridionale.
+      Per la giornata di lunedÃ¬ dalla serata l'arrivo di una struttura a carattere caldo porterÃ
+      deboli precipitazioni isolate nelle zone montane.</summary>
+  </entry>
+  <entry>
+    <title>Allerta 087/2023 valida dalle 18:00 del 01-12-2023: vento</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2278236/allerta087_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2278236/allerta087_2023.pdf</id>
+    <updated>2023-12-01T13:48:16Z</updated>
+    <summary>L'allerta per vento rimarrÃ arancione fino alle ore 12 della giornata di sabato 2 e
+      tornerÃ ad essere gialla fino alle 24 di sabato.</summary>
+  </entry>
+  <entry>
+    <title>Allerta 086/2023 valida dalle 00:00 del 01-12-2023: vento</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2275418/allerta086_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2275418/allerta086_2023.pdf</id>
+    <updated>2023-11-30T12:58:27Z</updated>
+    <summary>Non sono previste precipitazioni di rilievo per la giornata di venerdÃ¬ ma la velocitÃ
+      del vento, di direzione sud occidentale, permarrÃ sostenuta nelle zone collinari e montane con
+      raffiche fino a burrasca forte o tempesta e, dalla serata, le raffiche si estenderanno anche
+      ai settori basso collinari e costieri delle zone di allertamento 2 e 4 con valori che potranno
+      raggiungere il grado di burrasca.</summary>
+  </entry>
+  <entry>
+    <title>Allerta 085/2023 valida dalle 00:00 del 30-11-2023: vento</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2272330/allerta085_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2272330/allerta085_2023.pdf</id>
+    <updated>2023-11-29T11:45:26Z</updated>
+    <summary>Le raffiche lungo il crinale e sui settori montani saranno dovute a condizioni di
+      favonio.</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 121/2023 valido dalle 00:00 del 29-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2271627/bollettino121_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2271627/bollettino121_2023.pdf</id>
+    <updated>2023-11-28T12:50:53Z</updated>
+    <summary>Condizioni di stabilitÃ e tempo prevalentemente soleggiato per mercoledÃ¬</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 120/2023 valido dalle 00:00 del 28-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2267457/bollettino120_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2267457/bollettino120_2023.pdf</id>
+    <updated>2023-11-27T13:11:06Z</updated>
+    <summary>nella prima parte di martedÃ¬ 28 precipitazioni diffuse di debole intensitÃ localmente
+      a carattere di rovescio o di isolato temporale. Limite della neve 1500m. Fenomeni in
+      esaurimento dalla tarda mattinata.</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 119/2023 valido dalle 00:00 del 26-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2265281/bollettino119_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2265281/bollettino119_2023.pdf</id>
+    <updated>2023-11-25T13:10:52Z</updated>
+    <summary>non si prevedono fenomeni significativi ai fini dell'allertamento di protezione civile</summary>
+  </entry>
+  <entry>
+    <title>Allerta 084/2023 valida dalle 00:00 del 25-11-2023: vento, mareggiate</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2262095/allerta084_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2262095/allerta084_2023.pdf</id>
+    <updated>2023-11-24T13:04:30Z</updated>
+    <summary>Nella prima parte della giornata di sabato 25 l'irruzione di aria fredda dalla
+      Scandinavia determinerÃ
+      brevi rovesci o temporali che del mare Adriatico si sposteranno velocemente verso le Marche.
+      La presenza
+      di aria fredda in quota e l'abbassamento dello zero termico favoriranno la formazione di
+      graupel.
+      Sulla fascia basso-collinare e costiera i venti saranno forti settentrionali con raffiche fino
+      a burrasca.
+      Il mare sarÃ molto mosso con possibilitÃ di mareggiate.</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 118/2023 valido dalle 00:00 del 24-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2260527/bollettino118_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2260527/bollettino118_2023.pdf</id>
+    <updated>2023-11-23T12:59:27Z</updated>
+    <summary>Tempo stabile per la giornata di venerdÃ¬ con aumento della copertura dalla serata</summary>
+  </entry>
+  <entry>
+    <title>Allerta 083/2023 valida dalle 00:00 del 23-11-2023: frane e piene dei corsi minori</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2258657/allerta083_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2258657/allerta083_2023.pdf</id>
+    <updated>2023-11-22T13:29:13Z</updated>
+    <summary>L'espansione di un promontorio anticiclonico dall'Europa centro settentrionale porterÃ
+      un miglioramento del tempo con nuvolositÃ irregolare ma senza precipitazioni ad eccezione di
+      qualche piovasco residuo, nottetempo, nel settore montano della zona 5.
+      Date le condizioni di saturazione dei terreni determinate dalle precipitazioni cumulate
+      nell'ultimo periodo, sono possibili criticitÃ residue anche in assenza di ulteriori piogge.</summary>
+  </entry>
+  <entry>
+    <title>Allerta 082/2023 valida dalle 00:00 del 22-11-2023: piene dei fiumi, frane e piene dei
+      corsi minori, vento e altri fenomeni.</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2256829/allerta082_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2256829/allerta082_2023.pdf</id>
+    <updated>2023-11-21T12:37:24Z</updated>
+    <summary>Previsti venti di provenienza nord-orientale, con raffiche che nelle zone 2,4,6
+      potranno arrivare fino all'intensitÃ di burrasca (62-74 km/h) e mare molto mosso o agitato con
+      possibilitÃ di mareggiate lungo tutto il litorale.</summary>
+  </entry>
+  <entry>
+    <title>Allerta 081/2023 valida dalle 00:00 del 21-11-2023: frane e piene dei corsi minori,
+      temporali</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2253258/allerta081_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2253258/allerta081_2023.pdf</id>
+    <updated>2023-11-20T13:10:52Z</updated>
+    <summary>Nella giornata di martedÃ¬ la formazione di una depressione nel mar Tirreno porterÃ
+      precipitazioni deboli ma continue diffuse su tutta la regione in particolare nella seconda
+      parte della giornata, con cumulate moderate.
+      Dal tardo pomeriggio le precipitazioni assumeranno carattere di rovescio.
+      Le cumulate massime si registreranno sulle 12 ore ma, localmente, in particolare nella seconda
+      parte del pomeriggio, si potranno avere locali picchi di intensitÃ pari a 30mm/1h</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 117/2023 valido dalle 00:00 del 19-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2250749/bollettino117_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2250749/bollettino117_2023.pdf</id>
+    <updated>2023-11-18T12:11:53Z</updated>
+    <summary>Giornate prevalentemente soleggiate con maggiore copertura nelle zone montane nella
+      giornata di lunedÃ¬</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 116/2023 valido dalle 00:00 del 18-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2249647/bollettino116_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2249647/bollettino116_2023.pdf</id>
+    <updated>2023-11-17T11:51:04Z</updated>
+    <summary>null</summary>
+  </entry>
+  <entry>
+    <title>Allerta 080/2023 valida dalle 18:00 del 16-11-2023: vento</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2248085/allerta080_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2248085/allerta080_2023.pdf</id>
+    <updated>2023-11-16T14:00:24Z</updated>
+    <summary>Dalla serata di oggi venti intensi da sud ovest nelle zone 1, 2, 3, 4 e 5 con velocitÃ
+      media di vento moderato o teso e raffiche fino a burrasca nelle zone collinari e burrasca
+      forte nelle zone montane.
+      Nella giornata di domani la ventilazione dai quadranti occidentali aumenterÃ di intensitÃ con
+      raffiche fino a tempesta nelle zone alto collinari e montane e burrasca forte nelle zone
+      collinari.
+      Dalla fine della mattinata di domani i venti ruoteranno da nord ovest, diminuendo di intensitÃ
+      nelle zone interne, mentre sulla fascia costiera si avranno raffiche fino a vento forte.
+      Dal pomeriggio di domani saranno possibili rovesci sparsi in transito da nord verso sud in
+      esaurimento in serata senza accumuli od intensitÃ significative.</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 115/2023 valido dalle 00:00 del 16-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2241538/bollettino115_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2241538/bollettino115_2023.pdf</id>
+    <updated>2023-11-15T11:57:05Z</updated>
+    <summary>non si prevedono fenomeni significativi ai fini dell'allertamento di protezione civile;
+      si segnala tuttavia un rinforzo della ventilazione nelle zone montane a partire dalla tarda
+      serata</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 114/2023 valido dalle 00:00 del 15-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2239092/bollettino114_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2239092/bollettino114_2023.pdf</id>
+    <updated>2023-11-14T12:08:57Z</updated>
+    <summary>Nelle prime ore della giornata di domani ventilazione ancora sostenuta nelle zone alto
+      collinari e montane in rapida diminuzione. Dalle prime ore della mattinata di domani
+      possibilitÃ di brevi rovesci sparsi in transito da nord (prime ore della mattinata) verso sud
+      (nel pomeriggio) con esaurimento dei fenomeni dal pomeriggio e senza accumuli significativi</summary>
+  </entry>
+  <entry>
+    <title>Allerta 079/2023 valida dalle 00:00 del 14-11-2023: vento</title>
+    <link href="https://allertameteo.regione.marche.it/documents/20181/2236010/allerta079_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2236010/allerta079_2023.pdf</id>
+    <updated>2023-11-13T12:06:46Z</updated>
+    <summary>Per la giornata di martedÃ¬ non sono previste precipitazioni ma l'intensitÃ del vento,
+      nelle zone 1, 3 e 5 sarÃ di vento moderato con raffiche fino a burrasca nella parte collinare
+      e burrasca forte o tempesta nella porzione alto collinare e montana</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 113/2023 valido dalle 00:00 del 12-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2232003/bollettino113_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2232003/bollettino113_2023.pdf</id>
+    <updated>2023-11-11T12:42:18Z</updated>
+    <summary>le precipitazioni previste non saranno caratterizzate da intensitÃ elevate.</summary>
+  </entry>
+  <entry>
+    <title>Bollettino di criticitÃ 112/2023 valido dalle 00:00 del 11-11-2023: nessuna allerta.</title>
+    <link
+      href="https://allertameteo.regione.marche.it/documents/20181/2230030/bollettino112_2023.pdf" />
+    <id>https://allertameteo.regione.marche.it/documents/20181/2230030/bollettino112_2023.pdf</id>
+    <updated>2023-11-10T13:28:06Z</updated>
+    <summary>Miglioramento per la giornata di sabato</summary>
+  </entry>
+</feed>
