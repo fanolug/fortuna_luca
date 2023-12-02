@@ -23,11 +23,11 @@ describe FortunaLuca::Telegram::Wikipedia::OnThisDay do
     let(:expected_result) do
       <<~TEXT.chomp
       <b>Accadde oggi 20/09...</b>
-      <i>1302</i>: Finisce la <a href='https://it.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia'>Guerra tra Genova, Bisanzio e Venezia</a>.
-      <i>1582</i>: <a href='https://it.wikipedia.org/wiki/Papa_Gregorio_XIII'>Papa Gregorio XIII</a> introduce il <a href='https://it.wikipedia.org/wiki/Calendario_gregoriano'>Calendario gregoriano</a>.
-      <i>1830</i>: Viene creato, dopo la separazione dai <a href='https://it.wikipedia.org/wiki/Paesi_Bassi'>Paesi Bassi</a>, lo stato del <a href='https://it.wikipedia.org/wiki/Belgio'>Belgio</a>.
-      <i>1957</i>: Viene lanciato lo <a href='https://it.wikipedia.org/wiki/Sputnik_1'>Sputnik 1</a>, il primo <a href='https://it.wikipedia.org/wiki/Satellite_artificiale'>Satellite artificiale</a> a orbitare intorno alla <a href='https://it.wikipedia.org/wiki/Terra'>Terra</a>.
-      <i>1965</i>: <a href='https://it.wikipedia.org/wiki/Papa_Paolo_VI'>Papa Paolo VI</a> è il primo Papa a fare visita ufficiale negli Stati Uniti.
+      <i>1302</i>: Finisce la <a href=\"https://it.wikipedia.org/wiki/Guerra_tra_Genova%2C_Bisanzio_e_Venezia\">Guerra tra Genova, Bisanzio e Venezia</a>.
+      <i>1582</i>: <a href=\"https://it.wikipedia.org/wiki/Papa_Gregorio_XIII\">Papa Gregorio XIII</a> introduce il <a href=\"https://it.wikipedia.org/wiki/Calendario_gregoriano\">Calendario gregoriano</a>.
+      <i>1830</i>: Viene creato, dopo la separazione dai <a href=\"https://it.wikipedia.org/wiki/Paesi_Bassi\">Paesi Bassi</a>, lo stato del <a href=\"https://it.wikipedia.org/wiki/Belgio\">Belgio</a>.
+      <i>1957</i>: Viene lanciato lo <a href=\"https://it.wikipedia.org/wiki/Sputnik_1\">Sputnik 1</a>, il primo <a href=\"https://it.wikipedia.org/wiki/Satellite_artificiale\">Satellite artificiale</a> a orbitare intorno alla <a href=\"https://it.wikipedia.org/wiki/Terra\">Terra</a>.
+      <i>1965</i>: <a href=\"https://it.wikipedia.org/wiki/Papa_Paolo_VI\">Papa Paolo VI</a> è il primo Papa a fare visita ufficiale negli Stati Uniti.
       TEXT
     end
 
