@@ -12,7 +12,7 @@ module FortunaLuca
         return unless show?
         return unless message
 
-        process_once(last_entry.id) do
+        process_once(latest_alert.id) do
           config.each do |chat_id|
             send_telegram_message(chat_id, message, parse_mode: "HTML")
           end
@@ -24,17 +24,19 @@ module FortunaLuca
       private
 
       def message
-        return unless last_entry
+        return unless latest_alert
 
         [
-          "⚠️ <b>#{last_entry.title}</b>",
-          last_entry.summary,
-          last_entry.links.first
+          "⚠️ <b>#{latest_alert.title}</b>",
+          latest_alert.summary,
+          latest_alert.links.first
         ].join("\n")
       end
 
-      def last_entry
-        @last_entry ||= feed_entries.max_by(&:id)
+      def latest_alert
+        @latest_alert ||= feed_entries.find do |entry|
+          entry.title.start_with?('Allerta')
+        end
       end
 
       def feed_entries
